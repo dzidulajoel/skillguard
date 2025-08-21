@@ -1,0 +1,149 @@
+1- page de connexion - inscription - mot de passe oublie - reinitialisation
+2- inscription de utilisateur
+3- connexion via google - facebook - 2FA
+4- Envoie de mail
+
+
+📘 Cahier des charges – Plateforme de QCM avec proctoring
+Nom de la plateforme
+
+👉 SkillGuard ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅
+(Association de "Skill" = compétence et "Guard" = surveillance / protection. Nom simple, mémorisable, crédible pour une plateforme RH-tech. Nom encore libre en .com au moment de la rédaction, à vérifier avant dépôt.)
+
+🎨 Identité visuelle
+Logo ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅
+
+Concept :
+
+        Bouclier stylisé ✅ (sécurité, anti-triche).
+        À l’intérieur, une ampoule 💡 (compétence, intelligence).
+        Style minimaliste en flat design, moderne et professionnel.
+        Version principale : icône + nom "SkillGuard".
+        Version secondaire : icône seule (favicon, app mobile).
+
+Mascotte ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅
+
+        Nom : Skilly 🛡️💡
+        Forme : petit robot-futuriste avec un visage amical (pas intimidant).
+
+Symbolique : ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅
+        Caméra frontale (proctoring).
+        Regard lumineux bleu (technologie IA).
+        Corps arrondi, design rassurant et moderne.
+        Utilisation : dans l’onboarding des candidats, sur les messages d’alerte ou tips pédagogiques.
+
+Palette de couleurs ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅
+
+        Bleu Profond (#1E2A78) → Confiance, sérieux.
+        Cyan Digital (#00B8D9) → Technologie, innovation.
+        Gris Neutre (#F4F6F8) → Fond clair, lisibilité.
+        Orange Accent (#FF6B35) → Dynamisme, CTA (boutons).
+
+Typographie ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅ ✅
+
+        Titre : Montserrat (modernité, lisible, pro).
+        Texte courant : Open Sans (neutre, clair, accessible).
+
+🎯 Objectifs du projet
+
+        - Permettre aux recruteurs de créer des tests QCM sécurisés.
+        - Garantir la fiabilité des résultats grâce à un proctoring automatisé.
+        - Fournir un score de crédibilité en plus de la note académique.
+        - Proposer une expérience fluide, moderne et respectueuse des règles RGPD.
+        - Offrir un dashboard clair pour recruteurs (stats, notes, anomalies).
+
+⚙️ Fonctionnalités principales
+
+Côté recruteur
+
+        Inscription / Authentification (OAuth2 / SSO optionnel).
+        Création de campagnes de tests (QCM, durée, consignes).
+        Banque de questions (import CSV/Excel).
+        Paramétrage du niveau de sécurité (léger, strict, très strict).
+        Accès aux résultats :
+        Note du candidat.
+        Score de crédibilité (IA).
+        Rapports détaillés (captures anomalies).
+
+Côté candidat
+
+        Inscription via invitation (token unique sécurisé).
+
+Passage du QCM avec :
+
+        Chronomètre.
+        Navigation contrôlée (pas de retour arrière si activé).
+        Proctoring automatique :
+        Détection du regard (via WebRTC + TensorFlow.js).
+        Détection multi-visages.
+        Détection audio (conversation).
+        Détection de changement de fenêtre (blur/focus).
+        Détection ouverture outils développeur (Event JS).
+        Suspension ou fermeture en cas de fraude.
+        Résumé final affichant :
+        Score obtenu.
+        Note de crédibilité.
+        Tableau de bord
+
+Vue Recruteur :
+
+        Campagnes en cours / archivées.
+        Notes + crédibilité.
+        Export CSV/PDF.
+        Vue Admin (optionnel) :
+        Gestion des recruteurs.
+        Monitoring du système.
+
+🏗️ Architecture technique
+Frontend
+HTML CSS JS 
+UI : TailwindCSS
+
+Librairies :
+        TensorFlow.js (détection visage, regard).
+        WebRTC (caméra, micro).
+        Chart.js / Recharts (visualisation stats).
+
+Backend
+        Langage : php, Python
+
+DB : PostgreSQL (candidats, QCM, résultats).
+
+IA / Proctoring server-side :
+Python (Flask/FastAPI) pour analyser flux images/audio.
+Redis / RabbitMQ pour la file de traitement en temps réel.
+Sécurité
+JWT pour authentification.
+Hashage Bcrypt pour mots de passe.
+Chiffrement SSL (HTTPS obligatoire).
+
+Contre-mesures :
+
+Détection DevTools.
+Restriction copy/paste.
+Logs anomalies (timestamp).
+Déploiement
+Conteneurisation Docker (multi-services : frontend, backend, DB, IA).
+Orchestration Docker Compose ou Kubernetes (scalabilité).
+CI/CD (GitHub Actions ou GitLab CI).
+
+🔒 RGPD et conformité
+
+Consentement avant activation de la caméra/micro.
+Anonymisation des données sensibles.
+Conservation limitée des vidéos/images.
+Export/suppression des données sur demande du candidat.
+
+✅ Tests & Qualité
+
+Tests unitaires (Jest, Pytest).
+Tests end-to-end (Cypress).
+Stress tests (Locust / k6).
+Audit sécurité (OWASP).
+
+📌 Critères de performance
+
+Temps de réponse < 200ms (API).
+Streaming vidéo < 1s de latence.
+Détection fraude en temps quasi-réel (<3s).
+Dashboard fluide et intuitif.
