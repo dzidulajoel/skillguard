@@ -79,10 +79,12 @@
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
                                 <li><a href="" class="flex items-center justify-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#6B7280" d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5s3.5 1.57 3.5 3.5s-1.57 3.5-3.5 3.5z"><animateTransform attributeName="transform" attributeType="XML" dur="10s" from="0 12 12" repeatCount="indefinite" to="360 12 12" type="rotate"/></path></svg><span>Paramètres</span></a></li>
                                 <li><a href="" class="flex items-center justify-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 20 20"><path fill="#6B7280" d="M10 12.5c-5.92 0-9 3.5-9 5.5v1h18v-1c0-2-3.08-5.5-9-5.5"/><circle cx="10" cy="6" r="5" fill="#6B7280"/></svg><span>Profil</span></a></li>
+                                <li><a href="" class="flex items-center justify-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><g fill="#6B7280" fill-rule="evenodd" clip-rule="evenodd"><path d="M19.353 6.5H16.49V9H6.404v6H16.49v2.5h2.864A9.99 9.99 0 0 1 11 22C5.477 22 1 17.523 1 12S5.477 2 11 2a9.99 9.99 0 0 1 8.353 4.5M17.989 16v-1zm0-8v1z"/><path d="m18.99 8l4 4l-4 4h-1v-2.5h-10v-3h10V8z"/></g></svg><span>Déconnexion</span></a></li>
                         </ul>
                 </nav>
                 <!-- /*ACCUEIL*/ -->
-                <div class="w-full h-full rounded-md flex flex-col gap-2 hidden" id="acceuil">
+
+                <div class="w-full h-full rounded-md flex flex-col gap-2 hidden" >
                         <div class="flex flex-col w-full bg-white p-4">
                                 <h2 class="text-xl font-semibold text-slate-700">Tableau de bord - Recruteur</h2>
                                 <p class="text-sm text-justify text-slate-500 "> 
@@ -136,7 +138,7 @@
                                                 </button>
                                         </div>
                                 </div>
-                                <div class="relative max-h-80 overflow-y-auto scrollbar-hide">
+                                <div class="relative max-h-full overflow-y-auto scrollbar-hide">
                                         <table class="min-w-full border border-gray-200 rounded-lg">
                                                 <thead class="bg-gray-100">
                                                         <tr>
@@ -287,7 +289,7 @@
                                         </button>
                                 </div>
                         </div>
-                        <div class="relative max-h-140 overflow-y-auto scrollbar-hide">
+                        <div class="relative max-h-full overflow-y-auto scrollbar-hide">
                                 <table class="min-w-full border border-gray-200 rounded-lg">
 
                                         <thead class="bg-gray-100">
@@ -481,6 +483,67 @@
                                                                 <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
                                                         </td>
                                                 </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Développement Web</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">Archivée</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">12</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Développement Web</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">Archivée</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">12</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Développement Web</td>
+                                                        <td class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">En attente</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">12</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Développement Web</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">Archivée</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">12</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Développement Web</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">Archivée</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">12</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
                                         </tbody>
 
                                 </table>
@@ -504,7 +567,7 @@
                                         </button>
                                 </div>
                         </div>
-                        <div class="relative max-h-140 overflow-y-auto scrollbar-hide">
+                        <div class="relative max-h-full overflow-y-auto scrollbar-hide">
                                 <table class="min-w-full border border-gray-200 rounded-lg">
 
                                         <thead class="bg-gray-100">
@@ -518,6 +581,270 @@
                                         </thead>
 
                                         <tbody class="">
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Test pour les dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">active</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
 
                                                 <tr class="hover:bg-gray-50">
                                                         <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
@@ -561,7 +888,7 @@
                                 </div>
                         </div>
 
-                        <div class="relative max-h-140 overflow-y-auto scrollbar-hide">
+                        <div class="relative max-full overflow-y-auto scrollbar-hide">
                                 <table class="min-w-full border border-gray-200 rounded-lg">
                                         <thead class="bg-gray-100">
                                                 <tr>
@@ -712,13 +1039,149 @@
                                                                 <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
                                                         </td>
                                                 </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">En cours</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">00</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">00.0%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200 text-center">Expiré</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">13</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">67.0%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">03</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200 text-center">Terminé</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">09</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">40%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-between items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">En cours</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">00</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">00.0%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200 text-center">Expiré</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">13</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">67.0%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">03</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200 text-center">Terminé</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">09</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">40%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-between items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">01</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">En cours</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">00</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">00.0%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">02</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200 text-center">Expiré</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">13</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">67.0%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
+                                                <tr class="hover:bg-gray-50">
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">03</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">Gamatho Joel</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">Dévéloppeur fullstack</td>
+                                                        <td class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200 text-center">Terminé</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">09</td>
+                                                        <td class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">40%</td>
+                                                        <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">21/08/2025 12:25</td>
+                                                        <td class="p-2 text-sm text-slate-500 flex justify-between items-center">
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.7em" height="1.7em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6" clip-rule="evenodd"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 28 28"><path fill="#22C55E" d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z"/></svg></button>
+                                                                <button class=""><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#EF4444" d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"/></svg></button>
+                                                        </td>
+                                                </tr>
+
                                         </tbody>
                                 </table>
                         </div>
                 </div>
 
                 <!-- /*RAPPORTS*/ -->
-                <div class="w-full h-full rounded-md flex flex-col gap-4 w-full bg-white p-4">
+                <div class="w-full h-full rounded-md flex flex-col gap-4 w-full bg-white p-4 hidden">
                         <div class="flex justify-between items-center">
                                 <h2 class="text-xl font-semibold text-slate-700">Statistiques & Rapports</h2>
                                 <div class="flex justify-between items-center gap-6">
@@ -729,21 +1192,222 @@
                                 </div>
                         </div>
 
-                        <div class="relative max-h-140 overflow-y-auto scrollbar-hide flex justify-center items-center gap-4 flex-wrap">
-                                <div class="w-112 h-100 bg-slate-100 py-2 px-4 rounded-md">
+                        <div class="relative max-full overflow-y-auto scrollbar-hide flex justify-center items-center gap-4 flex-wrap">
+                                <div class="w-[45%] h-100 bg-slate-100 py-2 px-4 rounded-md">
                                         <span class="text-slate-500 text-sm">Performance moyenne par offre</span>
                                 </div>
-                                <div class="w-112 h-100 bg-slate-100 py-2 px-4 rounded-md">
+                                <div class="w-[45%] h-100 bg-slate-100 py-2 px-4 rounded-md">
                                         <span class="text-slate-500 text-sm">Taux de réussite global</span>
                                 </div>
-                                <div class="w-112 h-100 bg-slate-100 py-2 px-4 rounded-md">
+                                <div class="w-[45%] h-100 bg-slate-100 py-2 px-4 rounded-md">
                                         <span class="text-slate-500 text-sm">Fiabilité moyenne des candidats (score crédibilité)</span>
                                 </div>
-                                <div class="w-112 h-100 bg-slate-100 py-2 px-4 rounded-md">
+                                <div class="w-[45%] h-100 bg-slate-100 py-2 px-4 rounded-md">
                                         <span class="text-slate-500 text-sm">Nombre de fraudes détectées</span>
                                 </div>
                         </div>
                 </div>
+
+                <!-- /*FORMULAIRE OFFRE*/ -->
+                <div class="w-full h-full rounded-md flex flex-col gap-4 w-full bg-white p-4 hidden">
+                        <div class="flex flex-col gap-1 justify-start items-start">
+                                <h2 class="text-xl font-semibold text-slate-700">Formulaire de création d'offre</h2>
+                                <p class="text-slate-500 text-sm">Un recruteur devra remplir ces champs :</p>
+                        </div>
+
+                        <form class="w-full  max-h-full flex justify-center items-center gap-4 flex-wrap">
+
+                                <div class="w-[45%] h-full bg-slate-100 rounded-md p-4 ">
+                                        <h2 class="text-xl font-semibold text-slate-700">Informations générales</h2>
+                                        <div class="mt-6 flex flex-col gap-4">
+                                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm" type="text" name="full_name" placeholder="Titre poste" autocomplete="name" required>
+                                                <textarea id="description" class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm" name="description" rows="5" placeholder="Description du poste..." required></textarea>
+                                                <select id="type" name="type" required class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm">
+                                                        <option value="">Lieu de travail</option>
+                                                        <option value="Débutant">En ligne</option>
+                                                        <option value="Intermédiaire">Présentiel</option>
+                                                </select>   
+                                                
+                                                <select id="type" name="type" required class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm">
+                                                        <option value="">Type de contrat</option>
+                                                        <option value="cdi">CDI</option>
+                                                        <option value="cdd">CDD</option>
+                                                        <option value="stage">Stage</option>
+                                                        <option value="freelance">Freelance</option>
+                                                </select> 
+
+                                                <select id="type" name="type" required class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm">
+                                                        <option value="">Niveau d’expérience</option>
+                                                        <option value="Débutant">Débutant</option>
+                                                        <option value="Intermédiaire">Intermédiaire</option>
+                                                        <option value="Senior">Senior</option>
+                                                </select> 
+
+                                                <select id="type" name="type" required class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm">
+                                                        <option value="">Statut</option>
+                                                        <option value="Débutant">En cours</option>
+                                                        <option value="Intermédiaire">Intermédiaire</option>
+                                                        <option value="Senior">Senior</option>
+                                                </select> 
+
+                                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm" type="text" name="full_name" placeholder="Compétences" autocomplete="name" required>
+                                                <input type="text" id="date_limite" name="date_limite" required class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm" placeholder="Date de clôture 12-04-2025">                       
+                                        </div>
+                                </div>
+
+                                <div class="w-[45%] h-full bg-slate-100 rounded-md p-4 ">
+                                        <h2 class="text-xl font-semibold text-slate-700">Missions</h2>
+                                        <div class="mt-6 flex flex-col gap-4">
+                                                <textarea id="description" class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm" name="description" rows="5" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea> 
+                                        </div>
+
+                                        <h2 class="text-xl font-semibold text-slate-700">Profil recherché</h2>
+                                        <div class="mt-6 flex flex-col gap-4 w-full">
+                                                <textarea id="description" class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm" name="description" rows="5" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea> 
+                                                <div class="flex justify-start items-center gap-4 flex-wrap w-full">
+                                                        <select id="type" name="type" required class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full">
+                                                                <option value="">Nombre de questions</option>
+                                                                <option value="10">10</option>
+                                                                <option value="20">20</option>
+                                                                <option value="30">30</option>
+                                                                <option value="40">40</option>
+                                                        </select>
+                                                <select id="type" name="type" required 
+                                                class="border border-2 p-2 outline-none rounded-md border-[#001436] placeholder:text-sm w-full">
+                                                        <option value="">Score de crédibilité</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                </select>
+                                                                                                        
+                                                </div>
+                                                <input class="w-full border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm" type="number" name="full_name" placeholder="Score de crédibilité" autocomplete="name" required>
+                                        </div>
+                                        <button class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Passer le test</button>
+                                </div>
+
+                        </form>
+                </div>
+
+                <!-- /*FORMULAIRE DE TEST QCM*/ -->
+                <div class="w-full h-full rounded-md flex flex-col gap-4 w-full bg-white p-4">
+                        <div class="flex flex-col gap-1 justify-start items-start">
+                                <div class="flex justify-between items-center w-full">
+                                        <h2 class="text-xl font-semibold text-slate-700">Espace de création des QCM</h2>
+
+                                </div>
+                                <p class="text-slate-500 text-sm">Permettre au recruteur de créer facilement des QCM associés à une offre, avec la possibilité de :</p>
+                                <ul class="text-slate-500 text-xs">
+                                        <li class="flex justify-start items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48"><path fill="#6B7280" stroke="#6B7280" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/></svg>Définir le nombre de questions.</li>
+                                        <li class="flex justify-start items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48"><path fill="#6B7280" stroke="#6B7280" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/></svg>Ajouter dynamiquement plusieurs options par question.</li>
+                                        <li class="flex justify-start items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48"><path fill="#6B7280" stroke="#6B7280" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/></svg>Définir le type de réponse (unique ou multiple).</li>
+                                        <li class="flex justify-start items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 48 48"><path fill="#6B7280" stroke="#6B7280" stroke-width="4" d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z"/></svg>Identifier les bonnes réponses.</li>
+                                </ul>
+                        </div>
+                        <div class="relative w-full max-full overflow-y-auto scrollbar-hide">
+                                <div class="flex justify-between items-center w-full">
+                                        <input type="number" class="border border-2 p-1 w-[80%] outline-none rounded-md border-[#001436] placeholder:text-sm" id="nbQuestions" placeholder="Nombre de questions" min="1">
+                                        <button class="cursor-pointer hover:opacity-90 flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 48 48"><path fill="#fff" fill-rule="evenodd" d="M4.89.867C6.37.666 8.498.5 11.5.5s5.13.166 6.61.367c2.49.34 4.085 2.322 4.235 4.682c.086 1.347.155 3.263.155 5.951s-.069 4.604-.155 5.951c-.15 2.36-1.745 4.342-4.236 4.682c-1.479.201-3.606.367-6.609.367s-5.13-.166-6.61-.367C2.4 21.793.806 19.81.656 17.45C.569 16.104.5 14.188.5 11.5s.069-4.604.155-5.951C.805 3.189 2.4 1.207 4.89.867m0 46.266c1.48.201 3.607.367 6.61.367s5.13-.166 6.61-.367c2.49-.34 4.085-2.322 4.235-4.682c.086-1.347.155-3.263.155-5.951s-.069-4.604-.155-5.951c-.15-2.36-1.745-4.342-4.236-4.682c-1.479-.201-3.606-.367-6.609-.367s-5.13.166-6.61.367C2.4 26.207.806 28.19.656 30.55C.569 31.896.5 33.812.5 36.5s.069 4.604.155 5.951c.15 2.36 1.746 4.342 4.236 4.682M47.5 36.5c0 3.003-.166 5.13-.367 6.61c-.34 2.49-2.322 4.085-4.682 4.235c-1.347.086-3.263.155-5.951.155s-4.604-.069-5.951-.155c-2.36-.15-4.342-1.746-4.682-4.236c-.201-1.479-.367-3.606-.367-6.609s.166-5.13.367-6.61c.34-2.49 2.322-4.085 4.682-4.235c1.347-.086 3.263-.155 5.951-.155s4.604.069 5.951.155c2.36.15 4.342 1.745 4.682 4.236c.201 1.479.367 3.606.367 6.609M34.307 1.884c.948-1.733 3.438-1.733 4.386 0l1.992 3.642a4.5 4.5 0 0 0 1.789 1.789l3.642 1.992c1.733.948 1.733 3.438 0 4.386l-3.642 1.992a4.5 4.5 0 0 0-1.789 1.789l-1.992 3.642c-.948 1.733-3.438 1.733-4.386 0l-1.992-3.642a4.5 4.5 0 0 0-1.789-1.789l-3.642-1.992c-1.733-.948-1.733-3.438 0-4.386l3.642-1.992a4.5 4.5 0 0 0 1.789-1.789z" clip-rule="evenodd"/></svg>                                                
+                                                <span class="text-sm">Générer</span>
+                                        </button>
+                                </div>
+                                
+                                <form id="formQCM" action="/save-qcm" method="post">
+                                        <div id="questionsContainer"></div>
+                                        <button class="mt-4 cursor-pointer hover:opacity-90 flex justify-between items-center text-white bg-[#f77313] p-2 rounded-md gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 24 24"><g fill="#fff" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#fff" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6.414A2 2 0 0 0 19.414 5L17 2.586A2 2 0 0 0 15.586 2zm10.238 8.793a1 1 0 1 0-1.414-1.414l-4.242 4.243l-1.415-1.415a1 1 0 0 0-1.414 1.414l2.05 2.051a1.1 1.1 0 0 0 1.556 0l4.88-4.879Z"/></g></svg>                                                
+                                                <span class="text-sm">Enregistrer le QCM</span>
+                                        </button>
+                                </form>
+
+                        </div>
+                </div>
+
+                <!-- /*FORMULAIRE DE MISE A JOUR DU PROFIL */ -->
+                <div class="w-full h-full rounded-md flex flex-col gap-4 w-full bg-white p-4 hidden">
+                        <div class="flex flex-col gap-1 justify-start items-start">
+                                <h2 class="text-xl font-semibold text-slate-700">Formulaire de création d'offre</h2>
+                                <p class="text-slate-500 text-sm">Un recruteur devra remplir ces champs :</p>
+                        </div>
+
+                        <form action="/submit-recruteur" method="post" enctype="multipart/form-data" class="w-[60%] max-h-full flex flex-col justify-start items-start gap-4 flex-wrap">
+                                <input type="file" name="logo" accept="image/*" placeholder="Logo de l'entreprise" class="border border-2 bg-[#001436]  p-2 text-white  outline-none rounded-md border-[#001436] placeholder:text-sm w-full">
+                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="text" name="nom_entreprise" placeholder="Nom de l'entreprise">
+                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="text" name="responsable" placeholder="Nom du responsable">
+                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="email" name="email" placeholder="Email professionnel">
+                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="tel" name="telephone" placeholder="Numéro de téléphone">
+                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="text" name="adresse" placeholder="Adresse de l'entreprise">
+                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="url" name="site_web" placeholder="Site web (optionnel)">
+                                <textarea name="description" class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" placeholder="Courte description de l'entreprise"></textarea>
+                                <button type="submit" class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Enregistrer</button>
+                        </form>
+                </div>
+
+                <!-- /*PROFIL*/ -->
+                <div class="h-full rounded-md flex flex-col gap-4 w-[80%] bg-white p-4 hidden">
+                        <div class="flex flex-col gap-1 justify-start items-start">
+                                <div class="flex justify-between items-center w-full">
+                                        <h2 class="text-xl font-semibold text-slate-700">Profil du recruteur</h2>
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 20 20"><path fill="#6B7280" d="M12.92 2.873a2.975 2.975 0 0 1 4.207 4.207l-.669.669l-4.207-4.207zM11.544 4.25l-7.999 7.999a2.44 2.44 0 0 0-.655 1.194l-.878 3.95a.5.5 0 0 0 .597.597l3.926-.873a2.5 2.5 0 0 0 1.234-.678l7.982-7.982z"/></svg></button>
+                                </div>
+                                <div class="w-full max-h-full flex flex-col justify-center items-center gap-4 flex-wrap">
+                                        <div class="w-20 h-20 bg-slate-100 rounded-full shadow-sm"></div>
+                                        <div class="flex flex-col items-center">
+                                                <h2 class="text-xl font-semibold text-slate-700">Microsoft</h2>
+                                                <h2 class="text-xl font-semibold text-slate-700">GAMATHO Koffi</h2>
+                                                <div class="flex flex-col items-center gap-1 mt-4">
+                                                        <span class="text-slate-500 text-sm">Joelgamath19@gmail.com</span>
+                                                        <span class="text-slate-500 text-sm">+225 01 60 24 29 54 / +228 96 12 68 11</span>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="flex flex-col items-start justify-start mt-6">
+                                        <h2 class="text-xl font-semibold text-slate-700">Informations sur l'entreprise</h2>
+                                        <ul class="flex flex-col  gap-2 mt-4">
+                                                <li class="text-slate-500 text-sm">Adresse mail  : </li>
+                                                <li class="text-slate-500 text-sm">Numéro de téléphone :</li>
+                                                <li class="text-slate-500 text-sm">Domaine d'activité :</li>
+                                        </ul>
+                                </div>
+
+                                <div class="flex flex-col items-start justify-start mt-6">
+                                        <h2 class="text-xl font-semibold text-slate-700">Adresse de l'entreprise</h2>
+                                        <ul class="flex flex-col  gap-2 mt-4">
+                                                <li class="text-slate-500 text-sm">Pays : </li>
+                                                <li class="text-slate-500 text-sm">Ville :</li>
+                                                <li class="text-slate-500 text-sm">Location de l'entreprise :</li>
+                                        </ul>
+                                </div>
+
+                                <div class="flex flex-col items-start justify-start mt-6">
+                                        <h2 class="text-xl font-semibold text-slate-700">Réseaux sociaux</h2>
+                                        <ul class="flex flex-col  gap-2 mt-4">
+                                                <li class="text-slate-500 text-sm">LinkedIn : </li>
+                                                <li class="text-slate-500 text-sm">Site Web :</li>
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
+
         </main>
 </body>
 
