@@ -147,3 +147,359 @@ Temps de réponse < 200ms (API).
 Streaming vidéo < 1s de latence.
 Détection fraude en temps quasi-réel (<3s).
 Dashboard fluide et intuitif.
+
+
+
+
+Page d’accueil / Dashboard Candidat – SkillGuard
+
+Header (en-tête) :
+Logo SkillGuard : bouclier stylisé avec une ampoule à l’intérieur.
+
+Menu de navigation candidat :
+
+Accueil
+Mes tests
+Historique
+Support
+
+Message de bienvenue :
+
+« Bienvenue [Nom du candidat], prêt à relever vos tests ? »
+Message dynamique qui peut afficher le prénom du candidat.
+Option pour afficher la mascotte Skilly à côté pour un accueil plus interactif.
+Sections principales du dashboard :
+
+Tests à venir
+
+Liste des QCM programmés avec :
+
+Titre du test
+Date et heure de début
+Temps restant avant le test (compte à rebours)
+Niveau de sécurité (léger / strict / très strict)
+Icônes ou badges pour visualiser rapidement le niveau de sécurité.
+Bouton Commencer le test directement accessible si le test est disponible.
+Historique et scores
+
+Affiche les tests passés avec :
+
+Score obtenu
+Score de crédibilité (IA)
+Date et durée du test
+Graphiques ou mini-barres pour visualiser l’évolution des performances.
+Alertes et conseils
+
+Notifications sur :
+
+Tests à venir
+Rappels de sécurité (ex : « Assurez-vous que la caméra est activée »)
+Conseils pédagogiques ou messages motivants envoyés par Skilly.
+Actions rapides
+
+Boutons visibles et faciles à cliquer :
+
+Commencer le test
+Voir les instructions (consignes, temps, nombre de questions)
+Contacter le support en cas de problème
+
+Filtrage et navigation :
+Barre latérale ou barre supérieure pour filtrer les tests :
+
+Par statut : à venir, en cours, terminé
+
+Par date
+Par type de test ou niveau de sécurité
+
+CTA (Call-to-Action) :
+Boutons principaux en Orange Accent (#FF6B35) pour attirer l’attention :
+
+Commencer un test
+
+Voir instructions
+Contacter support
+Indicateurs de sécurité :
+Codes couleurs ou badges pour signaler le niveau de sécurité du test :
+Léger → vert clair
+Strict → bleu / cyan
+Très strict → rouge / orange
+
+Responsive design :
+
+Adapté aux écrans desktop et mobile :
+Menu et sections se réorganisent pour les petits écrans
+Les boutons restent facilement cliquables
+Graphiques et listes restent lisibles
+Mascotte Skilly (optionnelle) :
+Présente dans un coin de l’écran
+Peut afficher des encouragements ou rappels (ex : « N’oubliez pas d’activer votre caméra ! »)
+Design amical, couleur bleu lumineux (#00B8D9)
+
+
+
+Concept général
+
+Nom du projet : SkillGuard
+Objectif : Permettre aux recruteurs de publier des offres d’emploi ou de formation, et d’associer à chaque offre un QCM sécurisé pour évaluer les candidats.
+
+Fonctionnement du site
+1. Côté recruteur
+Inscription / Authentification sécurisée (option OAuth2 / SSO).
+
+Création d’offres :
+
+Titre et description de l’offre.
+Durée du test associé.
+Niveau de sécurité du QCM (léger, strict, très strict).
+
+Banque de questions :
+
+Import CSV/Excel ou création manuelle.
+Possibilité de réutiliser les questions sur plusieurs offres.
+
+Gestion des candidats :
+
+Envoi d’invitations sécurisées aux candidats pour passer le QCM.
+Suivi des résultats et du score de crédibilité par candidat.
+
+Dashboard :
+
+Vue globale des offres publiées, en cours ou archivées.
+Graphiques et statistiques sur les tests et candidats.
+Export des résultats en CSV / PDF.
+
+2. Côté candidat
+Invitation et accès sécurisé via token.
+
+Dashboard candidat :
+
+Liste des tests disponibles associés aux offres.
+Test à passer avec :
+Chronomètre, navigation contrôlée.
+Proctoring automatique (caméra, micro, regard, multi-visages, focus/blur, détection DevTools).
+Résultats après passage : note et score de crédibilité.
+Historique des tests passés et scores.
+
+Architecture technique
+Frontend : React.js + Next.js, TailwindCSS, Shadcn/ui
+Backend : Node.js (Express/NestJS), PostgreSQL pour les offres, candidats, résultats
+
+Proctoring / IA : Python (Flask/FastAPI) pour analyser flux caméra/micro
+Sécurité : JWT, Bcrypt, HTTPS, RGPD
+Déploiement : Docker, CI/CD, scalabilité avec Docker Compose ou Kubernetes
+Flux résumé
+Recruteur publie une offre + QCM
+Candidat reçoit invitation sécurisée
+Candidat passe le test QCM associé à l’offre
+Résultats et score de crédibilité remontent au dashboard recruteur
+
+
+
+
+
+
+Structure d’une offre de travail
+
+Titre de l’offre
+Ex : « Développeur Frontend React.js »
+Affiché en haut, bien visible, pour attirer l’attention du candidat.
+Entreprise / Recruteur
+Nom de l’entreprise ou recruteur
+
+Logo éventuel
+Description du poste
+Missions principales
+Objectifs du poste
+Environnement de travail ou équipe
+Exigences / Compétences
+Technologies requises
+
+Soft skills souhaitées
+
+Niveau attendu (junior, confirmé, senior)
+Détails du test QCM associé
+Nombre de questions
+Durée du test
+Niveau de sécurité (léger, strict, très strict)
+Score de crédibilité IA utilisé
+Date / Disponibilité
+Date de début et date limite pour passer le test
+Statut : ouvert / bientôt / expiré
+CTA (Call to Action)
+Bouton : « Passer le test » ou « Voir les détails »
+Affiché clairement, en Orange Accent (#FF6B35)
+Optionnel
+Badge ou indicateur de sécurité du test
+Icône ou mini-mascotte Skilly pour guider le candidat
+
+
+
+
+🖥️ Dashboard Recruteur – Informations nécessaires
+1. En-tête du Dashboard
+
+Titre principal : Tableau de bord - Recruteur
+Sous-texte d’accueil : Bienvenue [Nom du recruteur], gérez vos offres, vos candidats et vos tests en un seul endroit.
+
+2. Menu latéral (navigation)
+
+📌 Accueil
+📌 Mes Offres
+📌 Banque de Questions
+📌 Candidats
+📌 Statistiques & Rapports
+📌 Paramètres
+
+3. Section principale – Résumé
+
+Carte récapitulative (cards) avec chiffres clés :
+
+🔹 Nombre d’offres actives
+🔹 Nombre de candidats en cours de test
+🔹 Moyenne de crédibilité des candidats
+🔹 Dernière offre publiée
+
+4. Mes Offres
+
+Tableau avec colonnes :
+Titre de l’offre
+Statut (Active / En attente / Archivée)
+Nombre de candidats inscrits
+Date de publication
+
+Boutons :
+
+🔘 Voir détails
+✏️ Modifier
+🗑️ Archiver/Supprimer
+📊 Résultats candidats
+Bouton principal : + Nouvelle Offre
+
+5. Banque de Questions
+
+Fonctionnalités :
+
+📥 Importer questions (CSV/Excel)
+➕ Ajouter une nouvelle question
+📂 Réutiliser questions existantes
+
+Tableau des questions :
+
+Intitulé
+Type (QCM, vrai/faux, texte)
+Niveau de difficulté
+Boutons : Modifier / Supprimer
+
+6. Gestion des Candidats
+
+Tableau de suivi :
+
+Nom du candidat
+Offre associée
+Score obtenu
+Score de crédibilité (%)
+Statut du test (En cours / Terminé / Expiré)
+
+Boutons :
+
+📑 Voir Résultats détaillés
+📤 Exporter PDF/CSV
+Bouton principal : + Inviter un candidat
+
+7. Statistiques & Rapports
+
+Graphiques (charts) :
+
+Performance moyenne par offre
+Taux de réussite global
+Fiabilité moyenne des candidats (score crédibilité)
+Nombre de fraudes détectées
+
+Boutons :
+
+📤 Exporter en PDF
+📤 Exporter en CSV
+
+8. Paramètres
+
+Profil recruteur (Nom, Email, Entreprise)
+Niveau de sécurité par défaut des QCM
+Notifications (activer/désactiver alertes email)
+Gestion des accès (si plusieurs recruteurs d’une même entreprise)
+
+
+
+
+
+🛡️ Dashboard Recruteur – SkillGuard
+🎯 Titre & Accueil
+
+Titre principal :
+Bienvenue sur votre espace recruteur
+
+Message d’accueil (copy) :
+Gérez vos offres d’emploi, créez des QCM sécurisés et suivez en temps réel les performances de vos candidats.
+
+📊 Sections principales du dashboard
+
+Vue d’ensemble (Overview)
+Nombre total d’offres publiées
+Nombre de candidats inscrits
+Moyenne des scores aux QCM
+Alertes de fraude détectées (via proctoring)
+Graphique : progression des candidats par offre
+
+Gestion des offres
+📌 Bouton : ➕ Nouvelle offre
+📄 Liste des offres publiées (titre, date, nombre de candidats, statut actif/inactif)
+
+Actions par offre :
+
+👁️ Voir
+✏️ Modifier
+🗑️ Supprimer
+📊 Résultats
+Banque de QCM
+📌 Bouton : ➕ Nouveau QCM
+Liste des QCM disponibles (titre, difficulté, nombre de questions, assignation à une offre)
+
+Actions :
+
+✏️ Modifier
+🗑️ Supprimer
+📥 Importer
+📤 Exporter
+
+Candidats
+
+📋 Liste des candidats par offre
+Informations affichées : Nom/Pseudo, Offre, Score global, Crédibilité (%)
+
+Actions :
+
+👁️ Voir profil candidat
+📊 Voir résultats détaillés
+Proctoring & Sécurité
+
+Notifications d’alertes (multi-visage, absence, micro désactivé, tentative DevTools, etc.)
+Statut de crédibilité attribué à chaque candidat
+Rapport détaillé téléchargeable en PDF
+Paramètres
+Personnalisation du compte (logo entreprise, infos contact)
+Sécurité (modification mot de passe, 2FA, clés API si besoin)
+RGPD : gestion des données (export/suppression)
+
+🖱️ Boutons clés
+➕ Nouvelle offre
+➕ Nouveau QCM
+📊 Voir résultats
+📥 Exporter
+📤 Importer
+⚙️ Paramètres
+🚪 Déconnexion
+📝 Textes et labels
+
+“Créez et gérez vos offres en toute sécurité.”
+“Associez vos QCM aux offres pour tester vos candidats efficacement.”
+“Consultez en temps réel les performances et la fiabilité de chaque candidat.”
+“Recevez des alertes automatiques en cas de fraude détectée.”
