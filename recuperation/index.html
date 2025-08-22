@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <title>choix - SkillGouard</title>
+        <link rel="shortcut icon" href="../SkillGuard Social Media Assets.svg" type="image/x-icon">
+
+</head>
+
+<body class="bg-[#f5feff] flex justify-center items-center">
+        <section class="w-[80%] flex flex-col justify-center items-center">
+                <div class="w-80  flex flex-col justify-center items-center">
+                        <img src="../SkillGuard Flat Shield Logo.svg" alt="Skillguard mascot choix">
+                </div>
+                <div class="w-full mb-4">
+                        <h2 class="text-2xl font-semibold text-slate-700 text-center">Mot de passe oublié</h2>
+                        <p class="text-sm text-slate-500 text-center">Entrez votre adresse e-mail pour recevoir un lien
+                                sécurisé <br>permettant de réinitialiser votre mot de passe.</p>
+                </div>
+                <div class="flex gap-4 justify-center items-center  w-full">
+                        <form action="/inscription" method="post"
+                                class="rounded-md flex flex-col gap-6 w-[50%] bg-white p-4">
+                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
+                                        type="email" name="email" placeholder="Adresse e-mail" autocomplete="email"
+                                        required>
+
+                                <button
+                                        class="bg-[#00B8D9] mt-2 px-2 py-2 w-full rounded-full cursor-pointer hover:bg-[#001436] hover:text-white text-white">Envoyer
+                                        le lien de réinitialisation</button>
+                        </form>
+                </div>
+
+                <div class="mt-6">
+                        <p class="text-sm text-slate-500 text-center">Vous n'avez pas de compte ? <br>
+                                <a href="../choice/" class="underline text-[#00134d] text-sm">Retour à
+                                        l'accueil</a>
+                        </p>
+                </div>
+        </section>
+</body>
+
+</html>
