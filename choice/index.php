@@ -10,12 +10,11 @@
 
 </head>
 
-<body class="bg-[#f5feff] flex justify-center items-center">
+<body class="bg-[#f5feff] flex justify-center items-center px-[20%]">
         <section class="w-[80%] flex flex-col justify-center items-center">
                 <div class="w-80"><img src="../SkillGuard Robot Mascot - choix.svg" alt="Skillguard mascot choix"></div>
                 <div class="w-full mb-4">
                         <h2 class="text-2xl font-semibold text-slate-700 text-center">Bienvenue sur SkillGuard, la plateforme qui allie évaluation des compétences et fiabilité des résultats.</h2>
-                        <span  class="text-sm text-slate-500 text-center">Pour continuer, choisissez votre rôle :</span>
                 </div>
                 <div class="flex gap-4 justify-center items-center  w-full">
                         <div class="bg-[#00134d] h-64 w-[50%] p-4 rounded-md flex flex-col justify-between">
@@ -23,18 +22,18 @@
                                         <h2 class="text-2xl font-semibold text-white text-center mb-4">Je suis candidat</h2>
                                         <p class="text-sm text-white text-center">Participez aux tests en ligne, démontrez vos compétences et obtenez un score crédible grâce à notre système de surveillance intelligente.</p>
                                 </div>
-                                <button class="bg-[#00B8D9] mt-6 px-8 py-2 w-full rounded-full cursor-pointer hover:bg-white hover:text-[#00134d]">M’inscrire en tant que candidat</button>
+                                <a href="../inscription-candidat/" class="text-center text-white bg-[#00B8D9] mt-6 px-8 py-2 w-full rounded-full cursor-pointer hover:bg-white hover:text-[#00134d]">M’inscrire en tant que candidat</a>
                         </div>
                         <div class="bg-[#00134d] h-64 w-[50%] p-4 rounded-md flex flex-col justify-between">
                                 <div>
                                         <h2 class="text-2xl font-semibold text-white text-center mb-4">Je suis recruteur ou formateur</h2>
                                         <p class="text-sm text-white text-center">Publiez vos offres, créez des QCM sécurisés et recevez des résultats fiables pour sélectionner les meilleurs profils.</p>
                                 </div>
-                                <button class="bg-[#00B8D9] mt-6 px-2 py-2 w-full rounded-full cursor-pointer hover:bg-white hover:text-[#00134d]">M’inscrire en tant que recruteur/formateur</button>
+                                <a href="../inscription-recruteur/" class="text-center text-white bg-[#00B8D9] mt-6 px-2 py-2 w-full rounded-full cursor-pointer hover:bg-white hover:text-[#00134d]">M’inscrire en tant que recruteur/formateur</a>
                         </div>
                 </div>
                 <div class="mt-8">
-                        <p class="text-md text-slate-500 text-center">Vous avez déjà un compte ? <a href="" class="underline text-[#00134d]">Se connecter</a></p>
+                        <p class="text-md text-slate-500 text-center">Vous avez déjà un compte ? <a href="../connexion" class="underline text-[#00134d]">Se connecter</a></p>
                 </div>
         </section>
 </body>
