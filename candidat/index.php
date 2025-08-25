@@ -71,23 +71,20 @@
 
         <main class="w-full h-[90vh] flex px-[5%] gap-2 pt-8">
 
-                <nav class="flex flex-col justify-between w-auto h-full bg-white rounded-md p-4 menu">
+                <nav id="menu" class="flex flex-col justify-between w-auto h-full bg-white rounded-md p-4 ">
 
-                        <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
-                                <li>
-                                        <a href="#" data-section="section1" class="flex items-center justify-start gap-3 bg-blue-600 px-4 py-2">
+                        <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm w-full">
+                                <li class="w-full"><a href="#" data-section="section1" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                                 viewBox="0 0 24 24">
                                                                 <path fill="#6B7280"
                                                                         d="M20 20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3zm-8-5a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5" />
                                                 </svg>
-                                                <span>Accueil</span>
-                                        </a>
+                                                <span>Accueil</span></a>
                                 </li>
 
-                                <li>
-                                        <a href="#" data-section="section2" class="flex items-center justify-start gap-3 bg-blue-600 px-4 py-2">
+                                <li class="w-full"><a href="#" data-section="section2" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -97,8 +94,7 @@
                                         </a>
                                 </li>
 
-                                <li>
-                                        <a href="#" data-section="section3" class="flex items-center justify-start gap-3 bg-blue-600 px-4 py-2">
+                                <li class="w-full"><a href="#" data-section="section3" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -110,20 +106,7 @@
                                         </a>
                                 </li>
 
-                                <!-- <li>
-                                        <a href="" data-section="s" class="flex items-center justify-start gap-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#6B7280" fill-rule="evenodd"
-                                                                d="M8 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1h2a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm6 1h-4v2H9a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2h-1zm-6 8a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1m1 3a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2z"
-                                                                clip-rule="evenodd" />
-                                                </svg>
-                                                <span>Historiques</span>
-                                        </a>
-                                </li> -->
-
-                                <li>
-                                        <a href="#" data-section="section4" class="flex items-center justify-start gap-3 bg-blue-600 px-4 py-2">
+                                <li class="w-full"><a href="#" data-section="section4" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -134,8 +117,7 @@
                                 </li>
                         </ul>
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
-                                <li>
-                                        <a href="#" data-section="section5" class="flex items-center justify-start gap-3 bg-blue-600 px-4 py-2">
+                                <li class="w-full"><a href="#" data-section="section5" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -150,8 +132,7 @@
                                         </a>
                                 </li>
 
-                                <li>
-                                        <a href="#" data-section="section6" class="flex items-center justify-start gap-3 bg-blue-600 px-4 py-2">
+                                <li class="w-full"><a href="#" data-section="section6" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 20 20">
                                                         <path fill="#6B7280"
@@ -162,8 +143,7 @@
                                         </a>
                                 </li>
 
-                                <li>
-                                        <a href="#" data-section="deconnexion" class="flex items-center justify-start gap-3 bg-blue-600 px-4 py-2">
+                                <li class="w-full"><a href="#" data-section="deconnexion" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <g fill="#6B7280" fill-rule="evenodd" clip-rule="evenodd">
@@ -179,8 +159,7 @@
 
                 </nav>
 
-                <div id="sections">
-
+                <div id="sections" class="w-full">
                         <!-- Dashboard -->
                         <div id="section1" class="section w-full h-full  relative max-full overflow-y-auto scrollbar-hide ">
                                 <div class="flex flex-col gap-4 p-4">
@@ -443,7 +422,6 @@
 
 
                         </div>
-                        
                         <!-- OFFRE -->
                         <div id="section2" class="section  max-full overflow-y-auto scrollbar-hide hidden ">
                                 <div class="flex flex-col gap-4 p-4">
@@ -935,7 +913,6 @@
                                 </div>
 
                         </div>
-
                         <!-- TEST -->
                         <div id="section3" class="section  max-full overflow-y-auto scrollbar-hide bg-white rounded-md hidden">
                                 <div class="flex flex-col gap-2 px-4 ">
@@ -1090,7 +1067,6 @@
                                         </div>
                                 </div>
                         </div>
-
                         <!-- /*PROFIL*/ -->
                         <div id="section6" class="section h-full rounded-md flex flex-col gap-4 w-[80%] bg-white p-4 hidden">
                                 <div class="flex flex-col gap-1 justify-start items-start">
@@ -1137,27 +1113,25 @@
                                         </div>
                                 </div>
                         </div>
-
                         <!-- /*FORMULAIRE DE MISE A JOUR DU PROFIL */ -->
-                        <div id="section5" class="section w-full h-full rounded-md flex flex-col gap-4 w-full bg-white p-4 hidden">
+                        <div id="section5" class="section w-[50%] h-auto rounded-md flex flex-col gap-4 bg-white px-4 py-8 hidden">
                                 <div class="flex flex-col gap-1 justify-start items-start">
                                         <h2 class="text-xl font-semibold text-slate-700">Formulaire de création d'offre</h2>
                                         <p class="text-slate-500 text-sm">Un recruteur devra remplir ces champs :</p>
                                 </div>
 
-                                <form action="/submit-recruteur" method="post" enctype="multipart/form-data" class="w-[60%] max-h-full flex flex-col justify-start items-start gap-4 flex-wrap">
-                                        <input type="file" name="logo" accept="image/*" placeholder="Logo de l'entreprise" class="border border-2 bg-[#001436]  p-2 text-white  outline-none rounded-md border-[#001436] placeholder:text-sm w-full">
-                                        <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="text" name="nom_entreprise" placeholder="Nom de l'entreprise">
-                                        <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="text" name="responsable" placeholder="Nom du responsable">
-                                        <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="email" name="email" placeholder="Email professionnel">
-                                        <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="tel" name="telephone" placeholder="Numéro de téléphone">
-                                        <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="text" name="adresse" placeholder="Adresse de l'entreprise">
-                                        <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" type="url" name="site_web" placeholder="Site web (optionnel)">
-                                        <textarea name="description" class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full" placeholder="Courte description de l'entreprise"></textarea>
-                                        <button type="submit" class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Enregistrer</button>
+                                <form action="/submit-recruteur" method="post" enctype="multipart/form-data" class="w-full max-h-full flex flex-col justify-start items-start gap-4 flex-wrap">
+                                        <input type="file" name="logo" accept="image/*" placeholder="Logo de l'entreprise" class="border border-2 bg-[#00134d]  p-2 text-white  outline-none rounded-md border-[#00134d] placeholder:text-sm w-full">
+                                        <input class="border border-2  p-2  outline-none rounded-md border-[#00134d] placeholder:text-sm w-full" type="text" name="nom_entreprise" placeholder="Nom de l'entreprise">
+                                        <input class="border border-2  p-2  outline-none rounded-md border-[#00134d] placeholder:text-sm w-full" type="text" name="responsable" placeholder="Nom du responsable">
+                                        <input class="border border-2  p-2  outline-none rounded-md border-[#00134d] placeholder:text-sm w-full" type="email" name="email" placeholder="Email professionnel">
+                                        <input class="border border-2  p-2  outline-none rounded-md border-[#00134d] placeholder:text-sm w-full" type="tel" name="telephone" placeholder="Numéro de téléphone">
+                                        <input class="border border-2  p-2  outline-none rounded-md border-[#00134d] placeholder:text-sm w-full" type="text" name="adresse" placeholder="Adresse de l'entreprise">
+                                        <input class="border border-2  p-2  outline-none rounded-md border-[#00134d] placeholder:text-sm w-full" type="url" name="site_web" placeholder="Site web (optionnel)">
+                                        <textarea name="description" class="border border-2  p-2  outline-none rounded-md border-[#00134d] placeholder:text-sm w-full" placeholder="Courte description de l'entreprise"></textarea>
+                                        <button type="submit" class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]">Enregistrer</button>
                                 </form>
                         </div>
-
                         <!-- /*CONSEIL*/ -->
                         <div id=section4 class="section h-full rounded-md flex flex-col gap-4 w-[80%] bg-white p-4 relative max-full overflow-y-auto scrollbar-hide hidden">
                                 <div class="flex flex-col gap-1 justify-start items-start">
@@ -1212,7 +1186,6 @@
 
                                 </div>
                         </div>
-
                 </div>
         </main>
 
