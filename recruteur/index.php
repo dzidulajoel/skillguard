@@ -1,3 +1,6 @@
+<?php
+        require_once('../scripts/candidat.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -12,7 +15,7 @@
 
 <body class="bg-[#f5feff] w-full h-screen">
 
-        <header class="text-white flex justify-between items-center px-16 h-[8vh]">
+        <!-- <header class="text-white flex justify-between items-center px-16 h-[8vh]">
                 <div class="w-16 h-16 flex justify-between items-center">
                         <img src="../SkillGuard Logo.svg" alt="SkillGuard logo">
                         <h1 class="text-xl text-[#00134d] font-black">SkillGuard</h1>
@@ -64,6 +67,60 @@
                                 </svg>
                         </button>
                 </div>
+        </header> -->
+
+        <header class="text-white flex justify-between items-center px-16 h-[8vh]">
+
+                <div class="w-16 h-16 flex justify-between items-center">
+                        <img src="../SkillGuard Logo.svg" alt="SkillGuard logo">
+                        <h1 class="text-xl text-[#00134d] font-black">SkillGuard</h1>
+                </div>
+
+                <div class="flex justify-center items-center gap-4 mt-2">
+                        <div class="shadow-md bg-white w-80 h-10 flex justify-center items-center rounded-full">
+                                <input type="text" placeholder="Faites votre recherche ..."
+                                        class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-64">
+                                <button
+                                        class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436] hover:bg-[#001436]/90">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
+                                                viewBox="0 0 24 24">
+                                                <path fill="#fff"
+                                                        d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" />
+                                        </svg>
+                                </button>
+                        </div>
+
+                        <button
+                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
+                                        viewBox="0 0 24 24">
+                                        <path fill="#6B7280" d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0zM9 21h6v2H9z" />
+                                </svg>
+                        </button>
+
+                        <button class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-[#f77313] font-bold cursor-pointer hover:bg-[#001436]/10">
+                                <?php echo strtoupper(substr($data['entreprise'], 0, 1))  ?>
+                        </button>
+
+                        <button
+                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
+                                        viewBox="0 0 48 48">
+                                        <defs>
+                                                <mask id="SVG9e55ocrc">
+                                                        <g fill="none" stroke-linejoin="round" stroke-width="4">
+                                                                <path fill="#fff" stroke="#fff"
+                                                                        d="m34 41l10-17L34 7H14L4 24l10 17z" />
+                                                                <path fill="#000" stroke="#000"
+                                                                        d="M24 29a5 5 0 1 0 0-10a5 5 0 0 0 0 10Z" />
+                                                        </g>
+                                                </mask>
+                                        </defs>
+                                        <path fill="#6B7280" d="M0 0h48v48H0z" mask="url(#SVG9e55ocrc)" />
+                                </svg>
+                        </button>
+                </div>
+
         </header>
 
         <main class="w-full h-[90vh] flex px-[5%] gap-4 pt-8">
@@ -71,29 +128,39 @@
                 <nav id="menu" class="flex flex-col justify-between w-auto h-full bg-white rounded-md p-4">
 
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
-                                <li class="w-full"><a href="#" data-section="section1"
+                                <li class="w-full">
+                                        <a href="#" data-section="section1"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
                                                                 d="M20 20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3zm-8-5a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5" />
-                                                </svg><span>Accueil</span></a></li>
-                                <li class="w-full"><a href="#" data-section="section2"
+                                                </svg><span>Accueil</span>
+                                        </a>
+                                </li>
+                                <li class="w-full">
+                                        <a href="#" data-section="section2"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
                                                                 d="M12 3.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5m-5 9a3.75 3.75 0 1 0 0 7.498A3.75 3.75 0 0 0 7 12.5m10 0a3.75 3.75 0 1 0 0 7.499a3.75 3.75 0 0 0 0-7.499" />
-                                                </svg><span>Mes Offres</span></a></li>
-                                <li class="w-full"><a href="#" data-section="section3"
+                                                </svg><span>Mes Offres</span>
+                                        </a>
+                                </li>
+                                <li class="w-full">
+                                        <a href="#" data-section="section3"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280" fill-rule="evenodd"
                                                                 d="M8 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1h2a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm6 1h-4v2H9a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2h-1zm-6 8a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1m1 3a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2z"
                                                                 clip-rule="evenodd" />
-                                                </svg><span>QCM</span></a></li>
-                                <li class="w-full"><a href="#" data-section="section8"
+                                                </svg><span>QCM</span>
+                                        </a>
+                                </li>
+                                <li class="w-full">
+                                        <a href="#" data-section="section4"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
@@ -103,23 +170,32 @@
                                                                 <path
                                                                         d="M14.3 13.277a1 1 0 0 1 .884-.27C17.38 13.42 19 15.489 19 17.65v2.15c0 1.23-1.031 2.143-2.2 2.143H7.2c-1.168 0-2.2-.914-2.2-2.143v-2.15c0-2.141 1.59-4.19 3.752-4.629a1 1 0 0 1 .892.26l2.35 2.26z" />
                                                         </g>
-                                                </svg><span>Candidats</span></a></li>
-                                <li class="w-full"><a href="#" data-section="section5"
+                                                </svg><span>Candidats</span>
+                                        </a>
+                                </li>
+                                <li class="w-full">
+                                        <a href="#" data-section="section5"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280" d="M12 12V3h-1a10 10 0 1 0 10 10v-1Z" />
                                                         <path fill="#6B7280" d="M14 10V1a9 9 0 0 1 9 9Z" />
-                                                </svg><span>Rapports</span></a></li>
-                                <li class="w-full"><a href="#" data-section="section4"
+                                                </svg><span>Rapports</span>
+                                        </a>
+                                </li>
+                                <li class="w-full">
+                                        <a href="#" data-section="section6"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><g fill="none" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11 5h10m-10 7h10m-10 7h10"/><circle cx="5" cy="5" r="2" fill="#6B7280"/><circle cx="5" cy="5" r="2" fill="#6B7280"/><circle cx="5" cy="12" r="2" fill="#6B7280"/><circle cx="5" cy="19" r="2" fill="#6B7280"/></g></svg>
-                                        <span>Historiques</span></a>
+                                        <span>Historiques</span>
+                                        </a>
                                 </li>
                         </ul>
 
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
-                                <li class="w-full"><a href="#" data-section="section6"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
+                                <li class="w-full">
+                                        <a href="#" data-section="section7"
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3">
+                                                <svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -129,17 +205,27 @@
                                                                         repeatCount="indefinite" to="360 12 12"
                                                                         type="rotate" />
                                                         </path>
-                                                </svg><span>Paramètres</span></a></li>
-                                <li class="w-full"><a href="#" data-section="section7"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
+                                                </svg>
+                                                <span>Paramètres</span>
+                                        </a>
+                                </li>
+                                <li class="w-full">
+                                        <a href="#" data-section="section8"
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3">
+                                                <svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 20 20">
                                                         <path fill="#6B7280"
                                                                 d="M10 12.5c-5.92 0-9 3.5-9 5.5v1h18v-1c0-2-3.08-5.5-9-5.5" />
                                                         <circle cx="10" cy="6" r="5" fill="#6B7280" />
-                                                </svg><span>Profil</span></a></li>
-                                <li class="w-full"><a href="#" data-section="section8"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
+                                                </svg>
+                                                <span>Profil</span>
+                                        </a>
+                                </li>
+                                <li class="w-full">
+                                        <a href="#" data-section="section9"
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3">
+                                                <svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <g fill="#6B7280" fill-rule="evenodd" clip-rule="evenodd">
@@ -147,7 +233,10 @@
                                                                         d="M19.353 6.5H16.49V9H6.404v6H16.49v2.5h2.864A9.99 9.99 0 0 1 11 22C5.477 22 1 17.523 1 12S5.477 2 11 2a9.99 9.99 0 0 1 8.353 4.5M17.989 16v-1zm0-8v1z" />
                                                                 <path d="m18.99 8l4 4l-4 4h-1v-2.5h-10v-3h10V8z" />
                                                         </g>
-                                                </svg><span>Déconnexion</span></a></li>
+                                                </svg>
+                                                <span>Déconnexion</span>
+                                        </a>
+                                </li>
                         </ul>
 
                 </nav>
@@ -710,7 +799,7 @@
                         </div>
 
                         <!-- /*OFFRE*/ -->
-                        <div id="section2"
+                        <div 
                                 class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
                                 <div class="flex justify-between items-center">
                                         <h2 class="text-xl font-semibold text-slate-700">Mes offres</h2>
@@ -1583,7 +1672,7 @@
                         </div>
 
                         <!-- /*QCM*/ -->
-                        <div id="section4"
+                        <div id="section6"
                                 class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
                                 <div class="flex justify-between items-center">
                                         <h2 class="text-xl font-semibold text-slate-700">Banque de Questions</h2>
@@ -2624,7 +2713,7 @@
                         </div>
 
                         <!-- /*CANDIDAT*/ -->
-                        <div id="section8"
+                        <div id="section4"
                                 class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
 
                                 <div class="flex justify-between items-center">
@@ -3619,7 +3708,7 @@
                         </div>
 
                         <!-- /*FORMULAIRE DE MISE A JOUR DU PROFIL */ -->
-                        <div id="section6"
+                        <div id="section7"
                                 class="section w-[50%] h-auto rounded-md flex flex-col gap-4 bg-white px-4 py-8 hidden">
                                 <div class="flex flex-col gap-1 justify-start items-start">
                                         <h2 class="text-xl font-semibold text-slate-700">Formulaire de création d'offre
@@ -3644,7 +3733,7 @@
                                                 type="text" name="adresse" placeholder="Adresse de l'entreprise">
                                         <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full"
                                                 type="url" name="site_web" placeholder="Site web (optionnel)">
-                                        <textarea name="description"
+                                        <textarea
                                                 class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full"
                                                 placeholder="Courte description de l'entreprise"></textarea>
                                         <button type="submit"
@@ -3653,7 +3742,7 @@
                         </div>
 
                         <!-- /*PROFIL*/ -->
-                        <div id="section7"
+                        <div id="section8"
                                 class="section h-full rounded-md flex flex-col gap-4 w-[80%] bg-white p-4 hidden">
                                 <div class="flex flex-col gap-1 justify-start items-start">
                                         <div class="flex justify-between items-center w-full">
@@ -3713,97 +3802,50 @@
                         </div>
 
                         <!-- /* FORMULAIRE DE CREATION OFFRE LIEN A L'OFFRE */ -->
-                        <div class="w-full h-full rounded-md flex flex-col gap-4  bg-white p-4 hidden">
+                        <div   id="section2" class="section w-full rounded-md flex flex-col gap-4  bg-white p-4 hidden relative  max-h-full overflow-y-auto scrollbar-hide">
+                                <div id="err_msg"></div>
                                 <div class="flex flex-col gap-1 justify-start items-start">
                                         <h2 class="text-xl font-semibold text-slate-700">Formulaire de création d'offre
                                         </h2>
                                         <p class="text-slate-500 text-sm">Un recruteur devra remplir ces champs :</p>
                                 </div>
 
-                                <form class="w-full  max-h-full flex justify-center items-center gap-4 flex-wrap">
+                                <form  id="form_offre" class="w-full  max-h-full flex justify-start items-center gap-4 flex-wrap">
 
-                                        <div class="w-[45%] h-full bg-slate-100 rounded-md p-4 ">
-                                                <h2 class="text-xl font-semibold text-slate-700">Informations générales
-                                                </h2>
-                                                <div class="mt-6 flex flex-col gap-4">
-                                                        <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
-                                                                type="text" name="full_name" placeholder="Titre poste"
-                                                                autocomplete="name" required>
-                                                        <textarea id="description"
-                                                                class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
-                                                                name="description" rows="5"
-                                                                placeholder="Description du poste..."
-                                                                required></textarea>
-                                                        <select id="type" name="type" required
-                                                                class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm">
+                                        <div class="w-160 h-full bg-slate-100 rounded-md p-6">
+                                                <h2 class="text-xl font-semibold text-slate-700"> Informations générales </h2>
+                                                <div class="mt-6 flex flex-col gap-4 w-full">
+                                                        <input id="titre" name="titre"  class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Titre poste" required>
+                                                        <select id="lieu" name="lieu" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
                                                                 <option value="">Lieu de travail</option>
-                                                                <option value="Débutant">En ligne</option>
-                                                                <option value="Intermédiaire">Présentiel</option>
+                                                                <option value="ligne">En ligne</option>
+                                                                <option value="presentiel">Présentiel</option>
                                                         </select>
 
-                                                        <select id="type" name="type" required
-                                                                class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm">
+                                                        <select id="contrat" name="contrat" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
                                                                 <option value="">Type de contrat</option>
-                                                                <option value="cdi">CDI</option>
-                                                                <option value="cdd">CDD</option>
+                                                                <option value="CDI">CDI</option>
+                                                                <option value="CDD">CDD</option>
                                                                 <option value="stage">Stage</option>
                                                                 <option value="freelance">Freelance</option>
                                                         </select>
 
-                                                        <select id="type" name="type" required
-                                                                class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm">
+                                                        <select id="experience" name="experience" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
                                                                 <option value="">Niveau d’expérience</option>
                                                                 <option value="Débutant">Débutant</option>
                                                                 <option value="Intermédiaire">Intermédiaire</option>
-                                                                <option value="Senior">Senior</option>
+                                                                <option value="Confirmé">Confirmé</option>
                                                         </select>
 
-                                                        <select id="type" name="type" required
-                                                                class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm">
+                                                        <select id="statut" name="statut" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
                                                                 <option value="">Statut</option>
-                                                                <option value="Débutant">En cours</option>
-                                                                <option value="Intermédiaire">Intermédiaire</option>
-                                                                <option value="Senior">Senior</option>
+                                                                <option value="Prêt">Prêt</option>
+                                                                <option value="Suspendu">Suspendu</option>
+                                                                <option value="Terminé">Terminé</option>
                                                         </select>
 
-                                                        <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
-                                                                type="text" name="full_name" placeholder="Compétences"
-                                                                autocomplete="name" required>
-                                                        <input type="text" id="date_limite" name="date_limite" required
-                                                                class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
-                                                                placeholder="Date de clôture 12-04-2025">
-                                                </div>
-                                        </div>
-
-                                        <div class="w-[45%] h-full bg-slate-100 rounded-md p-4 ">
-                                                <h2 class="text-xl font-semibold text-slate-700">Missions</h2>
-                                                <div class="mt-6 flex flex-col gap-4">
-                                                        <textarea id="description"
-                                                                class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
-                                                                name="description" rows="5"
-                                                                placeholder="Décrivez brièvement les missions, responsabilités et objectifs..."
-                                                                required></textarea>
-                                                </div>
-
-                                                <h2 class="text-xl font-semibold text-slate-700">Profil recherché</h2>
-                                                <div class="mt-6 flex flex-col gap-4 w-full">
-                                                        <textarea id="description"
-                                                                class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
-                                                                name="description" rows="5"
-                                                                placeholder="Décrivez brièvement les missions, responsabilités et objectifs..."
-                                                                required></textarea>
-                                                        <div
-                                                                class="flex justify-start items-center gap-4 flex-wrap w-full">
-                                                                <select id="type" name="type" required
-                                                                        class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm w-full">
-                                                                        <option value="">Nombre de questions</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="20">20</option>
-                                                                        <option value="30">30</option>
-                                                                        <option value="40">40</option>
-                                                                </select>
-                                                                <select id="type" name="type" required
-                                                                        class="border border-2 p-2 outline-none rounded-md border-[#001436] placeholder:text-sm w-full">
+                                                        <div class="flex justify-start items-center gap-4 flex-wrap w-full">
+                                                                <select id="score" name="score" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
                                                                         <option value="">Score de crédibilité</option>
                                                                         <option value="1">1</option>
                                                                         <option value="2">2</option>
@@ -3826,79 +3868,91 @@
                                                                         <option value="19">19</option>
                                                                         <option value="20">20</option>
                                                                 </select>
-
                                                         </div>
-                                                        <input class="w-full border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
-                                                                type="number" name="full_name"
-                                                                placeholder="Score de crédibilité" autocomplete="name"
-                                                                required>
+                                                        <input id="competence" name="competence" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Compétences" required>
+                                                        <input type="date" id="date_limite" name="date_limite" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" placeholder="Date de clôture 12-04-2025">
+                                                        <textarea  id="description" name="description" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Description du poste..." required></textarea>
+
                                                 </div>
-                                                <button
-                                                        class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Passer
-                                                        le test</button>
+                                        </div>
+
+                                        <div class="w-160 h-full bg-slate-100 rounded-md p-6 ">
+                                                <div class="flex flex-col gap-4">
+                                                        <h2 class="text-xl font-semibold text-slate-700">Missions</h2>
+                                                        <textarea id="mission" name="mission" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
+                                                </div>
+
+                                                <div class="mt-6 flex flex-col gap-4 w-full">
+                                                        <h2 class="text-xl font-semibold text-slate-700">Profil recherché</h2>
+                                                        <textarea id="profil" name="profil" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
+
+                                                </div>
+                                                <button class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Créer l'offre</button>
                                         </div>
 
                                 </form>
                         </div>
 
                         <!-- /*FORMULAIRE DE CREATION TEST QCM LIEN A QCM*/ -->
-                        <div id="section3" class="w-full h-full rounded-md flex flex-col gap-4 bg-white p-4">
-
-                                <div class="flex flex-col gap-1 justify-start items-start">
-                                        <div class="flex justify-between items-center w-full">
-                                                <h2 class="text-xl font-semibold text-slate-700">Espace de création des
-                                                        QCM</h2>
-
-                                        </div>
-                                        <p class="text-slate-500 text-sm">Permettre au recruteur de créer facilement des
-                                                QCM associés à une offre, avec la possibilité de :</p>
-                                        <ul class="text-slate-500 text-xs">
-                                                <li class="flex justify-start items-center gap-1"><svg
-                                                                xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                height="1.5em" viewBox="0 0 48 48">
-                                                                <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
-                                                                        d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
-                                                        </svg>Définir le nombre de questions.</li>
-                                                <li class="flex justify-start items-center gap-1"><svg
-                                                                xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                height="1.5em" viewBox="0 0 48 48">
-                                                                <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
-                                                                        d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
-                                                        </svg>Ajouter dynamiquement plusieurs options par question.</li>
-                                                <li class="flex justify-start items-center gap-1"><svg
-                                                                xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                height="1.5em" viewBox="0 0 48 48">
-                                                                <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
-                                                                        d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
-                                                        </svg>Définir le type de réponse (unique ou multiple).</li>
-                                                <li class="flex justify-start items-center gap-1"><svg
-                                                                xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                height="1.5em" viewBox="0 0 48 48">
-                                                                <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
-                                                                        d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
-                                                        </svg>Identifier les bonnes réponses.</li>
-                                        </ul>
-                                </div>
-                                <div class="relative w-full max-full overflow-y-auto scrollbar-hide">
-
-                                        <div  class="shadow-md bg-white w-150 h-10 flex justify-center items-center rounded-full">
-                                                <input  id="nbQuestions" type="number" placeholder="Générer le nombre de questions ..." class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-80">
-                                                <button  id="generateQCM" class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436]">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#fff" d="M1 11c5.523 0 10-4.477 10-10h2c0 5.523 4.477 10 10 10v2c-5.523 0-10 4.477-10 10h-2c0-5.523-4.477-10-10-10z"/></svg>                                        
-                                                </button>
-                                        </div>
-
-                                        <form id="formQCM" method="post" class="flex flex-col gap-4 py-4">
-                                                <div class="flex flex-col justify-start items-start  gap-[4px] mb-8">
-                                                        <label for="titre" class="text-md font-semibold text-orange-500">Titre du test</label>
-                                                        <input id="titre" name="titre" required type="text" placeholder="Le titre de votre test ..." class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
+                        <div id="section3" class="section w-full h-full rounded-md flex flex-col gap-4 hidden">
+                                <div id="err_msg"></div>
+                                <div class=" bg-white p-4">
+                                        <div class="flex flex-col gap-1 justify-start items-start">
+                                                <div class="flex justify-between items-center w-full">
+                                                        <h2 class="text-xl font-semibold text-slate-700">Espace de création des
+                                                                QCM</h2>
+        
                                                 </div>
-                                                <div id="dynamic_create"></div>
-
-                                                <button id="creer_un_test" class="shadow-md bg-[#f77313] mt-4 w-60 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">
-                                                        Créer le test
-                                                </button>
-                                        </form>
+                                                <p class="text-slate-500 text-sm">Permettre au recruteur de créer facilement des
+                                                        QCM associés à une offre, avec la possibilité de :</p>
+                                                <ul class="text-slate-500 text-xs">
+                                                        <li class="flex justify-start items-center gap-1"><svg
+                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
+                                                                        height="1.5em" viewBox="0 0 48 48">
+                                                                        <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
+                                                                                d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
+                                                                </svg>Définir le nombre de questions.</li>
+                                                        <li class="flex justify-start items-center gap-1"><svg
+                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
+                                                                        height="1.5em" viewBox="0 0 48 48">
+                                                                        <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
+                                                                                d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
+                                                                </svg>Ajouter dynamiquement plusieurs options par question.</li>
+                                                        <li class="flex justify-start items-center gap-1"><svg
+                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
+                                                                        height="1.5em" viewBox="0 0 48 48">
+                                                                        <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
+                                                                                d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
+                                                                </svg>Définir le type de réponse (unique ou multiple).</li>
+                                                        <li class="flex justify-start items-center gap-1"><svg
+                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
+                                                                        height="1.5em" viewBox="0 0 48 48">
+                                                                        <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
+                                                                                d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
+                                                                </svg>Identifier les bonnes réponses.</li>
+                                                </ul>
+                                        </div>
+                                        <div class="relative w-full max-full overflow-y-auto scrollbar-hide">
+        
+                                                <div  class="shadow-md bg-white w-160 h-10 flex justify-center items-center rounded-full mt-4">
+                                                        <input  id="nbQuestions" type="number" placeholder="Générer le nombre de questions ..." class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-80">
+                                                        <button  id="generateQCM" class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436]">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#fff" d="M1 11c5.523 0 10-4.477 10-10h2c0 5.523 4.477 10 10 10v2c-5.523 0-10 4.477-10 10h-2c0-5.523-4.477-10-10-10z"/></svg>                                        
+                                                        </button>
+                                                </div>
+        
+                                                <form id="formQCM" method="post" class="flex flex-col gap-4 py-4">
+                                                        <div class="flex flex-col justify-start items-start  gap-[4px] mb-8">
+                                                                <label for="titre" class="text-md font-semibold text-orange-500">Titre du test</label>
+                                                                <input id="titre" name="titre" required type="text" placeholder="Le titre de votre test ..." class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
+                                                        </div>
+                                                        <div id="dynamic_create"></div>
+        
+                                                        <button id="creer_un_test" class="shadow-md bg-[#f77313] mt-4 w-60 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">
+                                                                Créer le test
+                                                        </button>
+                                                </form>
+                                        </div>
                                 </div>
                         </div>
 
@@ -3907,6 +3961,7 @@
         <script src="../js/switch_r.js"></script>  
         <script src="../js/qcm.js"></script>
         <script src="../js/qcm_insertion.js"></script>
+        <script src="../js/creer_offre.js"></script>
 </body>
 
 </html>

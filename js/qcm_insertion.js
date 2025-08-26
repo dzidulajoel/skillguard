@@ -1,10 +1,13 @@
-const questions = document.querySelectorAll(".question");
 const formQCM = document.querySelector('#formQCM');
-let dataSend = [];
+const dynamic_creat = document.querySelector('#dynamic_create');
+
+
 formQCM.addEventListener('submit', async (e) => {
-        e.preventDefault()
-        let data = [];
+        e.preventDefault();
+
         const titre = document.querySelector('#titre').value;
+        let data = [];
+
         document.querySelectorAll("[data-question-id]").forEach(questionDiv => {
                 let questionId = questionDiv.dataset.questionId;
                 let questionText = questionDiv.querySelector("[data-role='question-text']").value;
@@ -28,38 +31,35 @@ formQCM.addEventListener('submit', async (e) => {
                         type: questionType,
                         answers: answers
                 });
-
-                dataSend = data;
         });
-
+        
         try {
                 const response = await fetch('../scripts/qcm_insertion.php', {
                         method: 'POST',
-                        headers: {
-                                'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(dataSend)
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
                 });
 
                 if (!response.ok) {
                         throw new Error(`Erreur de réseau : ${response.status} ${response.statusText}`);
                 }
+
                 const result = await response.json();
                 if (result.success) {
-                        console.log(data);
-                        formQCM.reset()
-                }
-                else {
+                        showAlert(result.message, true);
+                        formQCM.reset();
+                        dynamic_creat.innerHTML = "";
+
+                } else {
                         showAlert(result.message, false);
                 }
-
-
         }
         catch (err) {
                 showAlert("Une erreur est survenue. Veuillez réessayer", false);
         }
+});
 
-})
+
 
 const showAlert = (message, isSuccess = true) => {
         const err_msg = document.querySelector('#err_msg');

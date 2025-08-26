@@ -3,52 +3,77 @@ session_start();
 require_once('../config/cnx.php');
 require_once '../vendor/autoload.php';
 use Ramsey\Uuid\Uuid;
+
 header('Content-Type: application/json');
 
 try {
         $input = file_get_contents('php://input');
-        $data = json_decode($input, true);
+        $data = json_decode($input, true); // tableau de questions
         $response = ['success' => false, 'message' => ''];
-        $id_session = $_SESSION['id_utilisateur'];
 
-        if (
-                isset($data['id']) &&
-                isset($data['titre']) &&
-                isset($data['questionText']) &&
-                isset($data['questionType']) &&
-                isset($data['answers']) 
-        ) {
-                $numero = htmlspecialchars(trim($data['id']));
-                $titre = htmlspecialchars(trim($data['titre']));
-                $questionText = trim($data['questionText']);
-                $questionType = trim($data['questionType']);
-                $answers = trim($data['answers']);
-                $id = Uuid::uuid4()->toString();
-
-
-                if (empty($numero) || empty($titre) || empty($questionText) || empty($questionType) || empty($answers)) {
-                        $response['message'] = 'Veuillez remplir tous les champs.';
-                        echo json_encode($response);
-                        exit();
-                }
-
-                $sql = "INSERT INTO tests (id,titre,utilisateur_id, NOW() )
-                VALUES (:id, :titre, :utilisateur_id)";
-                $req = $pdo->prepare($sql);
-                $result = $req->execute([
-                        ":id" => $id,
-                        ":titre" => $titre,
-                        ":utilisateur_id" => $id_session,
-                ]);
-                
-
-        } else {
-                $response['message'] = 'Données manquantes. Veuillez fournir toutes les informations requises.';
+        $id_session = $_SESSION['id_utilisateur'] ?? null;
+        if (!$id_session) {
+                echo json_encode(['success' => false, 'message' => 'Utilisateur non connecté']);
+                exit();
         }
 
+        if (!is_array($data) || empty($data)) {
+                echo json_encode(['success' => false, 'message' => 'Aucune donnée reçue.']);
+                exit();
+        }
+
+        $titre = trim($data[0]['titre']); // pas htmlspecialchars ici
+        $test_id = Uuid::uuid4()->toString();
+
+        // Insertion du test
+        $sqlTest = "INSERT INTO tests (id, titre, utilisateur_id, created_at) VALUES (:id, :titre, :utilisateur_id, NOW())";
+        $reqTest = $pdo->prepare($sqlTest);
+
+        if ($reqTest->execute([":id" => $test_id, ":titre" => $titre, ":utilisateur_id" => $id_session,])) {
+                $response = ['success' => true, 'message' => $titre];
+        } else {
+                $response = ['success' => false, 'message' => 'Échec insertion test'];
+        }
+
+
+        // ✅ Insertion des questions + réponses
+        foreach ($data as $q) {
+                $question_id = Uuid::uuid4()->toString();
+                $questionText = trim($q['text']);
+                $questionType = trim($q['type']);
+                $answers = $q['answers'];
+
+                $sqlQ = "INSERT INTO questions (id, test_id, contenu,utilisateur_id, type_question) VALUES (:id, :test_id, :contenu,:utilisateur_id, :type_question)";
+                $reqQ = $pdo->prepare($sqlQ);
+                $reqQ->execute([
+                        ":id" => $question_id,
+                        ":test_id" => $test_id,
+                        ":contenu" => $questionText,
+                        ":utilisateur_id" => $id_session,
+                        ":type_question" => $questionType,
+                ]);
+
+
+                foreach ($answers as $ans) {
+                        $answer_id = Uuid::uuid4()->toString();
+                        $sqlA = "INSERT INTO reponses (id, question_id, contenu, est_correct, utilisateur_id) VALUES (:id, :question_id, :contenu, :est_correct, :utilisateur_id)";
+                        $reqA = $pdo->prepare($sqlA);
+                        $reqA->execute([
+                                ":id" => $answer_id,
+                                ":question_id" => $question_id,
+                                ":contenu" => trim($ans['text']),
+                                ":est_correct" => $ans['isCorrect'] ? 1 : 0,
+                                ":utilisateur_id" => $id_session
+                        ]);
+                }
+        }
+
+        $response['success'] = true;
+        $response['message'] = "QCM inséré avec succès.";
         echo json_encode($response);
+
 } catch (PDOException $e) {
-        error_log("Erreur PDO lors de l'inscription : " . $e->getMessage());
-        $response = ['success' => false, 'message' => 'Une erreur interne est survenue. Veuillez réessayer plus tard.'];
+        error_log("Erreur PDO : " . $e->getMessage());
+        $response = ['success' => false, 'message' => 'Erreur interne.'];
         echo json_encode($response);
 }

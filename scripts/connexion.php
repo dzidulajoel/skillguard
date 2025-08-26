@@ -1,7 +1,7 @@
 <?php
+session_start();
 require_once('../config/cnx.php');
 header('Content-Type: application/json');
-session_start();
 
 try {
         $input = file_get_contents('php://input');

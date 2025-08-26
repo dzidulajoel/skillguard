@@ -60,7 +60,6 @@ generateQCM.addEventListener('click', () => {
                         inputR.type = type;
                         inputR.dataset.role = "answer-choice";
                         inputR.name = "reponseVrai"
-                        inputR.required = true
 
                         // texte réponse
                         let textR = document.createElement("input");

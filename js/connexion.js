@@ -64,6 +64,7 @@ connexion_form.addEventListener('submit', async (event) => {
                                         recruteur: '../recruteur',
                                         candidat: '../candidat'
                                 };
+                                
                                 window.location.href = redirectMap[result.role] || '../candidat';
                         }
                         else {
