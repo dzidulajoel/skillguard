@@ -69,6 +69,7 @@
         <main class="w-full h-[90vh] flex px-[5%] gap-4 pt-8">
 
                 <nav id="menu" class="flex flex-col justify-between w-auto h-full bg-white rounded-md p-4">
+
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
                                 <li class="w-full"><a href="#" data-section="section1"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
@@ -92,7 +93,7 @@
                                                                 d="M8 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1h2a2 2 0 0 1 2 2v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm6 1h-4v2H9a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2h-1zm-6 8a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1m1 3a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2z"
                                                                 clip-rule="evenodd" />
                                                 </svg><span>QCM</span></a></li>
-                                <li class="w-full"><a href="#" data-section="section4"
+                                <li class="w-full"><a href="#" data-section="section8"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
@@ -110,7 +111,12 @@
                                                         <path fill="#6B7280" d="M12 12V3h-1a10 10 0 1 0 10 10v-1Z" />
                                                         <path fill="#6B7280" d="M14 10V1a9 9 0 0 1 9 9Z" />
                                                 </svg><span>Rapports</span></a></li>
+                                <li class="w-full"><a href="#" data-section="section4"
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><g fill="none" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11 5h10m-10 7h10m-10 7h10"/><circle cx="5" cy="5" r="2" fill="#6B7280"/><circle cx="5" cy="5" r="2" fill="#6B7280"/><circle cx="5" cy="12" r="2" fill="#6B7280"/><circle cx="5" cy="19" r="2" fill="#6B7280"/></g></svg>
+                                        <span>Historiques</span></a>
+                                </li>
                         </ul>
+
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
                                 <li class="w-full"><a href="#" data-section="section6"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
@@ -143,24 +149,22 @@
                                                         </g>
                                                 </svg><span>Déconnexion</span></a></li>
                         </ul>
+
                 </nav>
 
                 <div id="sections" class="w-full">
                         <!-- /*ACCUEIL*/ -->
                         <div id="section1" class="section w-full h-full rounded-md flex flex-col gap-2 hidden">
                                 <div class="flex flex-col w-full bg-white p-4">
-                                        <h2 class="text-xl font-semibold text-slate-700">Tableau de bord - Recruteur
-                                        </h2>
+                                        <h2 class="text-xl font-semibold text-slate-700">Tableau de bord - Recruteur</h2>
                                         <p class="text-sm text-justify text-slate-500 ">
                                                 Bienvenue GAMATHO Joël, gérez vos
                                                 offres, vos candidats et vos tests en un seul endroit.
                                         </p>
 
                                         <div class="w-full flex justify-start items-center flex-wrap gap-5 mt-4">
-                                                <div
-                                                        class="p-2 w-[23%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
-                                                        <span
-                                                                class="w-14 h-14 flex justify-center items-center rounded-full">
+                                                <div class="p-2 w-[23%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
+                                                        <span class="w-14 h-14 flex justify-center items-center rounded-full">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
                                                                         height="2.5em" viewBox="0 0 24 24">
                                                                         <path fill="#f77313"
@@ -168,12 +172,10 @@
                                                                 </svg>
                                                         </span>
                                                         <span class="text-3xl font-semibold text-slate-500">12</span>
-                                                        <span class="text-sm text-justify text-slate-700 ">Offres
-                                                                actives</span>
+                                                        <span class="text-sm text-justify text-slate-700 ">Offres actives</span>
                                                 </div>
 
-                                                <div
-                                                        class="p-2 w-[23%] h-32 shadow-xs rounded-lg  flex flex-col justify-center items-center">
+                                                <div class="p-2 w-[23%] h-32 shadow-xs rounded-lg  flex flex-col justify-center items-center">
                                                         <span
                                                                 class="w-14 h-14 flex justify-center items-center rounded-full">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
@@ -183,12 +185,10 @@
                                                                 </svg>
                                                         </span>
                                                         <span class="text-3xl font-semibold text-slate-500">2</span>
-                                                        <span class="text-sm text-justify text-slate-700 ">Candidats en
-                                                                cours de test</span>
+                                                        <span class="text-sm text-justify text-slate-700 ">Candidats en cours de test</span>
                                                 </div>
 
-                                                <div
-                                                        class="p-2 w-[23%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
+                                                <div class="p-2 w-[23%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
                                                         <span
                                                                 class="w-14 h-14 flex justify-center items-center rounded-full">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
@@ -202,8 +202,7 @@
                                                                 des candidats</span>
                                                 </div>
 
-                                                <div
-                                                        class="p-2 w-[23%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
+                                                <div class="p-2 w-[23%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
                                                         <span
                                                                 class="w-14 h-14 flex justify-center items-center rounded-full">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
@@ -217,6 +216,7 @@
                                                                 offre publiée</span>
                                                 </div>
                                         </div>
+
                                 </div>
 
                                 <div class="flex flex-col gap-4 w-full bg-white p-4">
@@ -1583,7 +1583,7 @@
                         </div>
 
                         <!-- /*QCM*/ -->
-                        <div id="section3"
+                        <div id="section4"
                                 class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
                                 <div class="flex justify-between items-center">
                                         <h2 class="text-xl font-semibold text-slate-700">Banque de Questions</h2>
@@ -2624,7 +2624,7 @@
                         </div>
 
                         <!-- /*CANDIDAT*/ -->
-                        <div id="section4"
+                        <div id="section8"
                                 class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
 
                                 <div class="flex justify-between items-center">
@@ -3842,7 +3842,7 @@
                         </div>
 
                         <!-- /*FORMULAIRE DE CREATION TEST QCM LIEN A QCM*/ -->
-                        <div class="w-full h-full rounded-md flex flex-col gap-4 bg-white p-4">
+                        <div id="section3" class="w-full h-full rounded-md flex flex-col gap-4 bg-white p-4">
 
                                 <div class="flex flex-col gap-1 justify-start items-start">
                                         <div class="flex justify-between items-center w-full">
@@ -3880,8 +3880,8 @@
                                         </ul>
                                 </div>
                                 <div class="relative w-full max-full overflow-y-auto scrollbar-hide">
-                                        
-                                        <div class="shadow-md bg-white w-100 h-10 flex justify-center items-center rounded-full">
+
+                                        <div  class="shadow-md bg-white w-150 h-10 flex justify-center items-center rounded-full">
                                                 <input  id="nbQuestions" type="number" placeholder="Générer le nombre de questions ..." class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-80">
                                                 <button  id="generateQCM" class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436]">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#fff" d="M1 11c5.523 0 10-4.477 10-10h2c0 5.523 4.477 10 10 10v2c-5.523 0-10 4.477-10 10h-2c0-5.523-4.477-10-10-10z"/></svg>                                        
@@ -3889,91 +3889,15 @@
                                         </div>
 
                                         <form id="formQCM" method="post" class="flex flex-col gap-4 py-4">
-
-                                                <div class="flex flex-col justify-start items-start  gap-[4px]">
-                                                        <span class="text-md font-semibold text-slate-700">Question 1:</span>
-                                                        <input type="text" placeholder="Générer le nombre de questions ..."  class="border border-2 p-1 w-100 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                        <div class="shadow-md bg-white w-100 h-10 flex justify-center items-center rounded-md mt-2">
-                                                                <select id="type" name="type" required
-                                                                        class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-80">
-                                                                        <option value="">Lieu de travail</option>
-                                                                        <option value="Débutant">En ligne</option>
-                                                                </select>
-                                                                <button  id="generateQCM" class="w-16 h-10 flex justify-center items-center rounded-tr-md rounded-br-md  text-white cursor-pointer bg-[#001436]"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="#fff" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></svg></button>
-                                                        </div>
-
-                                                        <div class="flex flex-col gap-1 justify-start items-start mt-4">
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                        </div>
+                                                <div class="flex flex-col justify-start items-start  gap-[4px] mb-8">
+                                                        <label for="titre" class="text-md font-semibold text-orange-500">Titre du test</label>
+                                                        <input id="titre" name="titre" required type="text" placeholder="Le titre de votre test ..." class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
                                                 </div>
+                                                <div id="dynamic_create"></div>
 
-                                                <div class="flex flex-col justify-start items-start  gap-[4px]">
-                                                        <span class="text-md font-semibold text-slate-700">Question 2:</span>
-                                                        <input type="text" placeholder="Générer le nombre de questions ..."  class="border border-2 p-1 w-100 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                        <div class="shadow-md bg-white w-100 h-10 flex justify-center items-center rounded-md mt-2">
-                                                                <select id="type" name="type" required
-                                                                        class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-80">
-                                                                        <option value="">Lieu de travail</option>
-                                                                        <option value="Débutant">En ligne</option>
-                                                                </select>
-                                                                <button  id="generateQCM" class="w-16 h-10 flex justify-center items-center rounded-tr-md rounded-br-md  text-white cursor-pointer bg-[#001436]"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="#fff" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></svg></button>
-                                                        </div>
-
-                                                        <div class="flex flex-col gap-1 justify-start items-start mt-4">
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                        </div>
-                                                </div>
-
-                                                <div class="flex flex-col justify-start items-start  gap-[4px]">
-                                                        <span class="text-md font-semibold text-slate-700">Question 2:</span>
-                                                        <input type="text" placeholder="Générer le nombre de questions ..."  class="border border-2 p-1 w-100 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                        <div class="shadow-md bg-white w-100 h-10 flex justify-center items-center rounded-md mt-2">
-                                                                <select id="type" name="type" required
-                                                                        class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-80">
-                                                                        <option value="">Lieu de travail</option>
-                                                                        <option value="Débutant">En ligne</option>
-                                                                </select>
-                                                                <button  id="generateQCM" class="w-16 h-10 flex justify-center items-center rounded-tr-md rounded-br-md  text-white cursor-pointer bg-[#001436]"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="#fff" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></svg></button>
-                                                        </div>
-
-                                                        <div class="flex flex-col gap-1 justify-start items-start mt-4">
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                                <div class="flex justify-start items-center gap-2">
-                                                                        <input  class="border border-2  p-2  outline-none rounded-md border-[#001436] accent-[#00B8D9]" type="checkbox">
-                                                                        <input type="text" placeholder="Générer le nombre de questions ..." class="border border-2 p-1 w-94 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                                </div>
-                                                        </div>
-                                                </div>
-
+                                                <button id="creer_un_test" class="shadow-md bg-[#f77313] mt-4 w-60 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">
+                                                        Créer le test
+                                                </button>
                                         </form>
                                 </div>
                         </div>
@@ -3981,7 +3905,8 @@
                 </div>
         </main>
         <script src="../js/switch_r.js"></script>  
-        <!-- <script src="../js/qcm.js"></script> -->
+        <script src="../js/qcm.js"></script>
+        <script src="../js/qcm_insertion.js"></script>
 </body>
 
 </html>

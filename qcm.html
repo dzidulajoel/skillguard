@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Création QCM</title>
+        <meta charset="UTF-8">
+        <title>Création QCM</title>
 </head>
+
 <body>
-  <h2>Créer un QCM</h2>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 48 48"><path fill="#fff" fill-rule="evenodd" d="M4.89.867C6.37.666 8.498.5 11.5.5s5.13.166 6.61.367c2.49.34 4.085 2.322 4.235 4.682c.086 1.347.155 3.263.155 5.951s-.069 4.604-.155 5.951c-.15 2.36-1.745 4.342-4.236 4.682c-1.479.201-3.606.367-6.609.367s-5.13-.166-6.61-.367C2.4 21.793.806 19.81.656 17.45C.569 16.104.5 14.188.5 11.5s.069-4.604.155-5.951C.805 3.189 2.4 1.207 4.89.867m0 46.266c1.48.201 3.607.367 6.61.367s5.13-.166 6.61-.367c2.49-.34 4.085-2.322 4.235-4.682c.086-1.347.155-3.263.155-5.951s-.069-4.604-.155-5.951c-.15-2.36-1.745-4.342-4.236-4.682c-1.479-.201-3.606-.367-6.609-.367s-5.13.166-6.61.367C2.4 26.207.806 28.19.656 30.55C.569 31.896.5 33.812.5 36.5s.069 4.604.155 5.951c.15 2.36 1.746 4.342 4.236 4.682M47.5 36.5c0 3.003-.166 5.13-.367 6.61c-.34 2.49-2.322 4.085-4.682 4.235c-1.347.086-3.263.155-5.951.155s-4.604-.069-5.951-.155c-2.36-.15-4.342-1.746-4.682-4.236c-.201-1.479-.367-3.606-.367-6.609s.166-5.13.367-6.61c.34-2.49 2.322-4.085 4.682-4.235c1.347-.086 3.263-.155 5.951-.155s4.604.069 5.951.155c2.36.15 4.342 1.745 4.682 4.236c.201 1.479.367 3.606.367 6.609M34.307 1.884c.948-1.733 3.438-1.733 4.386 0l1.992 3.642a4.5 4.5 0 0 0 1.789 1.789l3.642 1.992c1.733.948 1.733 3.438 0 4.386l-3.642 1.992a4.5 4.5 0 0 0-1.789 1.789l-1.992 3.642c-.948 1.733-3.438 1.733-4.386 0l-1.992-3.642a4.5 4.5 0 0 0-1.789-1.789l-3.642-1.992c-1.733-.948-1.733-3.438 0-4.386l3.642-1.992a4.5 4.5 0 0 0 1.789-1.789z" clip-rule="evenodd"/></svg>                                                
+        <h2>Créer un QCM</h2>
 
-  <div>
-    <input type="number" id="nbQuestions" placeholder="Nombre de questions" min="1">
-    <button onclick="genererQCM()">Générer</button>
-  </div>
+        <div>
+                <input type="number" id="nbQuestions" placeholder="Nombre de questions" min="1">
+                <button onclick="genererQCM()">Générer</button>
+        </div>
 
-  <form id="qcmForm"></form>
+        <form id="qcmForm"></form>
 
-  <script>
-    function genererQCM() {
-      const nbQuestions = document.getElementById("nbQuestions").value;
-      const form = document.getElementById("qcmForm");
-      form.innerHTML = ""; // reset
+        <script>
+                function genererQCM() {
+                        const nbQuestions = document.getElementById("nbQuestions").value;
+                        const form = document.getElementById("qcmForm");
+                        form.innerHTML = ""; // reset
 
-      for (let i = 1; i <= nbQuestions; i++) {
-        // conteneur question
-        let divQ = document.createElement("div");
-        divQ.style.marginBottom = "20px";
+                        for (let i = 1; i <= nbQuestions; i++) {
+                                // conteneur question
+                                let divQ = document.createElement("div");
+                                divQ.style.marginBottom = "20px";
 
-        // texte question
-        let inputQ = document.createElement("input");
-        inputQ.type = "text";
-        inputQ.name = "question_" + i;
-        inputQ.placeholder = "Texte de la question " + i;
+                                // texte question
+                                let inputQ = document.createElement("input");
+                                inputQ.type = "text";
+                                inputQ.name = "question_" + i;
+                                inputQ.placeholder = "Texte de la question " + i;
 
-        // type de réponse (radio ou checkbox)
-        let selectType = document.createElement("select");
-        selectType.name = "type_" + i;
-        let opt1 = new Option("Choix unique (radio)", "radio");
-        let opt2 = new Option("Choix multiple (checkbox)", "checkbox");
-        selectType.add(opt1);
-        selectType.add(opt2);
+                                // type de réponse (radio ou checkbox)
+                                let selectType = document.createElement("select");
+                                selectType.name = "type_" + i;
+                                let opt1 = new Option("Choix unique (radio)", "radio");
+                                let opt2 = new Option("Choix multiple (checkbox)", "checkbox");
+                                selectType.add(opt1);
+                                selectType.add(opt2);
 
-        // bouton ajouter réponse
-        let btnAdd = document.createElement("button");
-        btnAdd.type = "button";
-        btnAdd.innerText = "Ajouter réponse";
-        btnAdd.onclick = function () {
-          let type = selectType.value;
-          let inputR = document.createElement("input");
-          inputR.type = type;
-          inputR.name = "rep_" + i;
-          let textR = document.createElement("input");
-          textR.type = "text";
-          textR.placeholder = "Réponse";
-          divQ.appendChild(document.createElement("br"));
-          divQ.appendChild(inputR);
-          divQ.appendChild(textR);
-        };
+                                // bouton ajouter réponse
+                                let btnAdd = document.createElement("button");
+                                btnAdd.type = "button";
+                                btnAdd.innerText = "Ajouter réponse";
+                                btnAdd.onclick = function () {
+                                        let type = selectType.value;
+                                        let inputR = document.createElement("input");
+                                        inputR.type = type;
+                                        inputR.name = "rep_" + i;
+                                        let textR = document.createElement("input");
+                                        textR.type = "text";
+                                        textR.placeholder = "Réponse";
+                                        divQ.appendChild(document.createElement("br"));
+                                        divQ.appendChild(inputR);
+                                        divQ.appendChild(textR);
+                                };
 
-        // ajouter au div
-        divQ.appendChild(document.createTextNode("Question " + i + ": "));
-        divQ.appendChild(inputQ);
-        divQ.appendChild(document.createElement("br"));
-        divQ.appendChild(selectType);
-        divQ.appendChild(btnAdd);
+                                // ajouter au div
+                                divQ.appendChild(document.createTextNode("Question " + i + ": "));
+                                divQ.appendChild(inputQ);
+                                divQ.appendChild(document.createElement("br"));
+                                divQ.appendChild(selectType);
+                                divQ.appendChild(btnAdd);
 
-        form.appendChild(divQ);
-      }
-    }
-  </script>
+                                form.appendChild(divQ);
+                        }
+                }
+        </script>
 </body>
+
 </html>
