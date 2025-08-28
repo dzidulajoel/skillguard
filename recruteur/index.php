@@ -1,5 +1,6 @@
 <?php
-        require_once('../scripts/candidat.php');
+        require_once('../scripts/read.php');
+        require_once('../config/auth.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,60 +15,6 @@
 </head>
 
 <body class="bg-[#f5feff] w-full h-screen">
-
-        <!-- <header class="text-white flex justify-between items-center px-16 h-[8vh]">
-                <div class="w-16 h-16 flex justify-between items-center">
-                        <img src="../SkillGuard Logo.svg" alt="SkillGuard logo">
-                        <h1 class="text-xl text-[#00134d] font-black">SkillGuard</h1>
-                </div>
-                <div class="flex justify-center items-center gap-4 mt-2">
-                        <div class="shadow-md bg-white w-80 h-10 flex justify-center items-center rounded-full">
-                                <input type="text" placeholder="Faites votre recherche ..."
-                                        class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-64">
-                                <button
-                                        class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436]">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                                viewBox="0 0 24 24">
-                                                <path fill="#fff"
-                                                        d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" />
-                                        </svg>
-                                </button>
-                        </div>
-                        <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="#6B7280" d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0zM9 21h6v2H9z" />
-                                </svg>
-                        </button>
-                        <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 14 14">
-                                        <path fill="#6B7280" fill-rule="evenodd"
-                                                d="M2 .375C1.103.375.375 1.103.375 2v2.675a9.4 9.4 0 0 0 6.427 8.918a.62.62 0 0 0 .396 0a9.4 9.4 0 0 0 6.427-8.918V2c0-.897-.727-1.625-1.625-1.625zM1.625 2c0-.207.168-.375.375-.375h10c.207 0 .375.168.375.375v2.675a8.14 8.14 0 0 1-1.59 4.835A5.48 5.48 0 0 0 7 8c-1.467 0-2.8.575-3.786 1.51a8.14 8.14 0 0 1-1.589-4.835zM7 3.5a1.375 1.375 0 1 0 0 2.75A1.375 1.375 0 0 0 7 3.5M4.375 4.875a2.625 2.625 0 1 1 5.25 0a2.625 2.625 0 0 1-5.25 0"
-                                                clip-rule="evenodd" />
-                                </svg>
-                        </button>
-                        <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 48 48">
-                                        <defs>
-                                                <mask id="SVG9e55ocrc">
-                                                        <g fill="none" stroke-linejoin="round" stroke-width="4">
-                                                                <path fill="#fff" stroke="#fff"
-                                                                        d="m34 41l10-17L34 7H14L4 24l10 17z" />
-                                                                <path fill="#000" stroke="#000"
-                                                                        d="M24 29a5 5 0 1 0 0-10a5 5 0 0 0 0 10Z" />
-                                                        </g>
-                                                </mask>
-                                        </defs>
-                                        <path fill="#6B7280" d="M0 0h48v48H0z" mask="url(#SVG9e55ocrc)" />
-                                </svg>
-                        </button>
-                </div>
-        </header> -->
 
         <header class="text-white flex justify-between items-center px-16 h-[8vh]">
 
@@ -798,20 +745,108 @@
                                 </div>
                         </div>
 
+                        <!-- /* FORMULAIRE DE CREATION OFFRE LIEN A L'OFFRE */ -->
+                        <div id="create_offre"   class="section w-full rounded-md flex flex-col gap-4  bg-white p-4 hidden relative  max-h-full overflow-y-auto scrollbar-hide">
+                                <div id="err_msg"></div>
+                                <div class="flex flex-col gap-1 justify-start items-start">
+                                        <h2 class="text-xl font-semibold text-slate-700">Formulaire de création d'offre
+                                        </h2>
+                                        <p class="text-slate-500 text-sm">Un recruteur devra remplir ces champs :</p>
+                                </div>
+
+                                <form  id="form_offre" class="w-full  max-h-full flex justify-start items-center gap-4 flex-wrap">
+
+                                        <div class="w-160 h-full bg-slate-100 rounded-md p-6">
+                                                <h2 class="text-xl font-semibold text-slate-700"> Informations générales </h2>
+                                                <div class="mt-6 flex flex-col gap-4 w-full">
+                                                        <input id="titre" name="titre"  class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Titre poste" required>
+                                                        <input id="lieu" placeholder="Lieu du travail" name="lieu" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                        </input>
+
+                                                        <select id="contrat" name="contrat" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                <option value="">Type de contrat</option>
+                                                                <option value="CDI">CDI</option>
+                                                                <option value="CDD">CDD</option>
+                                                                <option value="stage">Stage</option>
+                                                                <option value="freelance">Freelance</option>
+                                                        </select>
+
+                                                        <select id="experience" name="experience" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                <option value="">Niveau d’expérience</option>
+                                                                <option value="Junior">Junior</option>
+                                                                <option value="Intermédiaire">Intermédiaire</option>
+                                                                <option value="Confirmé">Confirmé</option>
+                                                        </select>
+
+                                                        <select id="statut" name="statut" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                <option value="">Statut</option>
+                                                                <option value="Actif">Actif</option>
+                                                                <option value="Terminé">Terminé</option>
+                                                        </select>
+
+                                                        <div class="flex justify-start items-center gap-4 flex-wrap w-full">
+                                                                <select id="score" name="score" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                        <option value="">Score de crédibilité</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                        <option value="18">18</option>
+                                                                        <option value="19">19</option>
+                                                                        <option value="20">20</option>
+                                                                </select>
+                                                        </div>
+                                                        <input id="competence" name="competence" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Compétences" required>
+                                                        <input type="date" id="date_limite" name="date_limite" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" placeholder="Date de clôture 12-04-2025">
+                                                        <textarea  id="description" name="description" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Description du poste..." required></textarea>
+
+                                                </div>
+                                        </div>
+
+                                        <div class="w-160 h-full bg-slate-100 rounded-md p-6 ">
+                                                <div class="flex flex-col gap-4">
+                                                        <h2 class="text-xl font-semibold text-slate-700">Missions</h2>
+                                                        <textarea id="mission" name="mission" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
+                                                </div>
+
+                                                <div class="mt-6 flex flex-col gap-4 w-full">
+                                                        <h2 class="text-xl font-semibold text-slate-700">Profil recherché</h2>
+                                                        <textarea id="profil" name="profil" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
+
+                                                </div>
+                                                <button class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Créer l'offre</button>
+                                        </div>
+
+                                </form>
+                        </div>
+
                         <!-- /*OFFRE*/ -->
-                        <div 
-                                class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
+                        <div id="section2" class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
                                 <div class="flex justify-between items-center">
                                         <h2 class="text-xl font-semibold text-slate-700">Mes offres</h2>
                                         <div class="flex justify-between items-center gap-6">
-                                                <button class="flex justify-center items-center"><svg
+                                                <button class="flex justify-center items-center">
+                                                        <svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="1.5em"
                                                                 height="1.5em" viewBox="0 0 24 24">
                                                                 <path fill="#6B7280"
                                                                         d="M10 2H3c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1m0 11H3c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1M21 2h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1m0 11h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1" />
-                                                        </svg></button>
-                                                <button
-                                                        class="flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md">
+                                                        </svg>
+                                                </button>
+                                                <button id="add_offre" class="text-sm flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em"
                                                                 height="1.5em" viewBox="0 0 24 24">
                                                                 <path fill="#fff"
@@ -822,874 +857,80 @@
                                         </div>
                                 </div>
                                 <div class="relative max-h-full overflow-y-auto scrollbar-hide">
-                                        <table class="min-w-full border border-gray-200 rounded-lg">
+                                        <?php if($data_t) :?>
+                                                <table class="min-w-full border border-gray-200 rounded-lg">
+                                                        <?php include('../components/thead_o.php') ?>
+                                                        <tbody class="">
+                                                                <?php foreach($data_o as $offre):?>
+                                                                        <tr class="hover:bg-gray-50">
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200"><?= $offre["titre"] ?></td>
+                                                                                <?php ?>
+                                                                                <td class="px-4 py-2 text-sm border-r border-gray-200
+                                                                                        <?php
+                                                                                                if ($offre["statut"] == "Actif") {
+                                                                                                echo "text-green-500";
+                                                                                                } elseif ($offre["statut"] == "Terminé") {
+                                                                                                echo "text-red-500";
+                                                                                                } 
+                                                                                        ?>">
+                                                                                        <?= $offre["statut"] ?>
+                                                                                </td>
 
-                                                <thead class="bg-gray-100">
-                                                        <tr>
-                                                                <th
-                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                        Titre de l’offre</th>
-                                                                <th
-                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                        Statut</th>
-                                                                <th
-                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                        Candidats inscrits</th>
-                                                                <th
-                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                        Date de publication</th>
-                                                                <th class="px-4 py-2 text-sm text-left text-slate-600">
-                                                                        Actions</th>
-                                                        </tr>
-                                                </thead>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center"> <?= $offre["candidat"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200"> <?= $offre["date_creation"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                                        <a href="offre/?id=<?= $offre["id"] ?>" class="">
+                                                                                                <svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="1.7em" height="1.7em"
+                                                                                                        viewBox="0 0 24 24">
+                                                                                                        <path fill="#6B7280"
+                                                                                                                fill-rule="evenodd"
+                                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
+                                                                                                                clip-rule="evenodd" />
+                                                                                                </svg>
+                                                                                        </a>
+                                                                                        <button class="">
+                                                                                                <svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="1.5em" height="1.5em"
+                                                                                                        viewBox="0 0 28 28">
+                                                                                                        <path fill="#22C55E"
+                                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
+                                                                                                </svg>
+                                                                                        </button>
+                                                                                        <button class="">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="1.5em" height="1.5em"
+                                                                                                        viewBox="0 0 24 24">
+                                                                                                        <path fill="#EF4444"
+                                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
+                                                                                                </svg>
+                                                                                        </button>
+                                                                                </td>
+                                                                        </tr>
+                                                                <?php endforeach ?>
+                                                        </tbody>
 
-                                                <tbody class="">
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-green-500 border-r border-gray-200">
-                                                                        Active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">
-                                                                        En attente</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-green-500 border-r border-gray-200">
-                                                                        Active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">
-                                                                        En attente</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">
-                                                                        En attente</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">
-                                                                        En attente</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">
-                                                                        En attente</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Développement Web</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                        Archivée</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        12</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                </tbody>
-
-                                        </table>
+                                                </table>
+                                        <?php else: ?>
+                                                <table class="min-w-full border border-gray-200 rounded-lg">
+                                                        <?php include('../components/thead_o.php') ?>
+                                                </table>
+                                                <div class="flex justify-center items-center mt-12">
+                                                        <h2 class="text-xl font-semibold text-slate-700">Aucune offre disponible</h2>
+                                                </div>
+                                        <?php endif ?>
                                 </div>
                         </div>
 
                         <!-- /*QCM*/ -->
-                        <div id="section6"
-                                class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
+                        <div id="section6" class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
                                 <div class="flex justify-between items-center">
-                                        <h2 class="text-xl font-semibold text-slate-700">Banque de Questions</h2>
+                                        <h2 class="text-xl font-semibold text-slate-700">Banque de tests</h2>
                                         <div class="flex justify-between items-center gap-6">
-
                                                 <button
-                                                        class="flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                height="1.5em" viewBox="0 0 24 24">
-                                                                <path fill="#fff"
-                                                                        d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z" />
-                                                        </svg>
-                                                        <span>Importer questions (CSV/Excel)</span>
-                                                </button>
-
-                                                <button
-                                                        class="flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md">
+                                                        class="text-xs flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em"
                                                                 height="1.5em" viewBox="0 0 24 24">
                                                                 <path fill="#fff"
@@ -1700,1015 +941,57 @@
                                         </div>
                                 </div>
                                 <div class="relative max-h-full overflow-y-auto scrollbar-hide">
-                                        <table class="min-w-full border border-gray-200 rounded-lg">
-
-                                                <thead class="bg-gray-100">
-                                                        <tr>
-                                                                <th
-                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                        Numéro</th>
-                                                                <th
-                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                        Titre du test</th>
-                                                                <th
-                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                        Statut</th>
-                                                                <th
-                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                        Date de publication</th>
-                                                                <th class="px-4 py-2 text-sm text-left text-slate-600">
-                                                                        Actions</th>
-                                                        </tr>
-                                                </thead>
-
-                                                <tbody class="">
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        01</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                        <tr class="hover:bg-gray-50">
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        02</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        Test pour les dévéloppeur fullstack</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                        active</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                        21/08/2025 12:25</td>
-                                                                <td
-                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.7em" height="1.7em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#6B7280"
-                                                                                                fill-rule="evenodd"
-                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                clip-rule="evenodd" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 28 28">
-                                                                                        <path fill="#22C55E"
-                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                </svg></button>
-                                                                        <button class=""><svg
-                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                        width="1.5em" height="1.5em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="#EF4444"
-                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                </svg></button>
-                                                                </td>
-                                                        </tr>
-
-                                                </tbody>
-                                        </table>
+                                        <?php if($data_t) :?>
+                                                <table class="min-w-full border border-gray-200 rounded-lg">
+                                                        <?php include('../components/thead.php') ?>
+                                                        <tbody class="">
+                                                                <?php foreach($data_t as $test):?>
+                                                                        <tr class="hover:bg-gray-50">
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200"><?= $test["id"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200"><?= $test["titre"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200"> <?= $test["created_at"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                                        <a href="qcm_test/?id=<?= $test["id"] ?>" class="cursor-pointer">
+                                                                                                <svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="1.7em" height="1.7em"
+                                                                                                        viewBox="0 0 24 24">
+                                                                                                        <path fill="#6B7280"
+                                                                                                                fill-rule="evenodd"
+                                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
+                                                                                                                clip-rule="evenodd" />
+                                                                                                </svg>
+                                                                                        </a>
+                                                                                        <button class="cursor-pointer">
+                                                                                                <svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="1.5em" height="1.5em"
+                                                                                                        viewBox="0 0 28 28">
+                                                                                                        <path fill="#22C55E"
+                                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
+                                                                                                </svg>
+                                                                                        </button>
+                                                                                        <button class="cursor-pointer">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="1.5em" height="1.5em"
+                                                                                                        viewBox="0 0 24 24">
+                                                                                                        <path fill="#EF4444"
+                                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
+                                                                                                </svg>
+                                                                                        </button>
+                                                                                </td>
+                                                                        </tr>
+                                                                <?php endforeach ?>
+                                                        </tbody>
+                                                </table>
+                                        <?php else: ?>
+                                                <table class="min-w-full border border-gray-200 rounded-lg">
+                                                        <?php include('../components/thead.php') ?>
+                                                </table>
+                                                <div class="flex justify-center items-center mt-12">
+                                                        <h2 class="text-xl font-semibold text-slate-700">Aucun test disponible</h2>
+                                                </div>
+                                        <?php endif ?>
                                 </div>
                         </div>
 
@@ -3801,97 +2084,6 @@
                                 </div>
                         </div>
 
-                        <!-- /* FORMULAIRE DE CREATION OFFRE LIEN A L'OFFRE */ -->
-                        <div   id="section2" class="section w-full rounded-md flex flex-col gap-4  bg-white p-4 hidden relative  max-h-full overflow-y-auto scrollbar-hide">
-                                <div id="err_msg"></div>
-                                <div class="flex flex-col gap-1 justify-start items-start">
-                                        <h2 class="text-xl font-semibold text-slate-700">Formulaire de création d'offre
-                                        </h2>
-                                        <p class="text-slate-500 text-sm">Un recruteur devra remplir ces champs :</p>
-                                </div>
-
-                                <form  id="form_offre" class="w-full  max-h-full flex justify-start items-center gap-4 flex-wrap">
-
-                                        <div class="w-160 h-full bg-slate-100 rounded-md p-6">
-                                                <h2 class="text-xl font-semibold text-slate-700"> Informations générales </h2>
-                                                <div class="mt-6 flex flex-col gap-4 w-full">
-                                                        <input id="titre" name="titre"  class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Titre poste" required>
-                                                        <select id="lieu" name="lieu" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                <option value="">Lieu de travail</option>
-                                                                <option value="ligne">En ligne</option>
-                                                                <option value="presentiel">Présentiel</option>
-                                                        </select>
-
-                                                        <select id="contrat" name="contrat" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                <option value="">Type de contrat</option>
-                                                                <option value="CDI">CDI</option>
-                                                                <option value="CDD">CDD</option>
-                                                                <option value="stage">Stage</option>
-                                                                <option value="freelance">Freelance</option>
-                                                        </select>
-
-                                                        <select id="experience" name="experience" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                <option value="">Niveau d’expérience</option>
-                                                                <option value="Débutant">Débutant</option>
-                                                                <option value="Intermédiaire">Intermédiaire</option>
-                                                                <option value="Confirmé">Confirmé</option>
-                                                        </select>
-
-                                                        <select id="statut" name="statut" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                <option value="">Statut</option>
-                                                                <option value="Prêt">Prêt</option>
-                                                                <option value="Suspendu">Suspendu</option>
-                                                                <option value="Terminé">Terminé</option>
-                                                        </select>
-
-                                                        <div class="flex justify-start items-center gap-4 flex-wrap w-full">
-                                                                <select id="score" name="score" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                        <option value="">Score de crédibilité</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="11">11</option>
-                                                                        <option value="12">12</option>
-                                                                        <option value="13">13</option>
-                                                                        <option value="14">14</option>
-                                                                        <option value="15">15</option>
-                                                                        <option value="16">16</option>
-                                                                        <option value="17">17</option>
-                                                                        <option value="18">18</option>
-                                                                        <option value="19">19</option>
-                                                                        <option value="20">20</option>
-                                                                </select>
-                                                        </div>
-                                                        <input id="competence" name="competence" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Compétences" required>
-                                                        <input type="date" id="date_limite" name="date_limite" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" placeholder="Date de clôture 12-04-2025">
-                                                        <textarea  id="description" name="description" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Description du poste..." required></textarea>
-
-                                                </div>
-                                        </div>
-
-                                        <div class="w-160 h-full bg-slate-100 rounded-md p-6 ">
-                                                <div class="flex flex-col gap-4">
-                                                        <h2 class="text-xl font-semibold text-slate-700">Missions</h2>
-                                                        <textarea id="mission" name="mission" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
-                                                </div>
-
-                                                <div class="mt-6 flex flex-col gap-4 w-full">
-                                                        <h2 class="text-xl font-semibold text-slate-700">Profil recherché</h2>
-                                                        <textarea id="profil" name="profil" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
-
-                                                </div>
-                                                <button class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Créer l'offre</button>
-                                        </div>
-
-                                </form>
-                        </div>
 
                         <!-- /*FORMULAIRE DE CREATION TEST QCM LIEN A QCM*/ -->
                         <div id="section3" class="section w-full h-full rounded-md flex flex-col gap-4 hidden">
@@ -3942,13 +2134,15 @@
                                                 </div>
         
                                                 <form id="formQCM" method="post" class="flex flex-col gap-4 py-4">
-                                                        <div class="flex flex-col justify-start items-start  gap-[4px] mb-8">
+                                                        <div class="flex flex-col justify-start items-start gap-[4px] mb-8">
                                                                 <label for="titre" class="text-md font-semibold text-orange-500">Titre du test</label>
-                                                                <input id="titre" name="titre" required type="text" placeholder="Le titre de votre test ..." class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
+                                                                <input type="text" id="titre" placeholder="Le titre de votre test ..."
+                                                                        class="titres border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
                                                         </div>
                                                         <div id="dynamic_create"></div>
         
-                                                        <button id="creer_un_test" class="shadow-md bg-[#f77313] mt-4 w-60 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">
+                                                        <button id="creer_un_test" type="submit"
+                                                                class="shadow-md bg-[#f77313] mt-4 w-60 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">
                                                                 Créer le test
                                                         </button>
                                                 </form>
@@ -3960,6 +2154,7 @@
         </main>
         <script src="../js/switch_r.js"></script>  
         <script src="../js/qcm.js"></script>
+        <script src="../js/add.js"></script>
         <script src="../js/qcm_insertion.js"></script>
         <script src="../js/creer_offre.js"></script>
 </body>

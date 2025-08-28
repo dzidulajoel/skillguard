@@ -70,6 +70,7 @@ try {
 
         $response['success'] = true;
         $response['message'] = "QCM inséré avec succès.";
+        $response['data'] = $data;
         echo json_encode($response);
 
 } catch (PDOException $e) {

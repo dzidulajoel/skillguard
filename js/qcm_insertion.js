@@ -4,8 +4,7 @@ const dynamic_creat = document.querySelector('#dynamic_create');
 
 formQCM.addEventListener('submit', async (e) => {
         e.preventDefault();
-
-        const titre = document.querySelector('#titre').value;
+                const titre = document.querySelector(".titres").value.trim();
         let data = [];
 
         document.querySelectorAll("[data-question-id]").forEach(questionDiv => {
@@ -26,18 +25,22 @@ formQCM.addEventListener('submit', async (e) => {
 
                 data.push({
                         id: questionId,
-                        titre: titre,
+                        titre:titre,
                         text: questionText,
                         type: questionType,
                         answers: answers
                 });
         });
+
+
+        console.log(data);
         
+
         try {
                 const response = await fetch('../scripts/qcm_insertion.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data)
+                        body: JSON.stringify(data) 
                 });
 
                 if (!response.ok) {
@@ -49,7 +52,7 @@ formQCM.addEventListener('submit', async (e) => {
                         showAlert(result.message, true);
                         formQCM.reset();
                         dynamic_creat.innerHTML = "";
-
+                        console.log(result.data);
                 } else {
                         showAlert(result.message, false);
                 }

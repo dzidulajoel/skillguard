@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
         session_start();
 }
 
-if (!isset($_SESSION['utilisateur']) || empty($_SESSION['utilisateur'])) {
-        header('Location: ../login');
+if (!isset($_SESSION['id_utilisateur']) || empty($_SESSION['id_utilisateur'])) {
+        header('Location: /skillguard/connexion');
         exit();
 }

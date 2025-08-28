@@ -81,12 +81,6 @@ generateQCM.addEventListener('click', () => {
                 divQ.appendChild(divReponses);
                 dynamic_create.appendChild(divQ)
 
+                document.getElementById("nbQuestions").value = ''
         }
-
-        // const bouton = document.createElement('button');
-
-        // bouton.id = 'creer_un_test';
-        // bouton.textContent = 'Créer le test';
-        // bouton.className = 'shadow-md bg-[#f77313] mt-8 w-60 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]';
-        // form.appendChild(bouton);
 });

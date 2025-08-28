@@ -1,5 +1,4 @@
 const form_offre = document.querySelector('#form_offre');
-
 form_offre.addEventListener('submit', async (event) => {
         event.preventDefault();
         const titre = document.getElementById('titre').value;
@@ -54,8 +53,6 @@ form_offre.addEventListener('submit', async (event) => {
                         const result = await response.json();
                         if (result.success) {
                                 showAlert_o(result.message, true);
-                                console.log(result.donnee);
-                                
                                 form_offre.reset();
                         } else {
                                 showAlert_o(result.message, false);
