@@ -46,7 +46,7 @@
                         </button>
 
                         <button class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-[#f77313] font-bold cursor-pointer hover:bg-[#001436]/10">
-                                <?php echo strtoupper(substr($data['entreprise'], 0, 1))  ?>
+                                <?= htmlspecialchars(substr($data['entreprise'], 0, 1))  ?>
                         </button>
 
                         <button
@@ -95,7 +95,7 @@
                                                 </svg><span>Mes Offres</span>
                                         </a>
                                 </li>
-                                <li class="w-full">
+                                <!-- <li class="w-full">
                                         <a href="#" data-section="section3"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
@@ -105,7 +105,7 @@
                                                                 clip-rule="evenodd" />
                                                 </svg><span>QCM</span>
                                         </a>
-                                </li>
+                                </li> -->
                                 <li class="w-full">
                                         <a href="#" data-section="section4"
                                                 class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
@@ -170,8 +170,8 @@
                                         </a>
                                 </li>
                                 <li class="w-full">
-                                        <a href="#" data-section="section9"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3">
+                                        <button 
+                                                class="logout w-full cursor-pointer hover:bg-red-500 hover:text-white px-4 py-2 w-full flex items-center justify-start gap-3">
                                                 <svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
@@ -182,7 +182,7 @@
                                                         </g>
                                                 </svg>
                                                 <span>Déconnexion</span>
-                                        </a>
+                                        </button>
                                 </li>
                         </ul>
 
@@ -194,7 +194,7 @@
                                 <div class="flex flex-col w-full bg-white p-4">
                                         <h2 class="text-xl font-semibold text-slate-700">Tableau de bord - Recruteur</h2>
                                         <p class="text-sm text-justify text-slate-500 ">
-                                                Bienvenue GAMATHO Joël, gérez vos
+                                                Bienvenue, gérez vos
                                                 offres, vos candidats et vos tests en un seul endroit.
                                         </p>
 
@@ -254,499 +254,10 @@
                                         </div>
 
                                 </div>
-
-                                <div class="flex flex-col gap-4 w-full bg-white p-4">
-                                        <div class="flex justify-between items-center">
-                                                <h2 class="text-xl font-semibold text-slate-700">Mes offres</h2>
-                                                <div class="flex justify-between items-center gap-6">
-                                                        <button class="flex justify-center items-center"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                        height="1.5em" viewBox="0 0 24 24">
-                                                                        <path fill="#6B7280"
-                                                                                d="M10 2H3c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1m0 11H3c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1M21 2h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1m0 11h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1" />
-                                                                </svg></button>
-                                                        <button
-                                                                class="flex justify-between text-sm items-center text-white bg-[#00134d] hover:bg-[#00134d]/90 cursor-pointer p-2 rounded-md">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                        height="1.5em" viewBox="0 0 24 24">
-                                                                        <path fill="#fff"
-                                                                                d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z" />
-                                                                </svg>
-                                                                <span>Nouvelle Offre</span>
-                                                        </button>
-                                                </div>
-                                        </div>
-                                        <div class="relative max-h-full overflow-y-auto scrollbar-hide">
-                                                <table class="min-w-full border border-gray-200 rounded-lg">
-                                                        <thead class="bg-gray-100">
-                                                                <tr>
-                                                                        <th
-                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                Titre de l’offre</th>
-                                                                        <th
-                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                Statut</th>
-                                                                        <th
-                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                Candidats inscrits</th>
-                                                                        <th
-                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                Date de publication</th>
-                                                                        <th
-                                                                                class="px-4 py-2 text-sm text-left text-slate-600">
-                                                                                Actions</th>
-                                                                </tr>
-                                                        </thead>
-                                                        <tbody class="">
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-green-500 border-r border-gray-200">
-                                                                                Active</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">
-                                                                                En attente</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                                Archivée</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-green-500 border-r border-gray-200">
-                                                                                Active</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">
-                                                                                En attente</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                                Archivée</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                                Archivée</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-orange-500 border-r border-gray-200">
-                                                                                En attente</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                                Archivée</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                                <tr class="hover:bg-gray-50">
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                Développement Web</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-red-500 border-r border-gray-200">
-                                                                                Archivée</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                12</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                21/08/2025 12:25</td>
-                                                                        <td
-                                                                                class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.7em"
-                                                                                                height="1.7em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#6B7280"
-                                                                                                        fill-rule="evenodd"
-                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                        clip-rule="evenodd" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 28 28">
-                                                                                                <path fill="#22C55E"
-                                                                                                        d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                        </svg></button>
-                                                                                <button class=""><svg
-                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                width="1.5em"
-                                                                                                height="1.5em"
-                                                                                                viewBox="0 0 24 24">
-                                                                                                <path fill="#EF4444"
-                                                                                                        d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                        </svg></button>
-                                                                        </td>
-                                                                </tr>
-
-                                                        </tbody>
-                                                </table>
-                                        </div>
-                                </div>
                         </div>
 
                         <!-- /* FORMULAIRE DE CREATION OFFRE LIEN A L'OFFRE */ -->
-                        <div id="create_offre"   class="section w-full rounded-md flex flex-col gap-4  bg-white p-4 hidden relative  max-h-full overflow-y-auto scrollbar-hide">
+                        <div id="form_creation_offre"  class="w-auto rounded-md flex flex-col gap-2 bg-white relative hidden px-4 py-2 h-full overflow-y-auto scrollbar-hide transition-all duration-300 ease-in-out opacity-0">
                                 <div id="err_msg"></div>
                                 <div class="flex flex-col gap-1 justify-start items-start">
                                         <h2 class="text-xl font-semibold text-slate-700">Formulaire de création d'offre
@@ -754,87 +265,95 @@
                                         <p class="text-slate-500 text-sm">Un recruteur devra remplir ces champs :</p>
                                 </div>
 
-                                <form  id="form_offre" class="w-full  max-h-full flex justify-start items-center gap-4 flex-wrap">
+                                <form  id="form_offre" class="w-full h-full flex justify-start items-start gap-4 flex-wrap">
 
-                                        <div class="w-160 h-full bg-slate-100 rounded-md p-6">
+                                        <div class="w-200 h-full bg-slate-100 rounded-md px-4 py-2">
                                                 <h2 class="text-xl font-semibold text-slate-700"> Informations générales </h2>
-                                                <div class="mt-6 flex flex-col gap-4 w-full">
-                                                        <input id="titre" name="titre"  class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Titre poste" required>
-                                                        <input id="lieu" placeholder="Lieu du travail" name="lieu" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                        </input>
+                                                <div class="mt-2 flex flex-col gap-4 w-full">
 
-                                                        <select id="contrat" name="contrat" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                <option value="">Type de contrat</option>
-                                                                <option value="CDI">CDI</option>
-                                                                <option value="CDD">CDD</option>
-                                                                <option value="stage">Stage</option>
-                                                                <option value="freelance">Freelance</option>
-                                                        </select>
+                                                        <div class="flex justify-start items-center gap-2">
+                                                                <input id="titre" name="titre"  class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Titre poste" required>
+                                                                <input id="lieu" placeholder="Lieu du travail" name="lieu" required class="border border-2 p-1 h-10 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                        </div>
 
-                                                        <select id="experience" name="experience" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                <option value="">Niveau d’expérience</option>
-                                                                <option value="Junior">Junior</option>
-                                                                <option value="Intermédiaire">Intermédiaire</option>
-                                                                <option value="Confirmé">Confirmé</option>
-                                                        </select>
-
-                                                        <select id="statut" name="statut" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                <option value="">Statut</option>
-                                                                <option value="Actif">Actif</option>
-                                                                <option value="Terminé">Terminé</option>
-                                                        </select>
-
-                                                        <div class="flex justify-start items-center gap-4 flex-wrap w-full">
-                                                                <select id="score" name="score" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                        <option value="">Score de crédibilité</option>
-                                                                        <option value="1">1</option>
-                                                                        <option value="2">2</option>
-                                                                        <option value="3">3</option>
-                                                                        <option value="4">4</option>
-                                                                        <option value="5">5</option>
-                                                                        <option value="6">6</option>
-                                                                        <option value="7">7</option>
-                                                                        <option value="8">8</option>
-                                                                        <option value="9">9</option>
-                                                                        <option value="10">10</option>
-                                                                        <option value="11">11</option>
-                                                                        <option value="12">12</option>
-                                                                        <option value="13">13</option>
-                                                                        <option value="14">14</option>
-                                                                        <option value="15">15</option>
-                                                                        <option value="16">16</option>
-                                                                        <option value="17">17</option>
-                                                                        <option value="18">18</option>
-                                                                        <option value="19">19</option>
-                                                                        <option value="20">20</option>
+                                                        <div class="flex justify-start items-center gap-2">
+                                                                <select id="contrat" name="contrat" required class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                        <option value="">Type de contrat</option>
+                                                                        <option value="CDI">CDI</option>
+                                                                        <option value="CDD">CDD</option>
+                                                                        <option value="stage">Stage</option>
+                                                                        <option value="freelance">Freelance</option>
+                                                                </select>
+                                                                <select id="experience" name="experience" required class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                        <option value="">Niveau d’expérience</option>
+                                                                        <option value="Junior">Junior</option>
+                                                                        <option value="Intermédiaire">Intermédiaire</option>
+                                                                        <option value="Confirmé">Confirmé</option>
                                                                 </select>
                                                         </div>
-                                                        <input id="competence" name="competence" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Compétences" required>
-                                                        <input type="date" id="date_limite" name="date_limite" required class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" placeholder="Date de clôture 12-04-2025">
-                                                        <textarea  id="description" name="description" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Description du poste..." required></textarea>
 
+                                                        <div class="flex justify-start items-center gap-2">
+                                                                <select id="statut" name="statut" required class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                        <option value="">Statut</option>
+                                                                        <option value="ouvert">Ouvert</option>
+                                                                        <option value="ferme">Fermé</option>
+                                                                </select>
+                                                                <select id="score" name="score" required class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                                <option value="">Score de crédibilité</option>
+                                                                                <option value="1">1</option>
+                                                                                <option value="2">2</option>
+                                                                                <option value="3">3</option>
+                                                                                <option value="4">4</option>
+                                                                                <option value="5">5</option>
+                                                                                <option value="6">6</option>
+                                                                                <option value="7">7</option>
+                                                                                <option value="8">8</option>
+                                                                                <option value="9">9</option>
+                                                                                <option value="10">10</option>
+                                                                                <option value="11">11</option>
+                                                                                <option value="12">12</option>
+                                                                                <option value="13">13</option>
+                                                                                <option value="14">14</option>
+                                                                                <option value="15">15</option>
+                                                                                <option value="16">16</option>
+                                                                                <option value="17">17</option>
+                                                                                <option value="18">18</option>
+                                                                                <option value="19">19</option>
+                                                                                <option value="20">20</option>
+                                                                </select>
+                                                        </div>
+
+                                                        <div class="flex justify-start items-center gap-2">
+                                                                <input id="competence" name="competence" class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" type="text"  placeholder="Compétences" required>
+                                                                <input type="date" id="date_limite" name="date_limite" required class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" placeholder="Date de clôture 12-04-2025">
+                                                        </div>
+
+                                                        <div class="flex justify-start items-center gap-2">
+                                                                <textarea  id="description" name="description" class="border border-2 p-1 w-full outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="3" placeholder="Description du poste..." required></textarea>
+                                                        </div>
+
+                                                        <div class="flex flex-col">
+                                                                <h2 class="text-xl font-semibold text-slate-700">Missions</h2>
+                                                                <textarea id="mission" name="mission" class="mt-2 border border-2 p-1 w-full outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="3" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
+                                                        </div>
+                
+                                                        <div class="flex flex-col w-full">
+                                                                <h2 class="text-xl font-semibold text-slate-700">Profil recherché</h2>
+                                                                <textarea id="profil" name="profil" class="mt-2 border border-2 p-1 w-full outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="3" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
+                                                        </div>
+
+                                                        <div class="flex justify-start items-center gap-2">
+                                                                <button type="submit" class="shadow-md bg-[#f77313] w-full h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">Créer l'offre</button>
+                                                                <button type="button" id="close_offre_creation" class="shadow-md w-full h-10 flex justify-center items-center rounded-md text-white cursor-pointer bg-[#001436] hover:opacity-90">Annuler</button>
+                                                        </div>
                                                 </div>
-                                        </div>
-
-                                        <div class="w-160 h-full bg-slate-100 rounded-md p-6 ">
-                                                <div class="flex flex-col gap-4">
-                                                        <h2 class="text-xl font-semibold text-slate-700">Missions</h2>
-                                                        <textarea id="mission" name="mission" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
-                                                </div>
-
-                                                <div class="mt-6 flex flex-col gap-4 w-full">
-                                                        <h2 class="text-xl font-semibold text-slate-700">Profil recherché</h2>
-                                                        <textarea id="profil" name="profil" class="border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500" rows="4" placeholder="Décrivez brièvement les missions, responsabilités et objectifs..." required></textarea>
-
-                                                </div>
-                                                <button class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Créer l'offre</button>
                                         </div>
 
                                 </form>
                         </div>
-
+                                
                         <!-- /*OFFRE*/ -->
-                        <div id="section2" class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
+                        <div id="section2"  class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
                                 <div class="flex justify-between items-center">
                                         <h2 class="text-xl font-semibold text-slate-700">Mes offres</h2>
                                         <div class="flex justify-between items-center gap-6">
@@ -846,7 +365,7 @@
                                                                         d="M10 2H3c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1m0 11H3c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1M21 2h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1m0 11h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1" />
                                                         </svg>
                                                 </button>
-                                                <button id="add_offre" class="text-sm flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md">
+                                                <button id="add_offre" class="hover:opacity-90 cursor-pointer text-sm flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em"
                                                                 height="1.5em" viewBox="0 0 24 24">
                                                                 <path fill="#fff"
@@ -856,57 +375,36 @@
                                                 </button>
                                         </div>
                                 </div>
+
                                 <div class="relative max-h-full overflow-y-auto scrollbar-hide">
-                                        <?php if($data_t) :?>
+                                        <?php if($data_o) :?>
                                                 <table class="min-w-full border border-gray-200 rounded-lg">
                                                         <?php include('../components/thead_o.php') ?>
                                                         <tbody class="">
                                                                 <?php foreach($data_o as $offre):?>
                                                                         <tr class="hover:bg-gray-50">
-                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200"><?= $offre["titre"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center"><?= $offre["titre"] ?></td>
                                                                                 <?php ?>
-                                                                                <td class="px-4 py-2 text-sm border-r border-gray-200
+                                                                                <td class="px-4 py-2 text-sm border-r border-gray-200 text-center
                                                                                         <?php
-                                                                                                if ($offre["statut"] == "Actif") {
+                                                                                                if ($offre["statut"] == "ouvert") {
                                                                                                 echo "text-green-500";
-                                                                                                } elseif ($offre["statut"] == "Terminé") {
+                                                                                                } elseif ($offre["statut"] == "ferme") {
                                                                                                 echo "text-red-500";
                                                                                                 } 
                                                                                         ?>">
                                                                                         <?= $offre["statut"] ?>
                                                                                 </td>
 
-                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center"> <?= $offre["candidat"] ?></td>
-                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200"> <?= $offre["date_creation"] ?></td>
-                                                                                <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center"> <?= $offre["experience"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center"> <?= $offre["date_creation"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 flex justify-center items-center gap-4">
                                                                                         <a href="offre/?id=<?= $offre["id"] ?>" class="">
-                                                                                                <svg
-                                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                                        width="1.7em" height="1.7em"
-                                                                                                        viewBox="0 0 24 24">
-                                                                                                        <path fill="#6B7280"
-                                                                                                                fill-rule="evenodd"
-                                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                                clip-rule="evenodd" />
-                                                                                                </svg>
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 16 16"><path fill="#6B7280" d="M3 5a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0zm5.5-1.5a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0z"/></svg>
                                                                                         </a>
-                                                                                        <button class="">
-                                                                                                <svg
-                                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                                        width="1.5em" height="1.5em"
-                                                                                                        viewBox="0 0 28 28">
-                                                                                                        <path fill="#22C55E"
-                                                                                                                d="M19.289 3.15a3.932 3.932 0 1 1 5.56 5.56l-1.54 1.54l-5.56-5.56zm-2.6 2.6L4.502 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L22.25 11.311z" />
-                                                                                                </svg>
-                                                                                        </button>
-                                                                                        <button class="">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                                        width="1.5em" height="1.5em"
-                                                                                                        viewBox="0 0 24 24">
-                                                                                                        <path fill="#EF4444"
-                                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
-                                                                                                </svg>
-                                                                                        </button>
+                                                                                        <a href="creer_un_test?offre_id=<?= $offre["id"] ?>" class="hover:opacity-90 w-30 cursor-pointer text-sm flex justify-center items-center text-white bg-[#00134d] py-1 px-2">
+                                                                                                Crée un test
+                                                                                        </a>
                                                                                 </td>
                                                                         </tr>
                                                                 <?php endforeach ?>
@@ -2084,79 +1582,11 @@
                                 </div>
                         </div>
 
-
-                        <!-- /*FORMULAIRE DE CREATION TEST QCM LIEN A QCM*/ -->
-                        <div id="section3" class="section w-full h-full rounded-md flex flex-col gap-4 hidden">
-                                <div id="err_msg"></div>
-                                <div class=" bg-white p-4">
-                                        <div class="flex flex-col gap-1 justify-start items-start">
-                                                <div class="flex justify-between items-center w-full">
-                                                        <h2 class="text-xl font-semibold text-slate-700">Espace de création des
-                                                                QCM</h2>
-        
-                                                </div>
-                                                <p class="text-slate-500 text-sm">Permettre au recruteur de créer facilement des
-                                                        QCM associés à une offre, avec la possibilité de :</p>
-                                                <ul class="text-slate-500 text-xs">
-                                                        <li class="flex justify-start items-center gap-1"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                        height="1.5em" viewBox="0 0 48 48">
-                                                                        <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
-                                                                                d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
-                                                                </svg>Définir le nombre de questions.</li>
-                                                        <li class="flex justify-start items-center gap-1"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                        height="1.5em" viewBox="0 0 48 48">
-                                                                        <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
-                                                                                d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
-                                                                </svg>Ajouter dynamiquement plusieurs options par question.</li>
-                                                        <li class="flex justify-start items-center gap-1"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                        height="1.5em" viewBox="0 0 48 48">
-                                                                        <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
-                                                                                d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
-                                                                </svg>Définir le type de réponse (unique ou multiple).</li>
-                                                        <li class="flex justify-start items-center gap-1"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                        height="1.5em" viewBox="0 0 48 48">
-                                                                        <path fill="#6B7280" stroke="#6B7280" stroke-width="4"
-                                                                                d="M24 33a9 9 0 1 0 0-18a9 9 0 0 0 0 18Z" />
-                                                                </svg>Identifier les bonnes réponses.</li>
-                                                </ul>
-                                        </div>
-                                        <div class="relative w-full max-full overflow-y-auto scrollbar-hide">
-        
-                                                <div  class="shadow-md bg-white w-160 h-10 flex justify-center items-center rounded-full mt-4">
-                                                        <input  id="nbQuestions" type="number" placeholder="Générer le nombre de questions ..." class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-80">
-                                                        <button  id="generateQCM" class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436]">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#fff" d="M1 11c5.523 0 10-4.477 10-10h2c0 5.523 4.477 10 10 10v2c-5.523 0-10 4.477-10 10h-2c0-5.523-4.477-10-10-10z"/></svg>                                        
-                                                        </button>
-                                                </div>
-        
-                                                <form id="formQCM" method="post" class="flex flex-col gap-4 py-4">
-                                                        <div class="flex flex-col justify-start items-start gap-[4px] mb-8">
-                                                                <label for="titre" class="text-md font-semibold text-orange-500">Titre du test</label>
-                                                                <input type="text" id="titre" placeholder="Le titre de votre test ..."
-                                                                        class="titres border border-2 p-1 w-146 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500">
-                                                        </div>
-                                                        <div id="dynamic_create"></div>
-        
-                                                        <button id="creer_un_test" type="submit"
-                                                                class="shadow-md bg-[#f77313] mt-4 w-60 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">
-                                                                Créer le test
-                                                        </button>
-                                                </form>
-                                        </div>
-                                </div>
-                        </div>
-
                 </div>
         </main>
         <script src="../js/switch_r.js"></script>  
-        <script src="../js/qcm.js"></script>
         <script src="../js/add.js"></script>
-        <script src="../js/qcm_insertion.js"></script>
         <script src="../js/creer_offre.js"></script>
+        <script src="../js/deconnexion.js"></script>
 </body>
-
 </html>

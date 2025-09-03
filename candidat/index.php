@@ -1,5 +1,5 @@
 <?php
-        require_once('../scripts/candidat.php');
+        require_once('../scripts/read.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -70,21 +70,22 @@
         </header>
 
         <main class="w-full h-[90vh] flex px-[5%] gap-2 pt-8">
-
                 <nav id="menu" class="flex flex-col justify-between w-auto h-full bg-white rounded-md p-4 ">
 
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm w-full">
-                                <li class="w-full"><a href="#" data-section="section1" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                <li class="w-full">
+                                        <a href="#" data-section="section1" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                                 viewBox="0 0 24 24">
                                                                 <path fill="#6B7280"
                                                                         d="M20 20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3zm-8-5a2.5 2.5 0 1 0 0-5a2.5 2.5 0 0 0 0 5" />
                                                 </svg>
-                                                <span>Accueil</span></a>
+                                        <span>Accueil</span></a>
                                 </li>
 
-                                <li class="w-full"><a href="#" data-section="section2" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                <li class="w-full">
+                                        <a href="#" data-section="section2" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -94,7 +95,8 @@
                                         </a>
                                 </li>
 
-                                <li class="w-full"><a href="#" data-section="section3" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                <li class="w-full">
+                                        <a href="#" data-section="section3" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -106,7 +108,8 @@
                                         </a>
                                 </li>
 
-                                <li class="w-full"><a href="#" data-section="section4" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                <li class="w-full">
+                                        <a href="#" data-section="section4" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -115,9 +118,19 @@
                                                 <span>Conseils</span>
                                         </a>
                                 </li>
+
+                                <li class="w-full">
+                                        <a href="#" data-section="section7"
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><g fill="none" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11 5h10m-10 7h10m-10 7h10"/><circle cx="5" cy="5" r="2" fill="#6B7280"/><circle cx="5" cy="5" r="2" fill="#6B7280"/><circle cx="5" cy="12" r="2" fill="#6B7280"/><circle cx="5" cy="19" r="2" fill="#6B7280"/></g></svg>
+                                        <span>Historiques</span>
+                                        </a>
+                                </li>
+
                         </ul>
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
-                                <li class="w-full"><a href="#" data-section="section5" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+
+                                <li class="w-full">
+                                        <a href="#" data-section="section5" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -132,7 +145,8 @@
                                         </a>
                                 </li>
 
-                                <li class="w-full"><a href="#" data-section="section6" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                <li class="w-full">
+                                        <a href="#" data-section="section6" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 20 20">
                                                         <path fill="#6B7280"
@@ -143,8 +157,11 @@
                                         </a>
                                 </li>
 
-                                <li class="w-full"><a href="#" data-section="deconnexion" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
+                                <li class="w-full">
+                                        <button 
+                                                class="logout w-full cursor-pointer hover:bg-red-500 hover:text-white px-4 py-2 w-full flex items-center justify-start gap-3">
+                                                <svg
+                                                        xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <g fill="#6B7280" fill-rule="evenodd" clip-rule="evenodd">
                                                                 <path
@@ -153,8 +170,9 @@
                                                         </g>
                                                 </svg>
                                                 <span>Déconnexion</span>
-                                        </a>
+                                        </button>
                                 </li>
+
                         </ul>
 
                 </nav>
@@ -163,7 +181,7 @@
                         <!-- Dashboard -->
                         <div id="section1" class="section w-full h-full  relative max-full overflow-y-auto scrollbar-hide ">
                                 <div class="flex flex-col gap-4 p-4">
-                                        <h2 class="text-2xl font-semibold text-slate-700">Bienvenue GAMATHO Joël</h2>
+                                        <h2 class="text-2xl font-semibold text-slate-700">Bienvenue <span class="text-[#f77313]"><?= htmlspecialchars($data['nom'].' '.$data['prenom']) ?></span></h2>
                                         <p class="text-xs text-justify text-slate-500 ">
                                                 Voici les offres disponibles pour lesquelles vous pouvez passer des tests. <br>
                                                 Sélectionnez une offre pour consulter les détails et commencer le QCM associé.
@@ -171,257 +189,61 @@
                                 </div>
 
                                 <div class="flex justify-start items-center gap-4 flex-wrap mt-4 p-4">
+                                        <?php if($offre_candidats): ?>
+                                                <?php foreach($offre_candidats as $offre_candidat): ?>
+                                                        <div class="p-4 w-120 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
+                                                                <div class="flex justify-between items-center">
+                                                                        <span  class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                                                                        viewBox="0 0 256 256">
+                                                                                        <path fill="#f1511b"
+                                                                                                d="M121.666 121.666H0V0h121.666z" />
+                                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
+                                                                                        <path fill="#00adef"
+                                                                                                d="M121.663 256.002H0V134.336h121.663z" />
+                                                                                        <path fill="#fbbc09"
+                                                                                                d="M256 256.002H134.335V134.336H256z" />
+                                                                                </svg>
+                                                                        </span>
 
-                                        <div
-                                                class="p-4 w-100 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
+                                                                        <a href="offre/?id=<?= $offre_candidat["id"] ?>" class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
+                                                                                        viewBox="0 0 24 24">
+                                                                                        <path fill="none" stroke="#f77313"
+                                                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
+                                                                                </svg>
+                                                                        </a>
+                                                                </div>
 
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
+                                                                <div>
+                                                                        <h3 class="text-slate-700 font-semibold"> <span
+                                                                                        class="text-[#f77313]">Microsoft</span></h3>
+                                                                        <h3 class="text-slate-700 font-semibold">Poste : <?= htmlspecialchars($offre_candidat["titre"]) ?></h3>
+                                                                        <ol class="mt-2 flex flex-col gap-1">
+                                                                                <li class="text-sm text-start text-slate-500 "><span class="text-[#00134d] font-semibold">Statut :</span> <span class="text-green-500"><?= htmlspecialchars($offre_candidat["statut"]) ?> </span> </li>
+                                                                                <li class="text-sm text-start text-slate-500 "><span class="text-[#00134d] font-semibold">Exigences : </span>  <?= htmlspecialchars($offre_candidat["competence"]) ?></li>
+                                                                                <li class="text-sm text-start text-slate-500 "> <span class="text-[#00134d] font-semibold">Date limite :</span> <?= htmlspecialchars($offre_candidat["date_limite"]) ?> </li>
+                                                                                <li class="text-sm text-start text-slate-500 "> <span class="text-[#00134d] font-semibold">Expérience :</span> <?= htmlspecialchars($offre_candidat["experience"]) ?> </li>
+                                                                                <li class="text-sm text-start text-slate-500 "> <span class="text-[#00134d] font-semibold">Localisation  :</span> <?= htmlspecialchars($offre_candidat["lieu"]) ?> </li>
+                                                                        </ol>
+                                                                </div>
+
+                                                                <button class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
+                                                                        le test
+                                                                </button>
+                                                        </div>
+                                                <?php endforeach ?>
+                                        <?php else: ?>
+                                                <div class="w-full flex justify-center items-center mt-12">
+                                                        <h2 class="text-xl font-semibold text-slate-700">Aucune offre disponible</h2>
                                                 </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-red-500">
-                                                                                Fermée</span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-                                
-                                        <div
-                                                class="p-4 w-100 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-green-500">Ouverte </span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div
-                                                class="p-4 w-100 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-red-500">
-                                                                                Fermée</span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
+                                        <?php endif ?>
 
                                 </div>
-
-                                <div class="w-full flex justify-start items-center gap-4 flex-wrap mt-4 p-4">
-                                        <div class="flex flex-col gap-4 w-full">
-                                                <h2 class="text-2xl font-semibold text-slate-700">Tests en cours / historiques
-                                                </h2>
-                                                <div class="relative max-full overflow-y-auto scrollbar-hide">
-                                                        <table class="min-w-full border border-gray-200 rounded-lg">
-                                                                <thead class="bg-gray-100">
-                                                                        <tr>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Num</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Entreprise</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Statut</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Score de crédibilité</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Date de publication</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Actions</th>
-                                                                        </tr>
-                                                                </thead>
-
-                                                                <tbody class="">
-
-                                                                        <tr class="hover:bg-gray-50">
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                        01</td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                        Gamatho Joel</td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
-                                                                                        En cours</td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
-                                                                                        55%</td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                        12-08-2025 12:25</td>
-                                                                                <td
-                                                                                        class="p-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                        <button class=""><svg
-                                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                                        width="1.7em"
-                                                                                                        height="1.7em"
-                                                                                                        viewBox="0 0 24 24">
-                                                                                                        <path fill="#6B7280"
-                                                                                                                fill-rule="evenodd"
-                                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                                clip-rule="evenodd" />
-                                                                                                </svg></button>
-                                                                                </td>
-                                                                        </tr>
-                                                                </tbody>
-                                                        </table>
-                                                </div>
-                                        </div>
-                                </div>
-
 
                         </div>
+
                         <!-- OFFRE -->
                         <div id="section2" class="section  max-full overflow-y-auto scrollbar-hide hidden ">
                                 <div class="flex flex-col gap-4 p-4">
@@ -432,487 +254,8 @@
                                         </p>
                                 </div>
 
-                                <div class="flex justify-start items-center gap-4 flex-wrap mt-4 p-4">
-
-                                        <div
-                                                class="p-4 w-124 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-green-500">Ouverte </span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div
-                                                class="p-4 w-124 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-red-500">
-                                                                                Fermée</span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div
-                                                class="p-4 w-124 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-green-500">Ouverte </span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div
-                                                class="p-4 w-124 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-red-500">
-                                                                                Fermée</span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div
-                                                class="p-4 w-124 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-green-500">Ouverte </span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div
-                                                class="p-4 w-124 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-red-500">
-                                                                                Fermée</span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div
-                                                class="p-4 w-124 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-green-500">Ouverte </span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div
-                                                class="p-4 w-124 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-red-500">
-                                                                                Fermée</span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-                                
-                                </div>
-
                         </div>
+
                         <!-- TEST -->
                         <div id="section3" class="section  max-full overflow-y-auto scrollbar-hide bg-white rounded-md hidden">
                                 <div class="flex flex-col gap-2 px-4 ">
@@ -1067,6 +410,7 @@
                                         </div>
                                 </div>
                         </div>
+
                         <!-- /*PROFIL*/ -->
                         <div id="section6" class="section h-full rounded-md flex flex-col gap-4 w-[80%] bg-white p-4 hidden">
                                 <div class="flex flex-col gap-1 justify-start items-start">
@@ -1113,6 +457,7 @@
                                         </div>
                                 </div>
                         </div>
+
                         <!-- /*FORMULAIRE DE MISE A JOUR DU PROFIL */ -->
                         <div id="section5" class="section w-[50%] h-auto rounded-md flex flex-col gap-4 bg-white px-4 py-8 hidden">
                                 <div class="flex flex-col gap-1 justify-start items-start">
@@ -1132,6 +477,7 @@
                                         <button type="submit" class="shadow-md bg-[#f77313] mt-8 w-full h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]">Enregistrer</button>
                                 </form>
                         </div>
+
                         <!-- /*CONSEIL*/ -->
                         <div id=section4 class="section h-full rounded-md flex flex-col gap-4 w-[80%] bg-white p-4 relative max-full overflow-y-auto scrollbar-hide hidden">
                                 <div class="flex flex-col gap-1 justify-start items-start">
@@ -1186,10 +532,81 @@
 
                                 </div>
                         </div>
+
+                        <div id="section1" class="section w-full h-full  relative max-full overflow-y-auto scrollbar-hide ">
+                                <div class="w-full flex justify-start items-center gap-4 flex-wrap mt-4 p-4">
+                                        <div class="flex flex-col gap-4 w-full">
+                                                <h2 class="text-2xl font-semibold text-slate-700">Tests en cours / historiques
+                                                </h2>
+                                                <div class="relative max-full overflow-y-auto scrollbar-hide">
+                                                        <table class="min-w-full border border-gray-200 rounded-lg">
+                                                                <thead class="bg-gray-100">
+                                                                        <tr>
+                                                                                <th
+                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
+                                                                                        Num</th>
+                                                                                <th
+                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
+                                                                                        Entreprise</th>
+                                                                                <th
+                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
+                                                                                        Statut</th>
+                                                                                <th
+                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
+                                                                                        Score de crédibilité</th>
+                                                                                <th
+                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
+                                                                                        Date de publication</th>
+                                                                                <th
+                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
+                                                                                        Actions</th>
+                                                                        </tr>
+                                                                </thead>
+
+                                                                <tbody class="">
+
+                                                                        <tr class="hover:bg-gray-50">
+                                                                                <td
+                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                        01</td>
+                                                                                <td
+                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                        Gamatho Joel</td>
+                                                                                <td
+                                                                                        class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
+                                                                                        En cours</td>
+                                                                                <td
+                                                                                        class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
+                                                                                        55%</td>
+                                                                                <td
+                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                        12-08-2025 12:25</td>
+                                                                                <td
+                                                                                        class="p-2 text-sm text-slate-500 flex justify-around items-center">
+                                                                                        <button class=""><svg
+                                                                                                        xmlns="http://www.w3.org/2000/svg"
+                                                                                                        width="1.7em"
+                                                                                                        height="1.7em"
+                                                                                                        viewBox="0 0 24 24">
+                                                                                                        <path fill="#6B7280"
+                                                                                                                fill-rule="evenodd"
+                                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
+                                                                                                                clip-rule="evenodd" />
+                                                                                                </svg></button>
+                                                                                </td>
+                                                                        </tr>
+                                                                </tbody>
+                                                        </table>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+
                 </div>
         </main>
 
         <script src="../js/switch.js"></script>
+                <script src="../js/deconnexion.js"></script>
 </body>
 
 </html>

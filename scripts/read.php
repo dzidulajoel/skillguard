@@ -35,6 +35,15 @@ try {
                 ":id" => $id_session
         ));
         $data_o = $req->fetchAll(PDO::FETCH_ASSOC);
+
+
+        //affichage offre pour candidat
+                $sql = "SELECT * FROM offres";
+        $req = $pdo->prepare($sql);
+        $req->execute();
+        $offre_candidats = $req->fetchAll(PDO::FETCH_ASSOC);
+
+
 } catch (PDOException $e) {
         echo 'Erreur lors de la récupération des cours : ' . $e->getMessage();
 }

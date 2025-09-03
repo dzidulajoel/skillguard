@@ -27,7 +27,7 @@ form_offre.addEventListener('submit', async (event) => {
                 profil,
                 score
         };
-
+        
         let tousRemplis = true;
         for (let key in data) {
                 if (!data[key] || data[key].trim() === "") {
@@ -54,6 +54,7 @@ form_offre.addEventListener('submit', async (event) => {
                         if (result.success) {
                                 showAlert_o(result.message, true);
                                 form_offre.reset();
+                                closeForm()
                         } else {
                                 showAlert_o(result.message, false);
                         }
@@ -64,8 +65,6 @@ form_offre.addEventListener('submit', async (event) => {
         }
 
 });
-
-
 
 const showAlert_o = (message, isSuccess = true) => {
         const err_msg = document.querySelector('#err_msg');
@@ -86,4 +85,40 @@ const showAlert_o = (message, isSuccess = true) => {
                 }, 500);
         }, isSuccess ? 500 : 1500);
 };
+
+const form_creation_offre = document.querySelector('#form_creation_offre');
+const add_offre = document.querySelector('#add_offre');
+const section2 = document.querySelector('#section2');
+const close_offre_creation = document.querySelector('#close_offre_creation');
+const modal_content = document.querySelector('#modal_content');
+
+
+function openForm() {
+        form_creation_offre.classList.remove('hidden', 'opacity-0');
+        form_creation_offre.classList.add('opacity-100');
+        section2.classList.add('hidden');
+}
+
+function closeForm() {
+        form_creation_offre.classList.remove('opacity-100');
+        form_creation_offre.classList.add('opacity-0');
+
+        // Après l'animation, masquer complètement
+        setTimeout(() => {
+                form_creation_offre.classList.add('hidden');
+                section2.classList.remove('hidden');
+        }, 300); // durée de la transition
+}
+
+add_offre.addEventListener('click', openForm);
+
+close_offre_creation.addEventListener('click',
+        closeForm);
+close_offre_creation.addEventListener('click', (e)=>{
+        e.preventDefault();
+});
+
+
+
+
 

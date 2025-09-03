@@ -31,13 +31,14 @@ formQCM.addEventListener('submit', async (e) => {
                         answers: answers
                 });
         });
-
-
-        console.log(data);
         
 
         try {
-                const response = await fetch('../scripts/qcm_insertion.php', {
+                // Récupère les paramètres de l'URL
+                const params = new URLSearchParams(window.location.search);
+                const offre_id = params.get('offre_id');
+
+                const response = await fetch(`/skillguard/scripts/qcm_insertion.php?offre_id=${offre_id}`, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data) 
@@ -52,7 +53,7 @@ formQCM.addEventListener('submit', async (e) => {
                         showAlert(result.message, true);
                         formQCM.reset();
                         dynamic_creat.innerHTML = "";
-                        console.log(result.data);
+                        window.location.href = '../'
                 } else {
                         showAlert(result.message, false);
                 }
