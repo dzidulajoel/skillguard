@@ -92,28 +92,24 @@
                         <div class="flex gap-4 flex-wrap">
                                 <div class="p-4 w-[45%] h-auto bg-white rounded-md flex flex-col justify-start">
                                         <div class="flex justify-start items-center gap-2 mb-4">
-                                                <a href="" class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                viewBox="0 0 256 256">
-                                                                <path fill="#f1511b"
-                                                                        d="M121.666 121.666H0V0h121.666z" />
-                                                                <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                <path fill="#00adef"
-                                                                        d="M121.663 256.002H0V134.336h121.663z" />
-                                                                <path fill="#fbbc09"
-                                                                        d="M256 256.002H134.335V134.336H256z" />
-                                                        </svg>
-                                                </a>
-                                                <h2 class="text-lg font-bold text-slate-700"><?= $data_nom['entreprise'] ?? ""?> </h2>
+                                                <?php
+                                                        $entreprise_nom = strtoupper(substr( $offre['entreprise'] , 0, 1));
+                                                        $hash = md5($entreprise_nom);
+                                                        $color = '#' . substr($hash, 0, 6);
+                                                ?>
+                                                <span  class="shadow-md bg-[<?= $color ?>] w-10 h-10 flex justify-center items-center rounded-full text-white ">
+                                                        <?= strtoupper(substr(htmlspecialchars($offre['entreprise']), 0, 1)) ?>
+                                                </span>
+                                                <h2 class="text-lg font-bold text-slate-700"><?= $offre['entreprise'] ?? ""?> </h2>
                                         </div>
 
                                         <div class="p-4 w-full h-auto bg-white rounded-md  flex flex-col gap-4">
                                                 <h3 class="text-[#f77313] font-semibold"> <?= $offre['titre']?></h3>
                                                 <ul class=" flex flex-col gap-1 w-full">
                                                         <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Lieu de travail : </span>  <?= $offre['lieu']?></li>
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">contrat de travail: </span> <?= $offre['contrat']?></li>
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Expérience professionnelle: </span> <?= $offre['experience']?></li>
-                                                        <li class="text-sm text-justify <?= $colorClass ?>"> Statut de l'offre: <?= htmlspecialchars($offre['statut']) ?> </li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">contrat de travail : </span> <?= $offre['contrat']?></li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Expérience professionnelle : </span> <?= $offre['experience']?></li>
+                                                        <li class="text-sm text-justify"> <span class="text-[#00134d] font-semibold" >Statut de l'offre : </span><span class=" <?= $offre['statut'] === 'ouvert' ? 'text-green-500' : 'text-red-500'?>"><?= htmlspecialchars($offre['statut']) ?></span> </li>
                                                 </ul>
                                                 
                                                 <ul class=" flex flex-col gap-1 w-full">
@@ -144,7 +140,7 @@
                                                         <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Mission :</span>  <?= $offre['mission']?></li>
                                                 </ul>
                                         </div>
-                                        <button class="shadow-md bg-[#f77313] mt-8 w-50 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]">Passer le test</button>
+                                        <a href="../passer_le_test/?id=<?= htmlspecialchars($offre["id"]) ?>" class="shadow-md bg-[#f77313] mt-8 w-50 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">Passer le test</a>
                                         <p class="text-sm text-start text-slate-500 mt-4 flex justify-start gap-2 items-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em"
                                                         viewBox="0 0 24 24">

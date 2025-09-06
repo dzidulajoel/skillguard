@@ -1,13 +1,12 @@
 <?php
 session_start();
 require_once('../../config/cnx.php');
+require_once '../../vendor/autoload.php';
+use Ramsey\Uuid\Uuid;
 
 try {
         if (isset($_SESSION['id_utilisateur'])) {
                 $id_session = $_SESSION['id_utilisateur'];
-                $email = $_SESSION['email'];
-                $role = $_SESSION['role'];
-
         } else {
                 echo "Aucun utilisateur connecté.";
         }
@@ -25,15 +24,20 @@ try {
                 echo "Aucun ID reçu.";
         }
 
+        //offre id pour passer le test
+        $offre_id = $_GET['id'] ?? null;
+        if (empty($offre_id) || !Uuid::isValid($offre_id)) {
+                echo json_encode(['success' => false, 'message' => 'Identifiant de l\'offre manquant ou invalide.']);
+                exit();
+        }
 
+        $sql = "SELECT  *  FROM tests  WHERE offre_id = :id ";
+        $req = $pdo->prepare($sql);
+        $req->execute(array(
+                ":id" => $offre_id,
+        ));
+        $data_offre_test = $req->fetch(PDO::FETCH_ASSOC);
 
-        $colors = [
-                "Prêt" => "text-orange-500",
-                "Suspendu" => "text-red-500",
-                "Actif" => "text-green-500"
-        ];
-
-        $colorClass = $colors[$offre["statut"]] ?? "text-green-500";
 
 } catch (PDOException $e) {
         echo 'Erreur lors de la récupération des cours : ' . $e->getMessage();

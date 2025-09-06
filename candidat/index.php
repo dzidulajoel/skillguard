@@ -1,5 +1,7 @@
 <?php
+        require_once('../config/auth.php');
         require_once('../scripts/read.php');
+        require_once('../scripts/resultat_test.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -89,22 +91,11 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
-                                                                d="M12 3.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5m-5 9a3.75 3.75 0 1 0 0 7.498A3.75 3.75 0 0 0 7 12.5m10 0a3.75 3.75 0 1 0 0 7.499a3.75 3.75 0 0 0 0-7.499" />
-                                                </svg>
-                                                <span>Offres</span>
-                                        </a>
-                                </li>
-
-                                <li class="w-full">
-                                        <a href="#" data-section="section3" class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
-                                                        viewBox="0 0 24 24">
-                                                        <path fill="#6B7280"
                                                                 d="M10.514 6.49a4.5 4.5 0 0 1 2.973 0l7.6 2.66c.803.282.803 1.418 0 1.7l-7.6 2.66a4.5 4.5 0 0 1-2.973 0l-5.509-1.93a1.24 1.24 0 0 0-.436.597a1 1 0 0 1 .013 1.635l.004.018l.875 3.939a.6.6 0 0 1-.585.73H3.125a.6.6 0 0 1-.586-.73l.875-3.94l.005-.017a1 1 0 0 1 .132-1.707a2.35 2.35 0 0 1 .413-.889l-1.05-.367c-.804-.282-.804-1.418 0-1.7z" />
                                                         <path fill="#6B7280"
                                                                 d="m6.393 12.83l-.332 2.654c-.057.452.127.92.52 1.196c1.157.815 3.043 1.82 5.42 1.82a9 9 0 0 0 5.473-1.834c.365-.28.522-.727.47-1.152l-.336-2.685l-4.121 1.442a4.5 4.5 0 0 1-2.973 0z" />
                                                 </svg>
-                                                <span>Tests</span>
+                                                <span>resultats</span>
                                         </a>
                                 </li>
 
@@ -116,13 +107,6 @@
                                                                 d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z" />
                                                 </svg>
                                                 <span>Conseils</span>
-                                        </a>
-                                </li>
-
-                                <li class="w-full">
-                                        <a href="#" data-section="section7"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><g fill="none" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M11 5h10m-10 7h10m-10 7h10"/><circle cx="5" cy="5" r="2" fill="#6B7280"/><circle cx="5" cy="5" r="2" fill="#6B7280"/><circle cx="5" cy="12" r="2" fill="#6B7280"/><circle cx="5" cy="19" r="2" fill="#6B7280"/></g></svg>
-                                        <span>Historiques</span>
                                         </a>
                                 </li>
 
@@ -191,224 +175,65 @@
                                 <div class="flex justify-start items-center gap-4 flex-wrap mt-4 p-4">
                                         <?php if($offre_candidats): ?>
                                                 <?php foreach($offre_candidats as $offre_candidat): ?>
-                                                        <div class="p-4 w-120 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
-                                                                <div class="flex justify-between items-center">
-                                                                        <span  class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                                        viewBox="0 0 256 256">
-                                                                                        <path fill="#f1511b"
-                                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                                        <path fill="#00adef"
-                                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                                        <path fill="#fbbc09"
-                                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                                </svg>
-                                                                        </span>
+                                                        <?php
+                                                                $entreprise_nom = strtoupper(substr($offre_candidat['entreprise'], 0, 1));
+                                                                $hash = md5($entreprise_nom);
+                                                                $color = '#' . substr($hash, 0, 6);
+                                                        ?>
+                                                <div class="p-4 w-90 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
+                                                        <div class="flex justify-between items-center">
+                                                                <span style="background-color: <?= $color ?>;" class="w-10 h-10 flex justify-center items-center rounded-full text-white text-lg font-semibold">
+                                                                        <?= $entreprise_nom ?>
+                                                                </span>
 
-                                                                        <a href="offre/?id=<?= $offre_candidat["id"] ?>" class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                                        viewBox="0 0 24 24">
-                                                                                        <path fill="none" stroke="#f77313"
-                                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                                </svg>
-                                                                        </a>
-                                                                </div>
+                                                                <a href="offre/?id=<?= $offre_candidat["id"] ?>" class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                                                                        <path fill="none" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 7l5 5l-5 5" />
+                                                                </svg>
+                                                                </a>
+                                                        </div>
 
-                                                                <div>
-                                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                                        class="text-[#f77313]">Microsoft</span></h3>
-                                                                        <h3 class="text-slate-700 font-semibold">Poste : <?= htmlspecialchars($offre_candidat["titre"]) ?></h3>
-                                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                                <li class="text-sm text-start text-slate-500 "><span class="text-[#00134d] font-semibold">Statut :</span> <span class="text-green-500"><?= htmlspecialchars($offre_candidat["statut"]) ?> </span> </li>
-                                                                                <li class="text-sm text-start text-slate-500 "><span class="text-[#00134d] font-semibold">Exigences : </span>  <?= htmlspecialchars($offre_candidat["competence"]) ?></li>
-                                                                                <li class="text-sm text-start text-slate-500 "> <span class="text-[#00134d] font-semibold">Date limite :</span> <?= htmlspecialchars($offre_candidat["date_limite"]) ?> </li>
-                                                                                <li class="text-sm text-start text-slate-500 "> <span class="text-[#00134d] font-semibold">Expérience :</span> <?= htmlspecialchars($offre_candidat["experience"]) ?> </li>
-                                                                                <li class="text-sm text-start text-slate-500 "> <span class="text-[#00134d] font-semibold">Localisation  :</span> <?= htmlspecialchars($offre_candidat["lieu"]) ?> </li>
-                                                                        </ol>
-                                                                </div>
+                                                        <div>
+                                                                <h3 class="text-slate-700 font-semibold"> <span class="text-[#f77313]"> <?= htmlspecialchars($offre_candidat["entreprise"]) ?></span></h3>
+                                                                <h3 class="text-slate-700 font-semibold">Poste : <?= htmlspecialchars($offre_candidat["titre"]) ?></h3>
+                                                                <ol class="mt-2 flex flex-col gap-1">
+                                                                        <li class="text-sm text-start text-slate-500 ">
+                                                                                <span class="text-[#00134d] font-semibold">Statut :</span> 
+                                                                                <span class="<?php
+                                                                                if ($offre_candidat["statut"] == "ouvert") {
+                                                                                        echo "text-green-500";
+                                                                                } elseif ($offre_candidat["statut"] == "ferme") {
+                                                                                        echo "text-red-500";
+                                                                                } 
+                                                                                ?>"><?= htmlspecialchars($offre_candidat["statut"]) ?> </span> 
+                                                                        </li>
+                                                                        <li class="text-sm text-start text-slate-500 ">
+                                                                                <span class="text-[#00134d] font-semibold">Exigences : </span>  <?= htmlspecialchars($offre_candidat["competence"]) ?>
+                                                                        </li>
+                                                                        <li class="text-sm text-start text-slate-500 ">
+                                                                                <span class="text-[#00134d] font-semibold">Date limite :</span> <?= htmlspecialchars($offre_candidat["date_limite"]) ?> 
+                                                                        </li>
+                                                                        <li class="text-sm text-start text-slate-500 ">
+                                                                                <span class="text-[#00134d] font-semibold">Expérience :</span> <?= htmlspecialchars($offre_candidat["experience"]) ?> 
+                                                                        </li>
+                                                                        <li class="text-sm text-start text-slate-500 ">
+                                                                                <span class="text-[#00134d] font-semibold">Localisation :</span> <?= htmlspecialchars($offre_candidat["lieu"]) ?> 
+                                                                        </li>
+                                                                </ol>
+                                                        </div>
 
-                                                                <button class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                                        le test
-                                                                </button>
+                                                        <a href="passer_le_test/?id=<?= htmlspecialchars($offre_candidat["id"]) ?>" class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 right-0 rounded-b-lg">
+                                                                Passer le test
+                                                        </a>
                                                         </div>
                                                 <?php endforeach ?>
-                                        <?php else: ?>
+                                                <?php else: ?>
                                                 <div class="w-full flex justify-center items-center mt-12">
                                                         <h2 class="text-xl font-semibold text-slate-700">Aucune offre disponible</h2>
                                                 </div>
                                         <?php endif ?>
-
                                 </div>
 
-                        </div>
-
-                        <!-- OFFRE -->
-                        <div id="section2" class="section  max-full overflow-y-auto scrollbar-hide hidden ">
-                                <div class="flex flex-col gap-4 p-4">
-                                        <h2 class="text-2xl font-semibold text-slate-700">Les offres disponibles</h2>
-                                        <p class="text-xs text-justify text-slate-500 ">
-                                                Voici les offres disponibles pour lesquelles vous pouvez passer des tests. <br>
-                                                Sélectionnez une offre pour consulter les détails et commencer le QCM associé.
-                                        </p>
-                                </div>
-
-                        </div>
-
-                        <!-- TEST -->
-                        <div id="section3" class="section  max-full overflow-y-auto scrollbar-hide bg-white rounded-md hidden">
-                                <div class="flex flex-col gap-2 px-4 ">
-                                        <h2 class="text-2xl font-semibold text-slate-700">Démarrer les tests facilement et en
-                                                toute sécurité
-                                        </h2>
-                                        <p class="text-xs text-justify text-slate-500 "> Prêt pour vos tests ? Consultez vos offres et préparez-vous à montrer vos compétences</p>
-
-                                        <div class="flex justify-start items-center gap-4 w-full">
-                                                <input type="text" class="border border-2 p-1 w-100 outline-none rounded-md border-[#001436] placeholder:text-sm" id="nbQuestions" placeholder="Numero du test : 6FG670KAK37">
-                                                <button class="cursor-pointer hover:opacity-90 flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md gap-2">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="0 0 48 48"><path fill="#fff" fill-rule="evenodd" d="M4.89.867C6.37.666 8.498.5 11.5.5s5.13.166 6.61.367c2.49.34 4.085 2.322 4.235 4.682c.086 1.347.155 3.263.155 5.951s-.069 4.604-.155 5.951c-.15 2.36-1.745 4.342-4.236 4.682c-1.479.201-3.606.367-6.609.367s-5.13-.166-6.61-.367C2.4 21.793.806 19.81.656 17.45C.569 16.104.5 14.188.5 11.5s.069-4.604.155-5.951C.805 3.189 2.4 1.207 4.89.867m0 46.266c1.48.201 3.607.367 6.61.367s5.13-.166 6.61-.367c2.49-.34 4.085-2.322 4.235-4.682c.086-1.347.155-3.263.155-5.951s-.069-4.604-.155-5.951c-.15-2.36-1.745-4.342-4.236-4.682c-1.479-.201-3.606-.367-6.609-.367s-5.13.166-6.61.367C2.4 26.207.806 28.19.656 30.55C.569 31.896.5 33.812.5 36.5s.069 4.604.155 5.951c.15 2.36 1.746 4.342 4.236 4.682M47.5 36.5c0 3.003-.166 5.13-.367 6.61c-.34 2.49-2.322 4.085-4.682 4.235c-1.347.086-3.263.155-5.951.155s-4.604-.069-5.951-.155c-2.36-.15-4.342-1.746-4.682-4.236c-.201-1.479-.367-3.606-.367-6.609s.166-5.13.367-6.61c.34-2.49 2.322-4.085 4.682-4.235c1.347-.086 3.263-.155 5.951-.155s4.604.069 5.951.155c2.36.15 4.342 1.745 4.682 4.236c.201 1.479.367 3.606.367 6.609M34.307 1.884c.948-1.733 3.438-1.733 4.386 0l1.992 3.642a4.5 4.5 0 0 0 1.789 1.789l3.642 1.992c1.733.948 1.733 3.438 0 4.386l-3.642 1.992a4.5 4.5 0 0 0-1.789 1.789l-1.992 3.642c-.948 1.733-3.438 1.733-4.386 0l-1.992-3.642a4.5 4.5 0 0 0-1.789-1.789l-3.642-1.992c-1.733-.948-1.733-3.438 0-4.386l3.642-1.992a4.5 4.5 0 0 0 1.789-1.789z" clip-rule="evenodd"/></svg>                                                
-                                                        <span class="text-sm">Rechercher le test</span>
-                                                </button>
-                                        </div>
-
-                                        <div class="p-4 w-124 h-74 bg-slate-50 mt-4 rounded-md flex flex-col justify-start gap-4 relative">
-                                                <div class="flex justify-between items-center">
-                                                        <a href=""
-                                                                class="bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                        viewBox="0 0 256 256">
-                                                                        <path fill="#f1511b"
-                                                                                d="M121.666 121.666H0V0h121.666z" />
-                                                                        <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                        <path fill="#00adef"
-                                                                                d="M121.663 256.002H0V134.336h121.663z" />
-                                                                        <path fill="#fbbc09"
-                                                                                d="M256 256.002H134.335V134.336H256z" />
-                                                                </svg>
-                                                        </a>
-
-                                                        <a href="informations"
-                                                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em"
-                                                                        viewBox="0 0 24 24">
-                                                                        <path fill="none" stroke="#f77313"
-                                                                                stroke-linecap="round" stroke-linejoin="round"
-                                                                                stroke-width="2" d="m10 7l5 5l-5 5" />
-                                                                </svg>
-                                                        </a>
-                                                </div>
-
-                                                <div>
-                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                        class="text-[#f77313]">Microsoft</span> | Mr Traore
-                                                                issouf</h3>
-                                                        <h3 class="text-slate-700 font-semibold">Poste : Développeur Frontend
-                                                                React.js</h3>
-                                                        <ol class="mt-2 flex flex-col gap-1">
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                :</span> <span class="text-green-500">Ouverte </span>
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                :</span> React, TailwindCSS, JS avancé ...
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">QCM :</span>
-                                                                        20 questions | 30 min | Sécurité
-                                                                        stricte
-                                                                </li>
-                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                        <span class="text-[#00134d] font-semibold">Date limite
-                                                                                :</span> limite : 25 août 2025
-                                                                </li>
-                                                        </ol>
-                                                </div>
-                                                <button
-                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 ight-0 rounded-b-lg">Passer
-                                                        le test</button>
-                                        </div>
-
-                                        <div class="flex justify-start items-center gap-4 flex-wrap mt-4 p-4">
-                                                <div class="flex flex-col gap-4">
-                                                        <h2 class="text-2xl font-semibold text-slate-700">Tests en cours / historiques
-                                                        </h2>
-                                                        <div class="relative max-full overflow-y-auto scrollbar-hide">
-                                                                <table class="min-w-full border border-gray-200 rounded-lg">
-                                                                        <thead class="bg-gray-100">
-                                                                                <tr>
-                                                                                        <th
-                                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                                Num</th>
-                                                                                        <th
-                                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                                Entreprise</th>
-                                                                                        <th
-                                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                                Poste recherché</th>
-                                                                                        <th
-                                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                                Statut</th>
-                                                                                        <th
-                                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                                Score du test</th>
-                                                                                        <th
-                                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                                Score de crédibilité</th>
-                                                                                        <th
-                                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                                Date de publication</th>
-                                                                                        <th
-                                                                                                class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                                Actions</th>
-                                                                                </tr>
-                                                                        </thead>
-
-                                                                        <tbody class="">
-
-                                                                                <tr class="hover:bg-gray-50">
-                                                                                        <td
-                                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                                01</td>
-                                                                                        <td
-                                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                                Gamatho Joel</td>
-                                                                                        <td
-                                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                                Développeur fullstack Web & Mobile</td>
-                                                                                        <td
-                                                                                                class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
-                                                                                                En cours</td>
-                                                                                        <td
-                                                                                                class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
-                                                                                                12</td>
-                                                                                        <td
-                                                                                                class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
-                                                                                                55%</td>
-                                                                                        <td
-                                                                                                class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                                12-08-2025 12:25</td>
-                                                                                        <td
-                                                                                                class="p-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                                <button class=""><svg
-                                                                                                                xmlns="http://www.w3.org/2000/svg"
-                                                                                                                width="1.7em"
-                                                                                                                height="1.7em"
-                                                                                                                viewBox="0 0 24 24">
-                                                                                                                <path fill="#6B7280"
-                                                                                                                        fill-rule="evenodd"
-                                                                                                                        d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                                        clip-rule="evenodd" />
-                                                                                                        </svg></button>
-                                                                                        </td>
-                                                                                </tr>
-                                                                        </tbody>
-                                                                </table>
-                                                        </div>
-                                                </div>
-                                        </div>
-                                </div>
                         </div>
 
                         <!-- /*PROFIL*/ -->
@@ -532,70 +357,50 @@
 
                                 </div>
                         </div>
-
-                        <div id="section1" class="section w-full h-full  relative max-full overflow-y-auto scrollbar-hide ">
+                        
+                        <!-- /*RESULTAT*/ -->
+                        <div id="section2" class="section w-full h-full  relative max-full overflow-y-auto scrollbar-hide ">
                                 <div class="w-full flex justify-start items-center gap-4 flex-wrap mt-4 p-4">
                                         <div class="flex flex-col gap-4 w-full">
-                                                <h2 class="text-2xl font-semibold text-slate-700">Tests en cours / historiques
+                                                <h2 class="text-2xl font-semibold text-slate-700">Historiques de vos tests
                                                 </h2>
                                                 <div class="relative max-full overflow-y-auto scrollbar-hide">
                                                         <table class="min-w-full border border-gray-200 rounded-lg">
-                                                                <thead class="bg-gray-100">
-                                                                        <tr>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Num</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Entreprise</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Statut</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Score de crédibilité</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Date de publication</th>
-                                                                                <th
-                                                                                        class="px-4 py-2 text-sm text-left text-slate-600 border-r border-gray-200">
-                                                                                        Actions</th>
-                                                                        </tr>
-                                                                </thead>
-
-                                                                <tbody class="">
-
-                                                                        <tr class="hover:bg-gray-50">
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                        01</td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                        Gamatho Joel</td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
-                                                                                        En cours</td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-green-500 border-r border-gray-200 text-center">
-                                                                                        55%</td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
-                                                                                        12-08-2025 12:25</td>
-                                                                                <td
-                                                                                        class="p-2 text-sm text-slate-500 flex justify-around items-center">
-                                                                                        <button class=""><svg
-                                                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                                                        width="1.7em"
-                                                                                                        height="1.7em"
-                                                                                                        viewBox="0 0 24 24">
-                                                                                                        <path fill="#6B7280"
-                                                                                                                fill-rule="evenodd"
-                                                                                                                d="M20.77 12c0-.359-.194-.594-.582-1.066C18.768 9.21 15.636 6 12 6s-6.768 3.21-8.188 4.934c-.388.472-.582.707-.582 1.066s.194.594.582 1.066C5.232 14.79 8.364 18 12 18s6.768-3.21 8.188-4.934c.388-.472.582-.707.582-1.066M12 15a3 3 0 1 0 0-6a3 3 0 0 0 0 6"
-                                                                                                                clip-rule="evenodd" />
-                                                                                                </svg></button>
-                                                                                </td>
-                                                                        </tr>
-                                                                </tbody>
+                                                                
+                                                                <?php if($data_resultats):?>
+                                                                        <?php include("../components/thead_r.php")?>
+                                                                        <tbody class="">
+                                                                                <?php foreach($data_resultats as $resultat): ?>
+                                                                                        <tr class="hover:bg-gray-50">
+                                                                                                <td class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200"> <?= htmlspecialchars($resultat['titre_test']) ?></td>
+                                                                                                <td class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200"><?= htmlspecialchars($resultat['nom_entreprise']) ?></td>
+                                                                                                <td class="text-center px-4 py-2 text-sm font-semibold <?= htmlspecialchars($resultat['statut']) === 'fail' ? 'text-red-500' : 'text-green-500'  ?>  border-r border-gray-200 text-center"><?= htmlspecialchars($resultat['score']) ?> / 20 </td>
+                                                                                                <?php if(htmlspecialchars($resultat['statut']) === 'fail'):?>
+                                                                                                        <td class="text-center px-4 py-2 text-sm text-red-500 font-semibold border-r border-gray-200">Echoué</td>
+                                                                                                        <?php else:?>
+                                                                                                                <td class="text-center px-4 py-2 text-sm text-green-500 font-semibold border-r border-gray-200">Admis</td>
+                                                                                                <?php endif ?>
+                                                                                                <td class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200"><?= htmlspecialchars($resultat['date_creation']) ?></td>
+                                                                                                <?php if(htmlspecialchars($resultat['statut']) === 'fail'):?>
+                                                                                                        <td class="text-center px-4 py-2 text-sm text-slate-500 font-semibold border-r border-gray-200">-</td>
+                                                                                                <?php else:?>
+                                                                                                        <td class="flex justify-center items-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                                                <a  href="../" class="bg-[#00134d] rounded-md hover:opacity-90 px-4 py-2 w-40 flex items-center justify-center gap-3 text-white text-sm">
+                                                                                                                        <span>Postuler</span>
+                                                                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#fff" d="M18.844 13.483c1.208-.6 1.208-2.367 0-2.966L6.552 4.416c-1.228-.61-2.458.493-2.285 1.72l.54 3.829a1.64 1.64 0 0 0 1.128 1.342c.16.05.55.133 1.012.227c.636.13 4.39.466 4.39.466s-3.754.337-4.39.466c-.461.094-.851.177-1.012.227a1.64 1.64 0 0 0-1.128 1.342l-.54 3.83c-.173 1.226 1.057 2.329 2.285 1.72z"/></svg>
+                                                                                                                </a>
+                                                                                                        </td>
+                                                                                                <?php endif ?>
+                                                                                        </tr>
+                                                                                <?php endforeach ?>
+                                                                        </tbody>
+                                                                <?php else:?>
+                                                                        
+                                                                        <div class="w-full flex justify-center items-center mt-12">
+                                                                                
+                                                                                <h2 class="text-xl font-semibold text-slate-700">Aucun resultat disponible</h2>
+                                                                        </div>
+                                                                <?php endif ?>
                                                         </table>
                                                 </div>
                                         </div>

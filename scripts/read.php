@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('../config/cnx.php');
 
 try {
@@ -38,10 +37,20 @@ try {
 
 
         //affichage offre pour candidat
-                $sql = "SELECT * FROM offres";
+        $sql = "SELECT * FROM offres";
         $req = $pdo->prepare($sql);
         $req->execute();
         $offre_candidats = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($offre_candidats as $offre) {
+                // Première lettre de l'entreprise en majuscule
+                $entreprise_nom = strtoupper(substr($offre['entreprise'], 0, 1));
+
+                // Générer une couleur unique à partir du hash
+                $hash = md5($entreprise_nom);
+                $color = '#' . substr($hash, 0, 6);
+        }
+
 
 
 } catch (PDOException $e) {
