@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('../config/cnx.php');
 
 try {
@@ -33,20 +32,20 @@ try {
         ));
         $data_o = $req->fetchAll(PDO::FETCH_ASSOC);
 
-
-        //candidat
-        $sql = "SELECT  r.*,  u.nom AS nom_candidat, u.prenom as prenom_candidat,  u.email AS email_candidat,  t.titre AS titre_test,  o.titre AS titre_offre
-        FROM resultats r
-        INNER JOIN utilisateurs u ON r.candidat_id = u.id
-        INNER JOIN tests t ON r.test_id = t.id
-        INNER JOIN offres o ON t.offre_id = o.id
-        WHERE r.utilisateur_id = :id";
-
+        //affichage offre pour candidat
+        $sql = "SELECT * FROM offres";
         $req = $pdo->prepare($sql);
-        $req->execute([
-                ":id" => $id_session
-        ]);
-        $resultats_candidat = $req->fetchAll(PDO::FETCH_ASSOC);
+        $req->execute();
+        $offre_candidats = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($offre_candidats as $offre) {
+                // Première lettre de l'entreprise en majuscule
+                $entreprise_nom = strtoupper(substr($offre['entreprise'], 0, 1));
+
+                // Générer une couleur unique à partir du hash
+                $hash = md5($entreprise_nom);
+                $color = '#' . substr($hash, 0, 6);
+        }
 
 } catch (PDOException $e) {
         echo 'Erreur lors de la récupération des cours : ' . $e->getMessage();
