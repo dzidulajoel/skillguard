@@ -1,7 +1,6 @@
 <?php
         require_once('../../scripts/offre_candidat.php');
         require_once('../../config/auth.php');
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -89,7 +88,6 @@
                         <div class="flex flex-col gap-2 px-4 ">
                                 <h2 class="text-2xl font-semibold text-slate-700">Démarrer le test facilement et en toute sécurité</h2>
                                 <h2 class="text-xl font-semibold text-slate-700">Titre : <span class="text-[#f77313]"><?= htmlspecialchars($data_offre_test['titre'] ?? "Titre indisponible") ?></span></h2>
-                                
                         </div>
 
                         <div class="flex justify-start items-start gap-4 w-full h-full">

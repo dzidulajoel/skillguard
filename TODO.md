@@ -1,0 +1,5 @@
+- details candidat -> recruteur sur la credibilte
+- verification d'un seul passage de test
+- responsive
+- graph
+- finition du CRUD

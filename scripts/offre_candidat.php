@@ -5,40 +5,89 @@ require_once '../../vendor/autoload.php';
 use Ramsey\Uuid\Uuid;
 
 try {
-        if (isset($_SESSION['id_utilisateur'])) {
-                $id_session = $_SESSION['id_utilisateur'];
-        } else {
-                echo "Aucun utilisateur connecté.";
-        }
+        // Récupérer les paramètres depuis l'URL
+        $id_offre = $_GET['id'] ?? null;
+        $token = $_GET['token'] ?? null;
 
-        if (isset($_GET['id'])) {
-                //test
-                $id = $_GET['id'];
-                $sql = "SELECT  *  FROM offres  WHERE id = :id ";
-                $req = $pdo->prepare($sql);
-                $req->execute(array(
-                        ":id" => $id,
-                ));
-                $offre = $req->fetch(PDO::FETCH_ASSOC);
-        } else {
-                echo "Aucun ID reçu.";
-        }
-
-        //offre id pour passer le test
-        $offre_id = $_GET['id'] ?? null;
-        if (empty($offre_id) || !Uuid::isValid($offre_id)) {
-                echo json_encode(['success' => false, 'message' => 'Identifiant de l\'offre manquant ou invalide.']);
+        // Vérification 1 : ni id_offre ni token → redirection
+        if (!$id_offre && !$token) {
+                header("Location: ../");
                 exit();
         }
 
-        $sql = "SELECT  *  FROM tests  WHERE offre_id = :id ";
-        $req = $pdo->prepare($sql);
-        $req->execute(array(
-                ":id" => $offre_id,
-        ));
-        $data_offre_test = $req->fetch(PDO::FETCH_ASSOC);
+        // Vérification 2 : accès classique via id_offre
+        if ($id_offre && !$token) {
+                if (!Uuid::isValid($id_offre)) {
+                        header("Location: ../");
+                        exit();
+                }
 
+                // Vérifier que l'offre existe
+                $sql = "SELECT * FROM offres WHERE id = :id";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([':id' => $id_offre]);
+                $offre = $stmt->fetch(PDO::FETCH_ASSOC);
 
-} catch (PDOException $e) {
-        echo 'Erreur lors de la récupération des cours : ' . $e->getMessage();
+                if (!$offre) {
+                        header("Location: ../");
+                        exit();
+                }
+        }
+
+        // Vérification 3 : accès via token
+        if ($token) {
+                // Vérifier que le token existe, est en attente et non expiré
+                $sql = "SELECT * FROM invitations 
+                WHERE token = :token 
+                AND etat_invitation = 'en_attente' 
+                AND (date_expiration IS NULL OR date_expiration > NOW())";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([':token' => $token]);
+                $invitation = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if (!$invitation) {
+                        header("Location: ../");
+                        exit();
+                }
+
+                // Récupérer l'id_offre via l'id_test
+                $id_test = $invitation['test_id'];
+                $sql = "SELECT offre_id FROM tests WHERE id = :id_test";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([':id_test' => $id_test]);
+                $test = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if (!$test) {
+                        header("Location: ../");
+                        exit();
+                }
+
+                $id_offre = $test['offre_id'];
+
+                // Mettre à jour l'état du token pour éviter réutilisation
+                $sql = "UPDATE invitations SET etat_invitation = 'utilisee', date_utilisation = NOW() 
+                WHERE token = :token";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([':token' => $token]);
+        }
+
+        // ----- Ici, toutes les vérifications sont passées -----
+        // Récupérer le test associé à l'offre
+        $sql = "SELECT * FROM tests WHERE offre_id = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([':id' => $id_offre]);
+        $data_offre_test = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$data_offre_test) {
+                header("Location: ../");
+                exit();
+        }
+
+        // Ici, tu peux continuer le traitement pour afficher le test
+        // par exemple inclure la vue ou stocker $data_offre_test pour le front-end
+
+} catch (Exception $e) {
+        error_log("Erreur lors de la vérification du test : " . $e->getMessage());
+        header("Location: ../");
+        exit();
 }

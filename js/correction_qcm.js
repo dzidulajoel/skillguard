@@ -1,5 +1,4 @@
 const form_qcm_candidat_reponse = document.querySelector('#form_qcm_candidat_reponse');
-const button_submit_test_qcm = document.querySelector('#button_submit_test_qcm');
 
 
 document.querySelector('#offre_back').addEventListener('click', ()=>{
@@ -45,13 +44,6 @@ form_qcm_candidat_reponse.addEventListener('submit', async (e) => {
                 const result = await response.json();
 
                 if (result.success) {
-                        console.log(result.test_id);
-                        console.log(result.id);
-                        console.log(result.recruteur_id);
-                        console.log(result.questions);
-                        console.log(result.data);
-                        console.log(result.total);
-                        console.log(result.offre_note);
                         form_qcm_candidat_reponse.reset();
                         button_submit_test_qcm.disabled = true;
                         button_submit_test_qcm.innerHTML = '<a href="../../">Retour à l\'acceuil</a>'
@@ -64,7 +56,6 @@ form_qcm_candidat_reponse.addEventListener('submit', async (e) => {
         }
 
 });
-
 
 const showAlert_o = (message, isSuccess = true) => {
         const err_msg = document.querySelector('#err_msg');
@@ -83,5 +74,5 @@ const showAlert_o = (message, isSuccess = true) => {
                 setTimeout(() => {
                         alert.remove();
                 }, 500);
-        }, isSuccess ? 500 : 1500);
+        }, isSuccess ? 2000 : 3000);
 };

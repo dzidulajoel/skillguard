@@ -23,7 +23,7 @@ try {
 
         echo json_encode([
                 'success' => true,
-                'message' => 'Déconnexion réussie.'
+                'message' => 'Déconnexion en cours ....' 
         ]);
 } catch (Exception $e) {
         echo json_encode([

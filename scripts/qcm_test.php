@@ -29,7 +29,6 @@ try {
                         ":id_session" => $id_session
                 ));
                 $data_t = $req->fetch(PDO::FETCH_ASSOC);
-
                 //questions:
                 // Récupération des questions
                 $sql = "SELECT * FROM questions WHERE test_id = :id AND utilisateur_id = :id_session";
