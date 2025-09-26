@@ -1,3 +1,4 @@
+<?php  require_once("../scripts/tokenVerification.php");?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,29 +17,28 @@
                         <img src="../SkillGuard Flat Shield Logo.svg" alt="Skillguard mascot choix">
                 </div>
                 <div class="w-full mb-4">
+                        <div id="msg"></div>
                         <h2 class="text-2xl font-semibold text-slate-700 text-center">Réinitialiser votre mot de passe</h2>
                         <p class="text-sm text-slate-500 text-center">Créez un nouveau mot de passe pour sécuriser votre compte SkillGuard.  <br> Assurez-vous qu’il contient au moins 8 caractères..</p>
                 </div>
                 <div class="flex gap-4 justify-center items-center  w-full">
-                        <form action="/inscription" method="post"
+                        <form  method="post" id="formRecuperation"
                                 class="rounded-md flex flex-col gap-6 w-[50%] bg-white p-4">
-                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
+                                <input id="pwd" class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
                                         type="password" name="password_confirm" placeholder="Nouveau mot de passe"
-                                        minlength="8" autocomplete="new-password" required
-                                        oninput="this.setCustomValidity(this.value !== this.form.password.value ? 'Les mots de passe ne correspondent pas.' : '');">
+                                        minlength="8" required>
 
-                                <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
+                                <input id="pwd_conf" class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
                                         type="password" name="password_confirm" placeholder="Confirmation du mot de passe"
-                                        minlength="8" autocomplete="new-password" required
-                                        oninput="this.setCustomValidity(this.value !== this.form.password.value ? 'Les mots de passe ne correspondent pas.' : '');">
+                                        minlength="8" required>
 
-                                <button
-                                        class="bg-[#00B8D9] mt-2 px-2 py-2 w-full rounded-full cursor-pointer hover:bg-[#001436] hover:text-white text-white">Réinitialiser
+                                <button data-token = "<?= htmlspecialchars($token)?>" id="sendBtn" class="bg-[#00B8D9] mt-2 px-2 py-2 w-full rounded-full cursor-pointer hover:bg-[#001436] hover:text-white text-white">Réinitialiser
                                         le mot de passe</button>
                         </form>
                 </div>
 
         </section>
+        <script src="../js/reinitialisation.js"></script>
 </body>
 
 </html>

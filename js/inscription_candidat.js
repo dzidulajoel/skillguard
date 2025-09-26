@@ -92,6 +92,6 @@ const showAlert = (message, isSuccess = true) => {
                 setTimeout(() => {
                         alert.remove();
                 }, 500);
-        }, isSuccess ? 500 : 1500);
+        }, isSuccess ? 3000 : 4000);
 };
 

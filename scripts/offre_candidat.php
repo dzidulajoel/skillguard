@@ -5,17 +5,28 @@ require_once '../../vendor/autoload.php';
 use Ramsey\Uuid\Uuid;
 
 try {
-        // Récupérer les paramètres depuis l'URL
+        if (isset($_SESSION['id_utilisateur'])) {
+                $id_session = $_SESSION['id_utilisateur'];
+        } else {
+                echo "Aucun utilisateur connecté.";
+        }
+        $sql = "SELECT  *  FROM utilisateurs  WHERE id = :id";
+        $req = $pdo->prepare($sql);
+        $req->execute(array(
+                ":id" => $id_session
+        ));
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+
         $id_offre = $_GET['id'] ?? null;
         $token = $_GET['token'] ?? null;
 
-        // Vérification 1 : ni id_offre ni token → redirection
+
         if (!$id_offre && !$token) {
                 header("Location: ../");
                 exit();
         }
 
-        // Vérification 2 : accès classique via id_offre
+
         if ($id_offre && !$token) {
                 if (!Uuid::isValid($id_offre)) {
                         header("Location: ../");
@@ -34,7 +45,6 @@ try {
                 }
         }
 
-        // Vérification 3 : accès via token
         if ($token) {
                 // Vérifier que le token existe, est en attente et non expiré
                 $sql = "SELECT * FROM invitations 
@@ -50,7 +60,6 @@ try {
                         exit();
                 }
 
-                // Récupérer l'id_offre via l'id_test
                 $id_test = $invitation['test_id'];
                 $sql = "SELECT offre_id FROM tests WHERE id = :id_test";
                 $stmt = $pdo->prepare($sql);
@@ -71,8 +80,7 @@ try {
                 $stmt->execute([':token' => $token]);
         }
 
-        // ----- Ici, toutes les vérifications sont passées -----
-        // Récupérer le test associé à l'offre
+
         $sql = "SELECT * FROM tests WHERE offre_id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':id' => $id_offre]);
@@ -82,9 +90,6 @@ try {
                 header("Location: ../");
                 exit();
         }
-
-        // Ici, tu peux continuer le traitement pour afficher le test
-        // par exemple inclure la vue ou stocker $data_offre_test pour le front-end
 
 } catch (Exception $e) {
         error_log("Erreur lors de la vérification du test : " . $e->getMessage());

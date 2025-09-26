@@ -85,61 +85,72 @@
                         </ul>
 
                 </nav>
+
                 <div class="section w-full h-full rounded-md flex flex-col gap-4 p-4 ">
                         <div class="flex justify-between items-center">
-                                <h2 class="text-lg font-bold text-slate-700">Offre : <?= $offre['titre']?> </h2>
+                                <h2 class="text-lg font-bold text-slate-700">Offre : <?= htmlspecialchars($offre['titre'] ?? "-")?> </h2>
                         </div>
                         <div class="flex gap-4 flex-wrap">
                                 <div class="p-4 w-[45%] h-auto bg-white rounded-md flex flex-col justify-start">
+
                                         <div class="flex justify-start items-center gap-2 mb-4">
                                                 <?php
-                                                        $entreprise_nom = strtoupper(substr( $offre['entreprise'] , 0, 1));
+                                                        $entreprise_nom = strtoupper(substr( htmlspecialchars( $offre['entreprise']?? "-")  , 0, 1));
                                                         $hash = md5($entreprise_nom);
                                                         $color = '#' . substr($hash, 0, 6);
                                                 ?>
                                                 <span  class="shadow-md bg-[<?= $color ?>] w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                        <?= strtoupper(substr(htmlspecialchars($offre['entreprise']), 0, 1)) ?>
+                                                        <?= strtoupper(substr(htmlspecialchars(htmlspecialchars($offre['entreprise'] ?? "-") ), 0, 1)) ?>
                                                 </span>
-                                                <h2 class="text-lg font-bold text-slate-700"><?= $offre['entreprise'] ?? ""?> </h2>
+                                                <h2 class="text-lg font-bold text-slate-700"><?= htmlspecialchars($offre['entreprise'] ?? "-")  ?? ""?> </h2>
                                         </div>
 
                                         <div class="p-4 w-full h-auto bg-white rounded-md  flex flex-col gap-4">
-                                                <h3 class="text-[#f77313] font-semibold"> <?= $offre['titre']?></h3>
-                                                <ul class=" flex flex-col gap-1 w-full">
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Lieu de travail : </span>  <?= $offre['lieu']?></li>
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">contrat de travail : </span> <?= $offre['contrat']?></li>
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Expérience professionnelle : </span> <?= $offre['experience']?></li>
-                                                        <li class="text-sm text-justify"> <span class="text-[#00134d] font-semibold" >Statut de l'offre : </span><span class=" <?= $offre['statut'] === 'ouvert' ? 'text-green-500' : 'text-red-500'?>"><?= htmlspecialchars($offre['statut']) ?></span> </li>
+                                                <h3 class="text-[#f77313] font-semibold"> <?= htmlspecialchars($offre['titre'] ?? "-") ?></h3>
+                                                <ul class=" flex flex-col gap-2 w-full">
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Lieu de travail : </span>  <?= htmlspecialchars($offre['lieu'] ?? "-") ?></li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">contrat de travail : </span> <?= htmlspecialchars($offre['contrat'] ?? "-") ?></li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Expérience professionnelle : </span> <?= htmlspecialchars($offre['experience'] ?? "-") ?></li>
+                                                        <li class="text-sm text-justify"> <span class="text-[#00134d] font-semibold" >Statut de l'offre : </span><span class=" <?= htmlspecialchars($offre['statut'] ?? "-")  === 'ouvert' ? 'text-green-500' : 'text-red-500'?>"><?= htmlspecialchars($offre['statut']) ?></span> </li>
                                                 </ul>
                                                 
-                                                <ul class=" flex flex-col gap-1 w-full">
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Score de validation :</span>  <?= $offre['score']?> / 20</li>
-                                                        <li class="text-sm text-justify text-slate-500 w-full"><span class="text-[#00134d] font-semibold">Compétences réquises : </span> <?= $offre['competence']?></li>
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Date limite de l'offre :</span>  <?= $offre['date_limite']?></li>
+                                                <ul class=" flex flex-col gap-2 w-full">
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Score de validation :</span>  <?= htmlspecialchars($offre['score'] ?? "-") ?> / 20</li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Date limite de l'offre :</span>  <?= htmlspecialchars($offre['score_credibilite'] ?? "-") ?> / 100</li>
+                                                        <li class="text-sm text-justify text-slate-500 w-full"><span class="text-[#00134d] font-semibold">Compétences réquises : </span> <?= htmlspecialchars($offre['competence'] ?? "-") ?></li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Date limite de l'offre :</span>  <?= htmlspecialchars($offre['date_limite'] ?? "-") ?></li>
+                                                        <li class="text-sm text-justify text-slate-500">
+                                                                <span class="text-[#00134d] font-semibold">Salaire :</span>
+                                                                <?= number_format(htmlspecialchars($offre["salaire"] ?? "-"), 0, ',', ' ') . " CFA" ?>
+                                                        </li>
                                                 </ul>
                                         </div>
 
                                 </div>
 
                                 <div class="p-4 w-[45%] h-auto bg-white rounded-md  flex flex-col gap-4">
+
                                         <div>
                                                 <h3 class="text-[#f77313] font-semibold"> Profil :</h3>
                                                 <ul  class=" flex flex-col gap-1">
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Profil :</span>  <?= $offre['profil']?></li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Profil :</span>  <?= htmlspecialchars($offre['profil'] ?? "-") ?></li>
                                                 </ul>
                                         </div>
+
                                         <div>
                                                 <h3 class="text-[#f77313] font-semibold"> Description du travail :</h3>
                                                 <ul  class=" flex flex-col gap-1">
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Description :</span>  <?= $offre['description']?></li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Description :</span>  <?= htmlspecialchars($offre['description'] ?? "-") ?></li>
                                                 </ul>
                                         </div>
+
                                         <div>
                                                 <h3 class="text-[#f77313] font-semibold"> Mission :</h3>
                                                 <ul  class=" flex flex-col gap-1">
-                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Mission :</span>  <?= $offre['mission']?></li>
+                                                        <li class="text-sm text-justify text-slate-500"><span class="text-[#00134d] font-semibold">Mission :</span>  <?= htmlspecialchars($offre['mission'] ?? "-") ?></li>
                                                 </ul>
                                         </div>
+
                                         <a href="../passer_le_test/?id=<?= htmlspecialchars($offre["id"]) ?>" class="shadow-md bg-[#f77313] mt-8 w-50 h-10 flex justify-center items-center rounded-md text-white cursor-pointer hover:bg-[#001436]">Passer le test</a>
                                         <p class="text-sm text-start text-slate-500 mt-4 flex justify-start gap-2 items-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="2.5em" height="2.5em"
@@ -156,6 +167,7 @@
                                                 </svg>
                                                 Conseil de Skilly : Vérifiez votre environnement avant de commencer pour éviter toute fraude.
                                         </p>
+
                                 </div>
                         </div>
 

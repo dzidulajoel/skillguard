@@ -25,59 +25,27 @@ require_once('../scripts/resultat_test.php');
                 </div>
 
                 <div class="flex justify-center items-center gap-4 mt-2">
-                        <div class="shadow-md bg-white w-80 h-10 flex justify-center items-center rounded-full">
-                                <input type="text" placeholder="Faites votre recherche ..."
-                                        class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-64">
-                                <button
-                                        class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436] hover:bg-[#001436]/90">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                                viewBox="0 0 24 24">
-                                                <path fill="#fff"
-                                                        d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" />
-                                        </svg>
-                                </button>
-                        </div>
 
-                        <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="#6B7280" d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0zM9 21h6v2H9z" />
-                                </svg>
-                        </button>
-
+                        <div id="err_msg_deconnexion"></div>
                         <button
                                 class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-[#f77313] font-bold cursor-pointer hover:bg-[#001436]/10">
-                                <?php echo strtoupper(substr($data['prenom'], 0, 1)) . strtoupper(substr($data['nom'], 0, 1)) ?>
+                                <?php echo strtoupper(substr(htmlspecialchars($data['prenom']), 0, 1)) . strtoupper(substr(htmlspecialchars($data['nom']), 0, 1)) ?>
                         </button>
 
-                        <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 48 48">
-                                        <defs>
-                                                <mask id="SVG9e55ocrc">
-                                                        <g fill="none" stroke-linejoin="round" stroke-width="4">
-                                                                <path fill="#fff" stroke="#fff"
-                                                                        d="m34 41l10-17L34 7H14L4 24l10 17z" />
-                                                                <path fill="#000" stroke="#000"
-                                                                        d="M24 29a5 5 0 1 0 0-10a5 5 0 0 0 0 10Z" />
-                                                        </g>
-                                                </mask>
-                                        </defs>
-                                        <path fill="#6B7280" d="M0 0h48v48H0z" mask="url(#SVG9e55ocrc)" />
-                                </svg>
+                        <button class="logout shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 12 12"><path fill="#6B7280" d="M4 2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h3.5a.5.5 0 0 0 0-1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1zm4.854 1.646a.5.5 0 1 0-.708.708L9.293 5.5H5a.5.5 0 0 0 0 1h4.293L8.146 7.646a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708z"/></svg>
                         </button>
                 </div>
 
         </header>
 
         <main class="w-full h-[90vh] flex px-[5%] gap-2 pt-8">
+
                 <nav id="menu" class="flex flex-col justify-between w-auto h-full bg-white rounded-md p-4 ">
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm w-full">
                                 <li class="w-full">
                                         <a href="#" data-section="section1"
-                                                class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                                class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -88,7 +56,7 @@ require_once('../scripts/resultat_test.php');
 
                                 <li class="w-full">
                                         <a href="#" data-section="section2"
-                                                class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                                class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -102,7 +70,7 @@ require_once('../scripts/resultat_test.php');
 
                                 <li class="w-full">
                                         <a href="#" data-section="section3"
-                                                class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                                class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -116,7 +84,7 @@ require_once('../scripts/resultat_test.php');
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
                                 <li class="w-full">
                                         <a href="#" data-section="section4"
-                                                class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full">
+                                                class="flex items-center justify-start gap-3 bg-[#00134d] px-4 py-2 w-full rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -130,27 +98,20 @@ require_once('../scripts/resultat_test.php');
                                                 <span>Paramètres</span>
                                         </a>
                                 </li>
+
                                 <li class="w-full">
-                                        <button
-                                                class="logout w-full cursor-pointer hover:bg-red-500 hover:text-white px-4 py-2 w-full flex items-center justify-start gap-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
-                                                        viewBox="0 0 24 24">
-                                                        <g fill="#6B7280" fill-rule="evenodd" clip-rule="evenodd">
-                                                                <path
-                                                                        d="M19.353 6.5H16.49V9H6.404v6H16.49v2.5h2.864A9.99 9.99 0 0 1 11 22C5.477 22 1 17.523 1 12S5.477 2 11 2a9.99 9.99 0 0 1 8.353 4.5M17.989 16v-1zm0-8v1z" />
-                                                                <path d="m18.99 8l4 4l-4 4h-1v-2.5h-10v-3h10V8z" />
-                                                        </g>
-                                                </svg>
-                                                <span>Déconnexion</span>
+                                        <button class="logout w-full px-4 py-2 w-full flex items-center justify-start gap-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#6B7280" d="M12 14v8H4a8 8 0 0 1 8-8m0-1c-3.315 0-6-2.685-6-6s2.685-6 6-6s6 2.685 6 6s-2.685 6-6 6m9 4h1v5h-8v-5h1v-1a3 3 0 1 1 6 0zm-2 0v-1a1 1 0 1 0-2 0v1z"/></svg>
+                                                <span><?= htmlspecialchars($data['nom'])  ?></span>
                                         </button>
                                 </li>
+
                         </ul>
                 </nav>
 
                 <div id="sections" class="w-full">
                         <!-- Dashboard -->
-                        <div id="section1"
-                                class="section w-full h-full  relative max-full overflow-y-auto scrollbar-hide ">
+                        <div id="section1" class="section w-full h-full relative max-full overflow-y-auto scrollbar-hide">
                                 <div class="flex flex-col gap-4 p-4">
                                         <h2 class="text-2xl font-semibold text-slate-700">Bienvenue <span
                                                         class="text-[#f77313]"><?= htmlspecialchars($data['nom'] . ' ' . $data['prenom']) ?></span>
@@ -167,19 +128,20 @@ require_once('../scripts/resultat_test.php');
                                         <?php if ($offre_candidats): ?>
                                                 <?php foreach ($offre_candidats as $offre_candidat): ?>
                                                         <?php
-                                                        $entreprise_nom = strtoupper(substr($offre_candidat['entreprise'], 0, 1));
-                                                        $hash = md5($entreprise_nom);
-                                                        $color = '#' . substr($hash, 0, 6);
+                                                                $entreprise_nom = strtoupper(substr($offre_candidat['entreprise'], 0, 1));
+                                                                $hash = md5($entreprise_nom);
+                                                                $color = '#' . substr($hash, 0, 6);
                                                         ?>
-                                                        <div
-                                                                class="p-4 w-90 h-74 bg-white rounded-md flex flex-col justify-start gap-4 relative">
+                                                        
+                                                        <div class="p-4 w-90 h-80 bg-white rounded-md flex flex-col justify-start gap-4 relative shadow-md">
+
                                                                 <div class="flex justify-between items-center">
                                                                         <span style="background-color: <?= $color ?>;"
                                                                                 class="w-10 h-10 flex justify-center items-center rounded-full text-white text-lg font-semibold">
-                                                                                <?= $entreprise_nom ?>
+                                                                                <?= htmlentities($entreprise_nom ?? "I") ?>
                                                                         </span>
 
-                                                                        <a href="offre/?id=<?= $offre_candidat["id"] ?>"
+                                                                        <a href="offre/?id=<?= htmlspecialchars($offre_candidat["id"]) ?>"
                                                                                 class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#00134d]/10">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="2em"
                                                                                         height="2em" viewBox="0 0 24 24">
@@ -191,61 +153,82 @@ require_once('../scripts/resultat_test.php');
                                                                         </a>
                                                                 </div>
 
-                                                                <div>
-                                                                        <h3 class="text-slate-700 font-semibold"> <span
-                                                                                        class="text-[#f77313]">
-                                                                                        <?= htmlspecialchars($offre_candidat["entreprise"]) ?></span>
+                                                                <div >
+                                                                        <h3 class="text-slate-700 font-semibold"> 
+                                                                                <span class="text-[#f77313]"> <?= htmlspecialchars($offre_candidat["entreprise"]) ?></span>
                                                                         </h3>
-                                                                        <h3 class="text-slate-700 font-semibold">Poste :
-                                                                                <?= htmlspecialchars($offre_candidat["titre"]) ?></h3>
+                                                                        <h3 class="text-slate-700 font-semibold">Poste : <?= htmlspecialchars($offre_candidat["titre"] ?? "-") ?></h3>
                                                                         <ol class="mt-2 flex flex-col gap-1">
+
                                                                                 <li class="text-sm text-start text-slate-500 ">
-                                                                                        <span class="text-[#00134d] font-semibold">Statut
-                                                                                                :</span>
+                                                                                        <span class="text-[#00134d] font-semibold">Exigences : </span>
+                                                                                        <?= htmlspecialchars($offre_candidat["competence"] ?? "-") ?>
+                                                                                </li>
+
+                                                                                <li class="text-sm text-start text-slate-500 ">
+                                                                                        <span class="text-[#00134d] font-semibold">Date limite :</span>
+                                                                                        <?= htmlspecialchars($offre_candidat["date_limite"] ?? "-") ?>
+                                                                                </li>
+
+                                                                                <li class="text-sm text-start text-slate-500 ">
+                                                                                        <span class="text-[#00134d] font-semibold">Salaire :</span>
+                                                                                        <?= number_format(htmlspecialchars($offre_candidat["salaire"] ?? "-"), 0, ',', ' ') . " CFA" ?>
+                                                                                </li>
+
+                                                                                <li class="text-sm text-start text-slate-500 ">
+                                                                                        <span class="text-[#00134d] font-semibold">Expérience :</span>
+                                                                                        <?= htmlspecialchars($offre_candidat["experience"] ?? "-") ?>
+                                                                                </li>
+
+                                                                                <li class="text-sm text-start text-slate-500 ">
+                                                                                        <span class="text-[#00134d] font-semibold">Localisation :</span>
+                                                                                        <?= htmlspecialchars($offre_candidat["lieu"] ?? "-") ?>
+                                                                                </li>
+
+                                                                                <li class="text-sm text-start text-slate-500 ">
+                                                                                        <span class="text-[#00134d] font-semibold">Statut :</span>
                                                                                         <span class="<?php
-                                                                                        if ($offre_candidat["statut"] == "ouvert") {
-                                                                                                echo "text-green-500";
-                                                                                        } elseif ($offre_candidat["statut"] == "ferme") {
-                                                                                                echo "text-red-500";
-                                                                                        }
-                                                                                        ?>"><?= htmlspecialchars($offre_candidat["statut"]) ?>
+                                                                                                if ($offre_candidat["statut"] == "ouvert") {
+                                                                                                        echo "text-green-500";
+                                                                                                } elseif ($offre_candidat["statut"] == "fermé") {
+                                                                                                        echo "text-red-500";
+                                                                                                }
+                                                                                                ?>"><?= htmlspecialchars($offre_candidat["statut"] ?? "-") ?>
                                                                                         </span>
                                                                                 </li>
-                                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                                        <span class="text-[#00134d] font-semibold">Exigences
-                                                                                                : </span>
-                                                                                        <?= htmlspecialchars($offre_candidat["competence"]) ?>
-                                                                                </li>
-                                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                                        <span class="text-[#00134d] font-semibold">Date
-                                                                                                limite :</span>
-                                                                                        <?= htmlspecialchars($offre_candidat["date_limite"]) ?>
-                                                                                </li>
-                                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                                        <span class="text-[#00134d] font-semibold">Expérience
-                                                                                                :</span>
-                                                                                        <?= htmlspecialchars($offre_candidat["experience"]) ?>
-                                                                                </li>
-                                                                                <li class="text-sm text-start text-slate-500 ">
-                                                                                        <span class="text-[#00134d] font-semibold">Localisation
-                                                                                                :</span>
-                                                                                        <?= htmlspecialchars($offre_candidat["lieu"]) ?>
-                                                                                </li>
+
                                                                         </ol>
                                                                 </div>
 
-                                                                <a href="passer_le_test/?id=<?= htmlspecialchars($offre_candidat["id"]) ?>"
-                                                                        class="shadow-md bg-[#00134d] w-full h-10 flex justify-center items-center  text-white cursor-pointer hover:bg-[#00134d]/90 absolute bottom-0 left-0 right-0 rounded-b-lg">
-                                                                        Passer le test
+                                                                <a href="<?= $offre_candidat['statut'] === "fermé" ? 'javascript:void(0);' : 'passer_le_test/?id=' . htmlspecialchars($offre_candidat["id"] ?? "-") ?>" 
+                                                                        class="shadow-md <?= $offre_candidat['statut'] === "fermé" ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#00134d] hover:bg-[#00134d]/90 cursor-pointer' ?> 
+                                                                        w-full h-10 flex justify-center items-center text-white absolute bottom-0 left-0 right-0 rounded-b-lg">
+                                                                <?= $offre_candidat['statut'] === "fermé" ? 'Test fermé' : 'Passer le test' ?>
                                                                 </a>
+
                                                         </div>
                                                 <?php endforeach ?>
+
                                         <?php else: ?>
                                                 <div class="w-full flex justify-center items-center mt-12">
                                                         <h2 class="text-xl font-semibold text-slate-700">Aucune offre disponible
                                                         </h2>
                                                 </div>
                                         <?php endif ?>
+                                </div>
+
+                                <div class="w-full h-8 flex justify-center items-center gap-4 mt-8 mb-4">
+                                        <?php if ($page > 1): ?>
+                                                <a href="?page=<?= $page - 1 ?>"  class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">Précédent </a>
+                                        <?php endif; ?>
+
+                                        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                                                <a href="?page=<?= $i ?>" class="<?= $i === $page  ? 'w-8 h-8 flex justify-center items-center bg-[#00134d] text-white rounded-md '  : 'bg-white text-slate-500 shadow-md w-8 h-8 flex justify-center items-center rounded-md' ?>"> <?= $i ?></a>
+                                        <?php endfor; ?>
+
+                                        <?php if ($page < $totalPages): ?>
+                                                <a href="?page=<?= $page + 1 ?>"  class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white"> Suivant </a>
+                                        <?php endif; ?>
                                 </div>
 
                         </div>
@@ -546,53 +529,41 @@ require_once('../scripts/resultat_test.php');
                         </div>
 
                         <!-- /*RESULTAT*/ -->
-                        <div id="section2"
-                                class="section w-full h-full  relative max-full overflow-y-auto scrollbar-hide ">
+                        <div id="section2" class="section w-full h-full  relative max-full overflow-y-auto scrollbar-hide bg-white">
                                 <div class="w-full flex justify-start items-center gap-4 flex-wrap mt-4 p-4">
                                         <div class="flex flex-col gap-4 w-full">
-                                                <h2 class="text-2xl font-semibold text-slate-700">Historiques de vos
-                                                        tests
-                                                </h2>
+                                                <h2 class="text-2xl font-semibold text-slate-700">Historiques de vos tests</h2>
                                                 <div class="relative max-full overflow-y-auto scrollbar-hide">
                                                         <table class="min-w-full border border-gray-200 rounded-lg">
 
                                                                 <?php if ($data_resultats): ?>
                                                                         <?php include("../components/thead_r.php") ?>
+
                                                                         <tbody class="">
                                                                                 <?php foreach ($data_resultats as $resultat): ?>
                                                                                         <tr class="hover:bg-gray-50">
-                                                                                                <td
-                                                                                                        class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                                <td class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
                                                                                                         <?= htmlspecialchars($resultat['titre_test']) ?>
                                                                                                 </td>
-                                                                                                <td
-                                                                                                        class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                                <td class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
                                                                                                         <?= htmlspecialchars($resultat['nom_entreprise']) ?>
                                                                                                 </td>
-                                                                                                <td
-                                                                                                        class="text-center px-4 py-2 text-sm font-semibold <?= htmlspecialchars($resultat['statut']) === 'fail' ? 'text-red-500' : 'text-green-500' ?>  border-r border-gray-200 text-center">
+                                                                                                <td class="text-center px-4 py-2 text-sm font-semibold <?= htmlspecialchars($resultat['statut']) === 'fail' ? 'text-red-500' : 'text-green-500' ?>  border-r border-gray-200 text-center">
                                                                                                         <?= htmlspecialchars($resultat['score']) ?>
-                                                                                                        / 20 </td>
+                                                                                                        / 20 
+                                                                                                </td>
                                                                                                 <?php if (htmlspecialchars($resultat['statut']) === 'fail'): ?>
-                                                                                                        <td
-                                                                                                                class="text-center px-4 py-2 text-sm text-red-500 font-semibold border-r border-gray-200">
-                                                                                                                Echoué</td>
+                                                                                                        <td class="text-center px-4 py-2 text-sm text-red-500 font-semibold border-r border-gray-200"> Echoué</td>
                                                                                                 <?php else: ?>
-                                                                                                        <td
-                                                                                                                class="text-center px-4 py-2 text-sm text-green-500 font-semibold border-r border-gray-200">
-                                                                                                                Admis</td>
+                                                                                                        <td class="text-center px-4 py-2 text-sm text-green-500 font-semibold border-r border-gray-200"> Admis</td>
                                                                                                 <?php endif ?>
-                                                                                                <td
-                                                                                                        class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                                <td class="text-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
                                                                                                         <?= htmlspecialchars($resultat['date_creation']) ?>
                                                                                                 </td>
                                                                                                 <?php if (htmlspecialchars($resultat['statut']) === 'fail'): ?>
-                                                                                                        <td
-                                                                                                                class="text-center px-4 py-2 text-sm text-slate-500 font-semibold border-r border-gray-200">
-                                                                                                                -</td>
+                                                                                                        <td class="text-center px-4 py-2 text-sm text-slate-500 font-semibold border-r border-gray-200"> -</td>
                                                                                                 <?php else: ?>
-                                                                                                        <td
-                                                                                                                class="flex justify-center items-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                                        <td class="flex justify-center items-center px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
                                                                                                                 <a href="../"
                                                                                                                         class="bg-[#00134d] rounded-md hover:opacity-90 px-4 py-2 w-40 flex items-center justify-center gap-3 text-white text-sm">
                                                                                                                         <span>Postuler</span>
@@ -609,19 +580,40 @@ require_once('../scripts/resultat_test.php');
                                                                                         </tr>
                                                                                 <?php endforeach ?>
                                                                         </tbody>
+
                                                                 <?php else: ?>
-
-                                                                        <div
-                                                                                class="w-full flex justify-center items-center mt-12">
-
-                                                                                <h2
-                                                                                        class="text-xl font-semibold text-slate-700">
-                                                                                        Aucun resultat disponible</h2>
+                                                                        <div class="w-full flex justify-center items-center mt-12">
+                                                                                <h2 class="text-xl font-semibold text-slate-700"> Aucun resultat disponible</h2>
                                                                         </div>
                                                                 <?php endif ?>
+
                                                         </table>
                                                 </div>
                                         </div>
+                                </div>
+                                <div class="w-full h-8 flex justify-center items-center gap-4 mt-8 mb-4">
+                                        <?php if ($pageResultats > 1): ?>
+                                                <a href="?page=<?= $pageResultats - 1 ?>"  
+                                                class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">
+                                                Précédent
+                                                </a>
+                                        <?php endif; ?>
+
+                                        <?php for ($i = 1; $i <= $totalPagesResultats; $i++): ?>
+                                                <a href="?page=<?= $i ?>" 
+                                                class="<?= $i === $pageResultats  
+                                                                ? 'w-8 h-8 flex justify-center items-center bg-[#00134d] text-white rounded-md'  
+                                                                : 'bg-white text-slate-500 shadow-md w-8 h-8 flex justify-center items-center rounded-md' ?>">
+                                                <?= $i ?>
+                                                </a>
+                                        <?php endfor; ?>
+
+                                        <?php if ($pageResultats < $totalPagesResultats): ?>
+                                                <a href="?page=<?= $pageResultats + 1 ?>"  
+                                                class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">
+                                                Suivant
+                                                </a>
+                                        <?php endif; ?>
                                 </div>
                         </div>
 

@@ -26,48 +26,13 @@ require_once('../config/auth.php');
                 
                 <div class="flex justify-center items-center gap-4 mt-2">
                         <div id="err_msg_deconnexion"></div>
-                        <div class="shadow-md bg-white w-80 h-10 flex justify-center items-center rounded-full">
-                                <input type="text" placeholder="Faites votre recherche ..."
-                                        class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-64">
-                                <button
-                                        class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436] hover:bg-[#001436]/90">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                                viewBox="0 0 24 24">
-                                                <path fill="#fff"
-                                                        d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" />
-                                        </svg>
-                                </button>
-                        </div>
-
-                        <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="#6B7280" d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0zM9 21h6v2H9z" />
-                                </svg>
-                        </button>
-
                         <button
                                 class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-[#f77313] font-bold cursor-pointer hover:bg-[#001436]/10">
                                 <?= htmlspecialchars(substr($data['entreprise'], 0, 1)) ?>
                         </button>
 
-                        <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 48 48">
-                                        <defs>
-                                                <mask id="SVG9e55ocrc">
-                                                        <g fill="none" stroke-linejoin="round" stroke-width="4">
-                                                                <path fill="#fff" stroke="#fff"
-                                                                        d="m34 41l10-17L34 7H14L4 24l10 17z" />
-                                                                <path fill="#000" stroke="#000"
-                                                                        d="M24 29a5 5 0 1 0 0-10a5 5 0 0 0 0 10Z" />
-                                                        </g>
-                                                </mask>
-                                        </defs>
-                                        <path fill="#6B7280" d="M0 0h48v48H0z" mask="url(#SVG9e55ocrc)" />
-                                </svg>
+                        <button class="logout shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 12 12"><path fill="#6B7280" d="M4 2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h3.5a.5.5 0 0 0 0-1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1zm4.854 1.646a.5.5 0 1 0-.708.708L9.293 5.5H5a.5.5 0 0 0 0 1h4.293L8.146 7.646a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708z"/></svg>
                         </button>
                 </div>
 
@@ -76,11 +41,10 @@ require_once('../config/auth.php');
         <main class="w-full h-[90vh] flex px-[5%] gap-4 pt-8">
 
                 <nav id="menu" class="flex flex-col justify-between w-auto h-full bg-white rounded-md p-4">
-
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
                                 <li class="w-full">
                                         <a href="#" data-section="section1"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3 rounded-md"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -90,7 +54,7 @@ require_once('../config/auth.php');
                                 </li>
                                 <li class="w-full">
                                         <a href="#" data-section="section2"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3 rounded-md"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -100,7 +64,7 @@ require_once('../config/auth.php');
                                 </li>
                                 <li class="w-full">
                                         <a href="#" data-section="section4"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3 rounded-md"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <g fill="#6B7280">
@@ -114,7 +78,7 @@ require_once('../config/auth.php');
                                 </li>
                                 <li class="w-full">
                                         <a href="#" data-section="section6"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3"><svg
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3 rounded-md"><svg
                                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <g fill="none" stroke="#6B7280" stroke-linecap="round"
@@ -132,10 +96,9 @@ require_once('../config/auth.php');
                         </ul>
 
                         <ul class="flex flex-col justify-start items-start gap-4 text-slate-500 text-sm">
-
                                 <li class="w-full">
                                         <a href="#" data-section="section5"
-                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3">
+                                                class="w-full bg-[#00134d] px-4 py-2 w-full flex items-center justify-start gap-3 rounded-md">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#6B7280"
@@ -149,132 +112,141 @@ require_once('../config/auth.php');
                                                 <span>Paramètres</span>
                                         </a>
                                 </li>
-
                                 <li class="w-full">
-                                        <button  class="logout w-full cursor-pointer hover:bg-gray-500 hover:text-white px-4 py-2 w-full flex items-center justify-start gap-3">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
-                                                        viewBox="0 0 24 24">
-                                                        <g fill="#6B7280" fill-rule="evenodd" clip-rule="evenodd">
-                                                                <path
-                                                                        d="M19.353 6.5H16.49V9H6.404v6H16.49v2.5h2.864A9.99 9.99 0 0 1 11 22C5.477 22 1 17.523 1 12S5.477 2 11 2a9.99 9.99 0 0 1 8.353 4.5M17.989 16v-1zm0-8v1z" />
-                                                                <path d="m18.99 8l4 4l-4 4h-1v-2.5h-10v-3h10V8z" />
-                                                        </g>
-                                                </svg>
-                                                <span>Déconnexion</span>
+                                        <button class="logout w-full px-4 py-2 w-full flex items-center justify-start gap-3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#6B7280" d="M12 14v8H4a8 8 0 0 1 8-8m0-1c-3.315 0-6-2.685-6-6s2.685-6 6-6s6 2.685 6 6s-2.685 6-6 6m9 4h1v5h-8v-5h1v-1a3 3 0 1 1 6 0zm-2 0v-1a1 1 0 1 0-2 0v1z"/></svg>
+                                                <span><?= htmlspecialchars($data['entreprise'])?></span>
                                         </button>
                                 </li>
                         </ul>
-
                 </nav>
 
                 <div id="sections" class="w-full">
                         <!-- /*ACCUEIL*/ -->
                         <div id="section1"
                                 class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
-                                <div class="flex flex-col w-full bg-white p-4">
-                                        <h2 class="text-xl font-semibold text-slate-700">Tableau de bord - Recruteur
-                                        </h2>
+                                <div class="flex flex-col w-full h-full bg-white p-4">
+                                        <h2 class="text-xl font-semibold text-slate-700">Tableau de bord - Recruteur </h2>
                                         <p class="text-sm text-justify text-slate-500 ">
                                                 Bienvenue, gérez vos
                                                 offres, vos candidats et vos tests en un seul endroit.
                                         </p>
 
-                                        <div class="w-full flex justify-start items-center flex-wrap gap-5 mt-12">
-                                                <div
-                                                        class="p-2 w-[18%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
-                                                        <span
-                                                                class="w-14 h-14 flex justify-center items-center rounded-full">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
-                                                                        height="2.5em" viewBox="0 0 24 24">
-                                                                        <path fill="#f77313"
-                                                                                d="M19.248 7.504a2.752 2.752 0 0 0 0-5.504H4.75a2.752 2.752 0 1 0 0 5.504zm-2 7a2.752 2.752 0 1 0 0-5.504H6.75a2.752 2.752 0 0 0 0 5.504zM17 18.752A2.75 2.75 0 0 0 14.248 16H9.75a2.752 2.752 0 0 0 0 5.504h4.498A2.75 2.75 0 0 0 17 18.752" />
-                                                                </svg>
-                                                        </span>
-                                                        <span
-                                                                class="text-3xl font-semibold text-slate-500"><?= htmlspecialchars(count($data_o)) ?></span>
-                                                        <span class="text-sm text-justify text-slate-700 ">Offres
-                                                                actives</span>
+                                        <div class="flex w-full h-full">
+                                                <div class="w-[50%] h-[90%] flex justify-start items-center flex-wrap gap-5 mt-12">
+        
+                                                        <div class="p-4 w-full md:w-[45%] h-48 shadow-lg rounded-md flex flex-col justify-between items-start bg-gradient-to-br from-[#f77313] via-[#f77313]/70 to-[#fff]/70">
+                                                                <div class="w-full flex justify-start items-center gap-2 ">
+                                                                        <span
+                                                                                class="w-10 h-10 bg-[#f77313]  flex justify-center items-center p-1 rounded-lg">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="1.5em" height="1.5em"
+                                                                                        viewBox="0 0 24 24">
+                                                                                        <path fill="#fff"
+                                                                                                d="M21 2H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 5H3V4h18z" />
+                                                                                </svg>
+                                                                        </span>
+                                                                        <span
+                                                                                class="text-md text-justify text-white font-semibold">Offres</span>
+                                                                </div>
+                                                                <div class="w-full flex justify-start items-center gap-3">
+                                                                        <span class="text-3xl font-semibold text-white"><?= htmlspecialchars(count($data_o)) ?></span>
+                                                                </div>
+                                                                <span class="text-sm text-justify text-white">Nombre total d'offre proposés</span>
+                                                        </div>
+
+                                                        <div  class="p-4 w-full md:w-[45%] h-48 shadow-lg rounded-md flex flex-col justify-between items-start bg-gradient-to-br from-[#001436] via-[#001436]/70 to-[#fff]/70">
+                                                                <div class="w-full flex justify-start items-center gap-2 ">
+                                                                        <span
+                                                                                class="w-10 h-10 bg-[#001436]  flex justify-center items-center p-1 rounded-lg">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="1.5em" height="1.5em"
+                                                                                        viewBox="0 0 24 24">
+                                                                                        <path fill="#fff"
+                                                                                                d="M21 2H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 5H3V4h18z" />
+                                                                                </svg>
+                                                                        </span>
+                                                                        <span
+                                                                                class="text-md text-justify text-white font-semibold">Candidats</span>
+                                                                </div>
+                                                                <div class="w-full flex justify-start items-center gap-3">
+                                                                        <span
+                                                                                class="text-3xl font-semibold text-white"><?= htmlspecialchars(count($data_candidat)) ?></span>
+                                                                </div>
+                                                                <span class="text-sm text-justify text-white">Total des participants inscrits</span>
+                                                        </div>
+
+                                                        <div class="p-4 w-full md:w-[45%] h-48 shadow-lg rounded-md flex flex-col justify-between items-start bg-gradient-to-br from-[#f77313] via-[#f77313]/70 to-[#fff]/70">
+                                                                <div class="w-full flex justify-start items-center gap-2 ">
+                                                                        <span
+                                                                                class="w-10 h-10 bg-[#f77313]  flex justify-center items-center p-1 rounded-lg">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="1.5em" height="1.5em"
+                                                                                        viewBox="0 0 24 24">
+                                                                                        <path fill="#fff"
+                                                                                                d="M21 2H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 5H3V4h18z" />
+                                                                                </svg>
+                                                                        </span>
+                                                                        <span
+                                                                                class="text-md text-justify text-white font-semibold">Échec</span>
+                                                                </div>
+                                                                <div class="w-full flex justify-start items-center gap-3">
+                                                                        <span class="text-3xl font-semibold text-white"><?= htmlspecialchars( $pourcentageEchec) ?>%</span>
+                                                                </div>
+                                                                <span class="text-sm text-justify text-white">Pourcentage des candidats recalés</span>
+                                                        </div>
+
+                                                        <div  class="p-4 w-full md:w-[45%] h-48 shadow-lg rounded-md flex flex-col justify-between items-start bg-gradient-to-br from-[#001436] via-[#001436]/70 to-[#fff]/70">
+                                                                <div class="w-full flex justify-start items-center gap-2 ">
+                                                                        <span
+                                                                                class="w-10 h-10 bg-[#001436]  flex justify-center items-center p-1 rounded-lg">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="1.5em" height="1.5em"
+                                                                                        viewBox="0 0 24 24">
+                                                                                        <path fill="#fff"
+                                                                                                d="M21 2H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 5H3V4h18z" />
+                                                                                </svg>
+                                                                        </span>
+                                                                        <span
+                                                                                class="text-md text-justify text-white font-semibold">Réussite</span>
+                                                                </div>
+                                                                <div class="w-full flex justify-start items-center gap-3">
+                                                                        <span
+                                                                                class="text-3xl font-semibold text-white"><?= htmlspecialchars($pourcentageReussite) ?>%</span>
+                                                                </div>
+                                                                <span class="text-sm text-justify text-white">Pourcentage des candidats admis</span>
+                                                        </div>
+
+                                                        <div class="p-4 w-full md:w-[45%] h-48 shadow-lg rounded-md flex flex-col justify-between items-start bg-gradient-to-br from-[#f77313] via-[#f77313]/70 to-[#fff]/70">
+                                                                <div class="w-full flex justify-start items-center gap-2 ">
+                                                                        <span
+                                                                                class="w-10 h-10 bg-[#f77313]  flex justify-center items-center p-1 rounded-lg">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                        width="1.5em" height="1.5em"
+                                                                                        viewBox="0 0 24 24">
+                                                                                        <path fill="#fff"
+                                                                                                d="M21 2H3c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2m0 5H3V4h18z" />
+                                                                                </svg>
+                                                                        </span>
+                                                                        <span
+                                                                                class="text-md text-justify text-white font-semibold">Test</span>
+                                                                </div>
+                                                                <div class="w-full flex justify-start items-center gap-3">
+                                                                        <span class="text-3xl font-semibold text-white"><?= htmlspecialchars(count($data_t)) ?></span>
+                                                                </div>
+                                                                <span class="text-sm text-justify text-white">Résultats des évaluations passées</span>
+                                                        </div>
+
+                                                        <div  class="p-4 w-full md:w-[45%] h-48 shadow-lg rounded-md flex flex-col justify-between items-start bg-gradient-to-br from-[#001436] via-[#001436]/70 to-[#fff]/70">
+                                                                
+                                                        </div>
+
                                                 </div>
-
-                                                <div
-                                                        class="p-2 w-18%] h-32 shadow-xs rounded-lg  flex flex-col justify-center items-center">
-                                                        <span
-                                                                class="w-14 h-14 flex justify-center items-center rounded-full">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
-                                                                        height="2.5em" viewBox="0 0 24 24">
-                                                                        <path fill="#f77313"
-                                                                                d="M19.248 7.504a2.752 2.752 0 0 0 0-5.504H4.75a2.752 2.752 0 1 0 0 5.504zm-2 7a2.752 2.752 0 1 0 0-5.504H6.75a2.752 2.752 0 0 0 0 5.504zM17 18.752A2.75 2.75 0 0 0 14.248 16H9.75a2.752 2.752 0 0 0 0 5.504h4.498A2.75 2.75 0 0 0 17 18.752" />
-                                                                </svg>
-                                                        </span>
-                                                        <span
-                                                                class="text-3xl font-semibold text-slate-500"><?= htmlspecialchars(count($data_candidat)) ?></span>
-                                                        <span class="text-sm text-justify text-slate-700 ">Candidats en
-                                                                cours de test</span>
-                                                </div>
-
-                                                <div
-                                                        class="p-2 w-[18%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
-                                                        <span
-                                                                class="w-14 h-14 flex justify-center items-center rounded-full">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
-                                                                        height="2.5em" viewBox="0 0 24 24">
-                                                                        <path fill="#f77313"
-                                                                                d="M19.248 7.504a2.752 2.752 0 0 0 0-5.504H4.75a2.752 2.752 0 1 0 0 5.504zm-2 7a2.752 2.752 0 1 0 0-5.504H6.75a2.752 2.752 0 0 0 0 5.504zM17 18.752A2.75 2.75 0 0 0 14.248 16H9.75a2.752 2.752 0 0 0 0 5.504h4.498A2.75 2.75 0 0 0 17 18.752" />
-                                                                </svg>
-                                                        </span>
-                                                        <?php
-
-                                                        ?>
-                                                        <span
-                                                                class="text-3xl font-semibold text-slate-500"><?= $pourcentageReussite ?>%</span>
-                                                        <span class="text-sm text-justify text-slate-700 ">Pourcentage
-                                                                de reussite</span>
-                                                </div>
-
-                                                <div
-                                                        class="p-2 w-[18%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
-                                                        <span
-                                                                class="w-14 h-14 flex justify-center items-center rounded-full">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
-                                                                        height="2.5em" viewBox="0 0 24 24">
-                                                                        <path fill="#f77313"
-                                                                                d="M19.248 7.504a2.752 2.752 0 0 0 0-5.504H4.75a2.752 2.752 0 1 0 0 5.504zm-2 7a2.752 2.752 0 1 0 0-5.504H6.75a2.752 2.752 0 0 0 0 5.504zM17 18.752A2.75 2.75 0 0 0 14.248 16H9.75a2.752 2.752 0 0 0 0 5.504h4.498A2.75 2.75 0 0 0 17 18.752" />
-                                                                </svg>
-                                                        </span>
-                                                        <?php
-
-                                                        ?>
-                                                        <span
-                                                                class="text-3xl font-semibold text-slate-500"><?= $pourcentageEchec ?>%</span>
-                                                        <span class="text-sm text-justify text-slate-700 ">Pourcentage
-                                                                d'echec </span>
-                                                </div>
-
-                                                <div
-                                                        class="p-2 w-[18%] h-32 shadow-xs rounded-lg flex flex-col justify-center items-center">
-                                                        <span
-                                                                class="w-14 h-14 flex justify-center items-center rounded-full">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="2.5em"
-                                                                        height="2.5em" viewBox="0 0 24 24">
-                                                                        <path fill="#f77313"
-                                                                                d="M19.248 7.504a2.752 2.752 0 0 0 0-5.504H4.75a2.752 2.752 0 1 0 0 5.504zm-2 7a2.752 2.752 0 1 0 0-5.504H6.75a2.752 2.752 0 0 0 0 5.504zM17 18.752A2.75 2.75 0 0 0 14.248 16H9.75a2.752 2.752 0 0 0 0 5.504h4.498A2.75 2.75 0 0 0 17 18.752" />
-                                                                </svg>
-                                                        </span>
-                                                        <span
-                                                                class="text-3xl font-semibold text-slate-500"><?= htmlspecialchars(count($data_t)) ?></span>
-                                                        <span class="text-sm text-justify text-slate-700 ">Tests
-                                                                publié</span>
-                                                </div>
-
-                                        </div>
-
-                                        <div
-                                                class="relative max-h-full overflow-y-auto scrollbar-hide flex justify-center items-center gap-4 flex-wrap mt-20">
-                                                <div class="w-[45%] h-100 bg-slate-100 p-2 rounded-md">
-                                                        
-                                                </div>
-                                                <div class="w-[45%] h-100 bg-slate-100 rounded-md flex justify-center items-center">
-                                                        <canvas id="réussite_échec" class="w-full h-80"></canvas>
+        
+                                                <div class="w-[50%] max-h-full flex justify-start items-center flex-wrap gap-5 mt-12">
+                                                        <div class="w-full h-full bg-slate-100 rounded-md flex justify-center items-center">
+                                                                <canvas id="réussite_échec" class="w-full h-80"></canvas>
+                                                        </div>
                                                 </div>
                                         </div>
 
@@ -297,7 +269,7 @@ require_once('../config/auth.php');
                                         <div class="w-200 h-full bg-slate-100 rounded-md px-4 py-2">
                                                 <h2 class="text-xl font-semibold text-slate-700"> Informations générales
                                                 </h2>
-                                                <div class="mt-2 flex flex-col gap-4 w-full">
+                                                <div class="mt-2 flex flex-col gap-2 w-full">
 
                                                         <div class="flex justify-start items-center gap-2">
                                                                 <input id="titre" name="titre"
@@ -328,12 +300,6 @@ require_once('../config/auth.php');
                                                         </div>
 
                                                         <div class="flex justify-start items-center gap-2">
-                                                                <select id="statut" name="statut" required
-                                                                        class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 text-sm text-slate-500">
-                                                                        <option value="">Statut</option>
-                                                                        <option value="ouvert">Ouvert</option>
-                                                                        <option value="ferme">Fermé</option>
-                                                                </select>
                                                                 <select id="score" name="score" required
                                                                         class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 text-sm text-slate-500">
                                                                         <option value="">Score de crédibilité</option>
@@ -358,6 +324,36 @@ require_once('../config/auth.php');
                                                                         <option value="19">19</option>
                                                                         <option value="20">20</option>
                                                                 </select>
+
+                                                                <select id="credibilite" name="credibilite" required
+                                                                        class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                        <option value="">Score de crédibilité</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="20">20</option>
+                                                                        <option value="30">30</option>
+                                                                        <option value="40">40</option>
+                                                                        <option value="50">50</option>
+                                                                        <option value="60">60</option>
+                                                                        <option value="70">70</option>
+                                                                        <option value="80">80</option>
+                                                                        <option value="90">90</option>
+                                                                        <option value="100">100</option>
+                                                                </select>
+
+                                                        </div>
+
+                                                        <div class="flex justify-start items-center gap-2">
+                                                                <input id="salaire" name="salaire"
+                                                                        class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 placeholder:text-sm text-slate-500"
+                                                                        type="number" placeholder="Salaire" required>
+
+                                                                <select id="statut" name="statut" required
+                                                                        class="border border-2 p-1 w-146 h-10 outline-none rounded-md border-slate-500 text-sm text-slate-500">
+                                                                        <option value="">Statut</option>
+                                                                        <option value="ouvert">Ouvert</option>
+                                                                        <option value="ferme">Fermé</option>
+                                                                </select>
+
                                                         </div>
 
                                                         <div class="flex justify-start items-center gap-2">
@@ -415,14 +411,9 @@ require_once('../config/auth.php');
                                 class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
                                 <div class="flex justify-between items-center">
                                         <h2 class="text-xl font-semibold text-slate-700">Mes offres</h2>
+                                        <div id="err_msg_suppression_offre"></div>
                                         <div class="flex justify-between items-center gap-6">
-                                                <button class="flex justify-center items-center">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em"
-                                                                height="1.5em" viewBox="0 0 24 24">
-                                                                <path fill="#6B7280"
-                                                                        d="M10 2H3c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1m0 11H3c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1M21 2h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1m0 11h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1" />
-                                                        </svg>
-                                                </button>
+
                                                 <button id="add_offre"
                                                         class="hover:opacity-90 cursor-pointer text-sm flex justify-between items-center text-white bg-[#00134d] p-2 rounded-md">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em"
@@ -442,35 +433,23 @@ require_once('../config/auth.php');
                                                         <tbody class="">
                                                                 <?php foreach ($data_o as $offre): ?>
                                                                         <tr class="hover:bg-gray-50">
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                        <?= $offre["titre"] ?></td>
-                                                                                <?php ?>
-                                                                                <td class="px-4 py-2 text-sm border-r border-gray-200 text-center
-                                                                                <?= ($offre["statut"] == "ouvert") ? 'text-green-500' : (($offre["statut"] == "ferme") ? 'text-red-500' : '') ?>
-                                                                                ">
-                                                                                <?= htmlspecialchars($offre["statut"]) ?>
-                                                                                </td>
-
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                        <?= $offre["experience"] ?></td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-center">
-                                                                                        <?= $offre["date_creation"] ?></td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-center items-center gap-4">
-                                                                                        <a href="offre/?id=<?= $offre["id"] ?>"
-                                                                                                class="">
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-justify"><?= $offre["titre"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm border-r border-gray-200 text-justify <?= ($offre["statut"] == "ouvert") ? 'text-green-500' : (($offre["statut"] == "fermé") ? 'text-red-500' : '') ?>"> <?= htmlspecialchars($offre["statut"]) ?> </td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-justify"><?= $offre["experience"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-justify"><?= $offre["date_creation"] ?></td>
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 flex justify-start items-center gap-4">
+                                                                                        <a href="offre/?id=<?= $offre["id"] ?>"class="">
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="#6B7280" fill-rule="evenodd" d="M1 12c2.028-4.152 6.192-7 11-7s8.972 2.848 11 7c-2.028 4.152-6.192 7-11 7s-8.972-2.848-11-7m11 3.5a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7"/></svg>
+                                                                                        </a>
+                                                                                        <button data-offre="<?= $offre["id"] ?>" class="delete_offre cursor-pointer">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                                                         width="1.5em" height="1.5em"
-                                                                                                        viewBox="0 0 16 16">
-                                                                                                        <path fill="#6B7280"
-                                                                                                                d="M3 5a5 5 0 0 1 10 0v6a5 5 0 0 1-10 0zm5.5-1.5a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0z" />
+                                                                                                        viewBox="0 0 24 24">
+                                                                                                        <path fill="#EF4444"
+                                                                                                                d="M6 21h12V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z" />
                                                                                                 </svg>
-                                                                                        </a>
-                                                                                        <a href="creer_un_test?offre_id=<?= $offre["id"] ?>"
-                                                                                                class="hover:opacity-90 w-30 cursor-pointer text-sm flex justify-center items-center text-white bg-[#00134d] py-1 px-2">
+                                                                                        </button>
+                                                                                        <a href="creer_un_test?offre_id=<?= $offre["id"] ?>" class="hover:opacity-90 w-30 cursor-pointer text-sm rounded-md flex justify-center items-center text-white bg-[#00134d] py-1 px-2">
                                                                                                 Crée un test
                                                                                         </a>
                                                                                 </td>
@@ -489,15 +468,42 @@ require_once('../config/auth.php');
                                                 </div>
                                         <?php endif ?>
                                 </div>
+
+                                <div class="w-full h-8 flex justify-center items-center gap-4 mt-8 mb-4">
+                                        <?php if ($page_offre > 1): ?>
+                                                <a href="?page=<?= $page_offre - 1 ?>"  
+                                                class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">
+                                                Précédent
+                                                </a>
+                                        <?php endif; ?>
+
+                                        <?php for ($i = 1; $i <= $totalPages_offre; $i++): ?>
+                                                <a href="?page=<?= $i ?>" 
+                                                class="<?= $i === $page_offre  
+                                                                ? 'w-8 h-8 flex justify-center items-center bg-[#00134d] text-white rounded-md'  
+                                                                : 'bg-white text-slate-500 shadow-md w-8 h-8 flex justify-center items-center rounded-md' ?>">
+                                                <?= $i ?>
+                                                </a>
+                                        <?php endfor; ?>
+
+                                        <?php if ($page_offre < $totalPages_offre): ?>
+                                                <a href="?page=<?= $page_offre + 1 ?>"  
+                                                class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">
+                                                Suivant
+                                                </a>
+                                        <?php endif; ?>
+                                </div>
                         </div>
 
                         <!-- /*TEST*/ -->
                         <div id="section6"
                                 class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
+
                                 <div class="flex justify-between items-center">
                                         <h2 class="text-xl font-semibold text-slate-700">Banque de tests</h2>
                                         <div id="err_msg_test"></div>
                                 </div>
+
                                 <div class="relative max-h-full overflow-y-auto scrollbar-hide">
                                         <?php if ($data_t): ?>
                                                 <table class="min-w-full border border-gray-200 rounded-lg">
@@ -506,17 +512,14 @@ require_once('../config/auth.php');
 
                                                                 <?php foreach ($data_t as $test): ?>
                                                                         <tr class="hover:bg-gray-50">
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
                                                                                         <?= $test["id"] ?></td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
                                                                                         <?= $test["titre"] ?></td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200">
                                                                                         <?= $test["created_at"] ?></td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center border-r  border-gray-200">
+                                                                                <td class="px-4 py-2 text-sm text-slate-500 flex justify-around items-center border-r  border-gray-200">
+
                                                                                         <a href="qcm_test/?id=<?= $test["id"] ?>"
                                                                                                 class="cursor-pointer">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -528,6 +531,7 @@ require_once('../config/auth.php');
                                                                                                                 clip-rule="evenodd" />
                                                                                                 </svg>
                                                                                         </a>
+
                                                                                         <button class="cursor-pointer"
                                                                                                 data-link="<?= $test["id"] ?>">
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -557,7 +561,7 @@ require_once('../config/auth.php');
                                                                                                 </svg>
                                                                                         </button>
 
-                                                                                        <button class="cursor-pointer">
+                                                                                        <button class="cursor-pointer supprimer_tests" data-test='<?= $test["id"] ?>' >
                                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                                                         width="1.5em" height="1.5em"
                                                                                                         viewBox="0 0 24 24">
@@ -583,6 +587,32 @@ require_once('../config/auth.php');
                                                 </div>
                                         <?php endif ?>
                                 </div>
+
+                                <div class="w-full h-8 flex justify-center items-center gap-4 mt-8 mb-4">
+                                        <?php if ($page_test > 1): ?>
+                                                <a href="?page=<?= $page_test - 1 ?>"  
+                                                class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">
+                                                Précédent
+                                                </a>
+                                        <?php endif; ?>
+
+                                        <?php for ($i = 1; $i <= $totalPages_test; $i++): ?>
+                                                <a href="?page=<?= $i ?>" 
+                                                class="<?= $i === $page_test  
+                                                                ? 'w-8 h-8 flex justify-center items-center bg-[#00134d] text-white rounded-md'  
+                                                                : 'bg-white text-slate-500 shadow-md w-8 h-8 flex justify-center items-center rounded-md' ?>">
+                                                <?= $i ?>
+                                                </a>
+                                        <?php endfor; ?>
+
+                                        <?php if ($page_test < $totalPages_test): ?>
+                                                <a href="?page=<?= $page_test + 1 ?>"  
+                                                class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">
+                                                Suivant
+                                                </a>
+                                        <?php endif; ?>
+                                </div>
+
                         </div>
 
                         <!-- /*MODAL MAIL*/ -->
@@ -613,8 +643,7 @@ require_once('../config/auth.php');
                         </div>
 
                         <!-- /*CANDIDAT*/ -->
-                        <div id="section4"
-                                class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
+                        <div id="section4" class="section w-full h-full rounded-md flex flex-col gap-4 bg-white p-4 hidden">
 
                                 <div class="flex justify-between items-center">
                                         <h2 class="text-xl font-semibold text-slate-700">Gestion des Candidats</h2>
@@ -626,9 +655,6 @@ require_once('../config/auth.php');
                                                         <?php include('../components/thead_c_r.php') ?>
                                                         <tbody class="">
                                                                 <?php foreach ($resultats_candidat as $candidat): ?>
-                                                                        <?php
-
-                                                                        ?>
                                                                         <tr class="hover:bg-gray-50">
                                                                                 <td
                                                                                         class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-start">
@@ -642,22 +668,23 @@ require_once('../config/auth.php');
                                                                                         class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-start">
                                                                                         <?= htmlspecialchars($candidat['titre_test']) ?>
                                                                                 </td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm <?= $candidat['statut'] === 'fail' ? "text-red-500" : "text-green-500" ?> border-r border-gray-200 text-start">
-                                                                                        <?= htmlspecialchars($candidat['score']) ?></td>
+                                                                                <td class="px-4 py-2 text-sm <?= $candidat['statut'] === 'fail' ? "text-red-500" : "text-green-500" ?> border-r border-gray-200 text-start"> <?= htmlspecialchars($candidat['score']) ?></td>
                                                                                 <td
                                                                                         class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-start">
                                                                                         <?= htmlspecialchars($candidat['moyenne']) ?>
                                                                                 </td>
-                                                                                <td
-                                                                                        class="px-4 py-2 text-sm <?= $candidat['statut'] === 'fail' ? "text-red-500" : "text-green-500" ?> border-r border-gray-200 text-start">
+                                                                                <td class="px-4 py-2 text-sm <?= $candidat['statut'] === 'fail' ? "text-red-500" : "text-green-500" ?> border-r border-gray-200 text-start">
                                                                                         <?= htmlspecialchars($candidat['statut'] === 'fail' ? 'Echoué' : 'Reussi') ?>
                                                                                 </td>
                                                                                 <td
                                                                                         class="px-4 py-2 text-sm text-slate-500 border-r border-gray-200 text-start">
                                                                                         <?= htmlspecialchars($candidat['date_creation']) ?>
                                                                                 </td>
-
+                                                                                <td class="p-2 text-sm text-slate-500 flex justify-center items-center gap-6">
+                                                                                        <a href="credibilite_details/?candidat=<?= $candidat["candidat_id"] ?>&test=<?= $candidat["test_id"] ?>" class="hover:opacity-90 w-36 cursor-pointer text-sm flex justify-center items-center text-white bg-[#00134d] py-1 px-2">
+                                                                                                Detail de crédibilité
+                                                                                        </a>
+                                                                                </td>
                                                                         </tr>
                                                                 <?php endforeach ?>
                                                         </tbody>
@@ -672,6 +699,32 @@ require_once('../config/auth.php');
                                                 </div>
                                         <?php endif ?>
                                 </div>
+
+                                <div class="w-full h-8 flex justify-center items-center gap-4 mt-8 mb-4">
+                                        <?php if ($page > 1): ?>
+                                                <a href="?page=<?= $page - 1 ?>"  
+                                                class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">
+                                                Précédent
+                                                </a>
+                                        <?php endif; ?>
+
+                                        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                                                <a href="?page=<?= $i ?>" 
+                                                class="<?= $i === $page  
+                                                                ? 'w-8 h-8 flex justify-center items-center bg-[#00134d] text-white rounded-md'  
+                                                                : 'bg-white text-slate-500 shadow-md w-8 h-8 flex justify-center items-center rounded-md' ?>">
+                                                <?= $i ?>
+                                                </a>
+                                        <?php endfor; ?>
+
+                                        <?php if ($page < $totalPages): ?>
+                                                <a href="?page=<?= $page + 1 ?>"  
+                                                class="shadow-md px-3 h-8 flex justify-center items-center rounded-md text-slate-500 bg-white">
+                                                Suivant
+                                                </a>
+                                        <?php endif; ?>
+                                </div>
+
                         </div>
 
                         <!-- /*PROFIL*/ -->
@@ -769,6 +822,8 @@ require_once('../config/auth.php');
         <script src="../js/invitation_copie.js"></script>
         <script src="../js/modal_send_email.js"></script>
         <script src="../js/recruteur_profil.js"></script>
+        <script src="../js/supprimer_offre.js"></script>
+        <script src="../js/supprimer_test.js"></script>
         <script>
                 const reussis = <?= json_encode($reussis) ?>;
                 const echoues = <?= json_encode($echoues) ?>;

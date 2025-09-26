@@ -16,19 +16,19 @@
                         <img src="../SkillGuard Flat Shield Logo.svg" alt="Skillguard mascot choix">
                 </div>
                 <div class="w-full mb-4">
+                        <div id="msg"></div>
                         <h2 class="text-2xl font-semibold text-slate-700 text-center">Mot de passe oublié</h2>
                         <p class="text-sm text-slate-500 text-center">Entrez votre adresse e-mail pour recevoir un lien
                                 sécurisé <br>permettant de réinitialiser votre mot de passe.</p>
                 </div>
                 <div class="flex gap-4 justify-center items-center  w-full">
-                        <form action="/inscription" method="post"
+                        <form action="/inscription" method="post" id="formRecuperation"
                                 class="rounded-md flex flex-col gap-6 w-[50%] bg-white p-4">
                                 <input class="border border-2  p-2  outline-none rounded-md border-[#001436] placeholder:text-sm"
-                                        type="email" name="email" placeholder="Adresse e-mail" autocomplete="email"
-                                        required>
+                                        id="email" type="email" name="email" placeholder="Adresse e-mail"
+                                        autocomplete="email" required>
 
-                                <button
-                                        class="bg-[#00B8D9] mt-2 px-2 py-2 w-full rounded-full cursor-pointer hover:bg-[#001436] hover:text-white text-white">Envoyer
+                                <button id="sendBtn" class="bg-[#00B8D9] mt-2 px-2 py-2 w-full rounded-full cursor-pointer hover:bg-[#001436] hover:text-white text-white">Envoyer
                                         le lien de réinitialisation</button>
                         </form>
                 </div>
@@ -40,6 +40,7 @@
                         </p>
                 </div>
         </section>
+        <script src="../js/recuperation.js"></script>
 </body>
 
 </html>

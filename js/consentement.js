@@ -15,7 +15,50 @@ function verifierConsentement() {
 }
 checkboxes.forEach(chk => chk.addEventListener('change', verifierConsentement));
 
-btnStart.addEventListener('click', () => {
+
+btnStart.addEventListener('click', async () => {
         const testId = btnStart.dataset.idTest;
-        window.location.href = `qcm?id=${testId}`
+        try {
+                const response = await fetch('../../scripts/verification_candidat_test_passage.php', {
+                        method: 'POST',
+                        body: JSON.stringify({ test_id: testId })
+                });
+
+                if (!response.ok) throw new Error(`Erreur de réseau : ${response.status} ${response.statusText}`);
+                const result = await response.json();
+
+                if (result.success) {
+                        window.location.href = `qcm?id=${testId}`
+                }
+                else {
+                        showAlertPasse(result.message, false)
+                        setTimeout(()=>{
+                                window.location.href = result.redirect
+                        }, 2000)
+                }
+        }
+        catch (error) {
+                showAlertPasse(error.message, false)
+        }
 });
+
+
+const showAlertPasse = (message, isSuccess = true) => {
+        const err_msg = document.querySelector('#err_msg_suppression_offre');
+        if (!err_msg) return;
+        const alert = document.createElement('div');
+        alert.className = `alert-message "py-4 px-8 w-auto h-10 flex justify-center items-center mx-auto rounded-md text-white text-center text-sm ${isSuccess ? 'bg-green-600' : 'bg-red-600'}`;
+        alert.textContent = message;
+        alert.style.opacity = '0';
+        alert.style.transition = 'opacity 0.5s ease';
+        err_msg.prepend(alert);
+        requestAnimationFrame(() => {
+                alert.style.opacity = '1';
+        });
+        setTimeout(() => {
+                alert.style.opacity = '0';
+                setTimeout(() => {
+                        alert.remove();
+                }, 500);
+        }, isSuccess ? 2000 : 3000);
+};

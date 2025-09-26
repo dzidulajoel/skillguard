@@ -19,7 +19,7 @@ try {
                 exit();
         }
 
-        // Vérifier la présence de l'ID du test
+
         $id_test = $data['testId'] ?? null;
         if (!$id_test) {
                 echo json_encode(['success' => false, 'message' => 'ID du test manquant']);
@@ -30,19 +30,9 @@ try {
         $invitation_id = Uuid::uuid4()->toString();
         $token = hash('sha256', Uuid::uuid4()->toString() . time());
 
-        // Définir la date d'expiration (ex. 7 jours après génération)
+
         $date_expiration = date('Y-m-d H:i:s', strtotime('+7 days'));
         $moyen = 'email';
-        // Insérer le token et l'invitation dans la table invitations
-
-        // $sql = "SELECT  *  FROM tests  WHERE id = :id AND utilisateur_id = :id_session";
-        // $req = $pdo->prepare($sql);
-        // $req->execute(array(
-        //         ":id" => $test_id,
-        //         ":id_session" => $id_session
-        // ));
-        // $offre = $req->fetch(PDO::FETCH_ASSOC);
-
 
         $sql = "INSERT INTO invitations (id, test_id, createur_id, token, etat_invitation, date_envoi, date_expiration, moyen, email_candidat) 
         VALUES (:id, :id_test, :createur_id, :token, 'en_attente', NOW(), :date_expiration, :moyen, :email_candidat)";

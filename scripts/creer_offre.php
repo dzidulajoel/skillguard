@@ -16,8 +16,6 @@ function verifierChampsObligatoires(array $data, array $champsRequis)
 }
 
 try {
-
-
         $id_session = $_SESSION['id_utilisateur'] ?? null;
         if (!$id_session) {
                 echo json_encode(['success' => false, 'message' => 'Utilisateur non connecté']);
@@ -39,7 +37,7 @@ try {
         ));
         $datas = $req->fetch(PDO::FETCH_ASSOC);
 
-        $champsRequis = ['titre', 'lieu', 'contrat', 'experience', 'statut', 'competence', 'date_limite', 'description', 'mission', 'profil', 'score'];
+        $champsRequis = ['titre', 'lieu', 'contrat', 'experience', 'statut', 'competence', 'date_limite', 'description', 'mission', 'profil', 'score', 'salaire', 'score_credibilite'];
         $champManquant = verifierChampsObligatoires($data, $champsRequis);
         if ($champManquant) {
                 echo json_encode(['success' => false, 'message' => "Le champ '$champManquant' est obligatoire."]);
@@ -61,8 +59,18 @@ try {
         $profil = trim($data['profil']);
         $entreprise = $datas['entreprise'];
         $score = trim($data['score']);
+        $salaire = trim($data['salaire']);
+        $score_credibilite = trim($data['score_credibilite']);
 
-        $sql = "INSERT INTO offres (id, entreprise, titre, lieu, contrat, experience, statut, competence, date_limite, description, mission, profil, score, utilisateur_id, date_creation) VALUES (:id, :entreprise, :titre, :lieu, :contrat, :experience, :statut, :competence, :date_limite, :description, :mission, :profil, :score, :utilisateur_id, NOW())";
+        $sql = "INSERT INTO offres (
+                id, entreprise, titre, lieu, contrat, experience, statut, competence,
+                date_limite, description, mission, profil, score, utilisateur_id,
+                date_creation, score_credibilite, salaire
+        ) VALUES (
+                :id, :entreprise, :titre, :lieu, :contrat, :experience, :statut, :competence,
+                :date_limite, :description, :mission, :profil, :score, :utilisateur_id,
+                NOW(), :score_credibilite, :salaire
+        )";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
                 ':id' => $id,
@@ -78,8 +86,11 @@ try {
                 ':mission' => $mission,
                 ':profil' => $profil,
                 ':score' => $score,
-                ':utilisateur_id' => $id_session
+                ':utilisateur_id' => $id_session,
+                ':score_credibilite' => $score_credibilite,
+                ':salaire' => $salaire
         ]);
+
 
         echo json_encode([
                 'success' => true,

@@ -24,48 +24,16 @@
                 </div>
 
                 <div class="flex justify-center items-center gap-4 mt-2">
-                        <div class="shadow-md bg-white w-80 h-10 flex justify-center items-center rounded-full">
-                                <input type="text" placeholder="Faites votre recherche ..."
-                                        class="border-none pl-4 outline-none text-sm text-slate-500 w-full text-start pl-4 w-64">
-                                <button
-                                        class="w-16 h-10 flex justify-center items-center rounded-tr-full rounded-br-full  text-white cursor-pointer bg-[#001436] hover:bg-[#001436]/90">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                                viewBox="0 0 24 24">
-                                                <path fill="#fff"
-                                                        d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" />
-                                        </svg>
-                                </button>
-                        </div>
-
+                        <div id="err_msg_suppression_offre"></div>
                         <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="#6B7280" d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0zM9 21h6v2H9z" />
-                                </svg>
+                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-[#f77313] font-bold cursor-pointer hover:bg-[#001436]/10">
+                                <?php echo strtoupper(substr(htmlspecialchars($data['prenom']), 0, 1)) . strtoupper(substr(htmlspecialchars($data['nom']), 0, 1)) ?>
                         </button>
 
-                        <button class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-[#f77313] font-bold cursor-pointer hover:bg-[#001436]/10">
-                                <?php echo strtoupper(substr($data['entreprise'] ?? "", 0, 1))  ?>
+                        <button class="logout shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 12 12"><path fill="#6B7280" d="M4 2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h3.5a.5.5 0 0 0 0-1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h3.5a.5.5 0 0 0 0-1zm4.854 1.646a.5.5 0 1 0-.708.708L9.293 5.5H5a.5.5 0 0 0 0 1h4.293L8.146 7.646a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708z"/></svg>
                         </button>
 
-                        <button
-                                class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white cursor-pointer hover:bg-[#001436]/10">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em"
-                                        viewBox="0 0 48 48">
-                                        <defs>
-                                                <mask id="SVG9e55ocrc">
-                                                        <g fill="none" stroke-linejoin="round" stroke-width="4">
-                                                                <path fill="#fff" stroke="#fff"
-                                                                        d="m34 41l10-17L34 7H14L4 24l10 17z" />
-                                                                <path fill="#000" stroke="#000"
-                                                                        d="M24 29a5 5 0 1 0 0-10a5 5 0 0 0 0 10Z" />
-                                                        </g>
-                                                </mask>
-                                        </defs>
-                                        <path fill="#6B7280" d="M0 0h48v48H0z" mask="url(#SVG9e55ocrc)" />
-                                </svg>
-                        </button>
                 </div>
 
         </header>

@@ -47,7 +47,7 @@
                         </button>
 
                         <button class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-[#f77313] font-bold cursor-pointer hover:bg-[#001436]/10">
-                                <?php echo strtoupper(substr($data['entreprise'] ?? "", 0, 1))  ?>
+                                <?= strtoupper(substr(htmlspecialchars($data['entreprise']) ?? "", 0, 1))  ?>
                         </button>
 
                         <button
@@ -87,61 +87,54 @@
                 </nav>
                 <div class="section w-full h-full rounded-md flex flex-col gap-4 p-4 ">
                         <div class="flex justify-between items-center">
-                                <h2 class="text-lg font-bold text-slate-700">Offre : <?= $offre['titre']?> </h2>
+                                <h2 class="text-2xl font-bold text-slate-700">Offre : <?= $offre['titre']?> </h2>
                         </div>
                         <div class="flex gap-4 flex-wrap">
                                 <div class="p-4 w-[45%] h-auto bg-white rounded-md flex flex-col justify-start">
-                                        <div class="flex justify-start items-center gap-2 mb-4">
-                                                <a href="" class="shadow-md bg-white w-10 h-10 flex justify-center items-center rounded-full text-white ">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                                                viewBox="0 0 256 256">
-                                                                <path fill="#f1511b"
-                                                                        d="M121.666 121.666H0V0h121.666z" />
-                                                                <path fill="#80cc28" d="M256 121.666H134.335V0H256z" />
-                                                                <path fill="#00adef"
-                                                                        d="M121.663 256.002H0V134.336h121.663z" />
-                                                                <path fill="#fbbc09"
-                                                                        d="M256 256.002H134.335V134.336H256z" />
-                                                        </svg>
-                                                </a>
-                                                <h2 class="text-lg font-bold text-slate-700"><?= $data_nom['entreprise']?> </h2>
+                                        <div class="flex justify-start items-center gap-2 mb-4 px-4">
+                                                <h2 class="text-2xl font-bold text-slate-700"><?= strtoupper($data_nom['entreprise']) ?> </h2>
                                         </div>
 
-                                        <div class="p-4 w-full h-auto bg-white rounded-md  flex flex-col gap-4">
-                                                <h3 class="text-[#f77313] font-semibold"> <?= $offre['titre']?></h3>
+                                        <div class="p-4 w-full h-auto bg-white rounded-md  flex flex-col gap-8">
+                                                <h3 class="text-[#f77313] font-semibold text-xl"> <?= $offre['titre']?></h3>
                                                 <ul class=" flex flex-col gap-1 w-full">
                                                         <li class="text-sm text-justify text-slate-500">Lieu de travail :  <?= $offre['lieu']?></li>
                                                         <li class="text-sm text-justify text-slate-500">contrat de travail:  <?= $offre['contrat']?></li>
                                                         <li class="text-sm text-justify text-slate-500">Expérience professionnelle:  <?= $offre['experience']?></li>
-                                                        <li class="text-sm text-justify <?= $colorClass ?>">
-                                                                Statut de l'offre: <?= htmlspecialchars($offre['statut']) ?>
-                                                        </li>
+                                                        <li class="text-sm text-justify text-slate-500">Expérience professionnelle:  <?= $offre['salaire']?></li>
+
                                                 </ul>
                                                 
                                                 <ul class=" flex flex-col gap-1 w-full">
                                                         <li class="text-sm text-justify text-slate-500">Score de validation :  <?= $offre['score']?></li>
+                                                        <li class="text-sm text-justify text-slate-500">Score de crédibilité :  <?= $offre['score_credibilite']?></li>
                                                         <li class="text-sm text-justify text-slate-500 w-full">Compétences réquises :  <?= $offre['competence']?></li>
                                                         <li class="text-sm text-justify text-slate-500">Date limite de l'offre :  <?= $offre['date_limite']?></li>
+                                                </ul>
+                                                <ul class=" flex flex-col gap-1 w-full">
+                                                        <li class="text-sm text-justify <?= $colorClass ?>">
+                                                                Statut de l'offre: <?= htmlspecialchars($offre['statut']) ?>
+                                                        </li>
                                                 </ul>
                                         </div>
 
                                 </div>
 
-                                <div class="p-4 w-[45%] h-auto bg-white rounded-md  flex flex-col gap-4">
+                                <div class="p-4 w-[45%] h-auto bg-white rounded-md  flex flex-col gap-8">
                                         <div>
-                                                <h3 class="text-[#f77313] font-semibold"> Profil :</h3>
+                                                <h3 class="text-[#f77313] font-semibold text-xl"> Profil :</h3>
                                                 <ul  class=" flex flex-col gap-1">
                                                         <li class="text-sm text-justify text-slate-500">Profil :  <?= $offre['profil']?></li>
                                                 </ul>
                                         </div>
                                         <div>
-                                                <h3 class="text-[#f77313] font-semibold"> Description du travail :</h3>
+                                                <h3 class="text-[#f77313] font-semibold text-xl"> Description du travail :</h3>
                                                 <ul  class=" flex flex-col gap-1">
                                                         <li class="text-sm text-justify text-slate-500">Description :  <?= $offre['description']?></li>
                                                 </ul>
                                         </div>
                                         <div>
-                                                <h3 class="text-[#f77313] font-semibold"> Mission :</h3>
+                                                <h3 class="text-[#f77313] font-semibold text-xl"> Mission :</h3>
                                                 <ul  class=" flex flex-col gap-1">
                                                         <li class="text-sm text-justify text-slate-500">Mission :  <?= $offre['mission']?></li>
                                                 </ul>

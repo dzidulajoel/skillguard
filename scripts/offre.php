@@ -41,12 +41,12 @@ try {
         $data_nom = $req->fetch(PDO::FETCH_ASSOC);
 
         $colors = [
-                "Prêt" => "text-orange-500",
-                "Suspendu" => "text-red-500",
-                "Actif" => "text-green-500"
+                "Prêt" => "text-orange-600",
+                "Suspendu" => "text-red-600",
+                "Actif" => "text-green-600"
         ];
 
-        $colorClass = $colors[$offre["statut"]] ?? "text-green-500";
+        $colorClass = $colors[$offre["statut"]] ?? "text-green-600";
 
 } catch (PDOException $e) {
         echo 'Erreur lors de la récupération des cours : ' . $e->getMessage();

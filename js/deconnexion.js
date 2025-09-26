@@ -25,7 +25,7 @@ const showAlertdeconnexion = (message, isSuccess = true) => {
         if (!err_msg) return;
 
         const alert = document.createElement('div');
-        alert.className = `alert-message p-4 w-70 h-8 flex justify-center items-center mx-auto rounded-md text-white text-center text-sm ${isSuccess ? 'bg-gray-600' : 'bg-red-600'}`;
+        alert.className = `alert-message p-4 w-70 h-8 flex justify-center items-center mx-auto rounded-md text-white text-center text-sm ${isSuccess ? 'bg-[#001436]' : 'bg-red-600'}`;
         alert.textContent = message;
         alert.style.opacity = '0';
         alert.style.transition = 'opacity 0.5s ease';

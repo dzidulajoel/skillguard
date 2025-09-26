@@ -12,6 +12,8 @@ form_offre.addEventListener('submit', async (event) => {
         const mission = document.getElementById('mission').value;
         const profil = document.getElementById('profil').value;
         const score = document.getElementById('score').value;
+        const score_credibilite = document.getElementById('credibilite').value;
+        const salaire = document.getElementById('salaire').value;
 
 
         const data = {
@@ -25,7 +27,9 @@ form_offre.addEventListener('submit', async (event) => {
                 description,
                 mission,
                 profil,
-                score
+                score,
+                salaire,
+                score_credibilite
         };
         
         let tousRemplis = true;
@@ -37,6 +41,8 @@ form_offre.addEventListener('submit', async (event) => {
                 }
         }
 
+        console.log(data);
+        
         if (tousRemplis) {
                 try {
                         const response = await fetch('../scripts/creer_offre.php', {
@@ -82,8 +88,8 @@ const showAlert_o = (message, isSuccess = true) => {
                 alert.style.opacity = '0';
                 setTimeout(() => {
                         alert.remove();
-                }, 500);
-        }, isSuccess ? 500 : 1500);
+                }, 1500);
+        }, isSuccess ? 1500 : 3000);
 };
 
 const form_creation_offre = document.querySelector('#form_creation_offre');
